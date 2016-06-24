@@ -1,9 +1,6 @@
 #!/bin/sh
 
 cd ~/GitProjects
-# get working directory up to date
-git pull --rebase --prune
-git submodule update --init --recursive
 
 # copy Bobby.profile to ~/.local/share/konsole
 cp ~/GitProjects/environment-setup/Bobby.profile ~/.local/share/konsole
@@ -14,7 +11,8 @@ cp ~/GitProjects/environment-setup/.gitconfig ~/
 
 # get packages
 apt-get update
-apt-get upgrade
+apt-get upgrade -y
+apt-get curl -y
 apt-get install fonts-inconsolata -y
 apt-get install xclip -y
 apt-get install vim -y
