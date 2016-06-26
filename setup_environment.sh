@@ -12,7 +12,7 @@ cp ~/GitProjects/environment-setup/.gitconfig ~/
 # get packages
 apt-get update
 apt-get upgrade -y
-apt-get curl -y
+apt-get install curl -y
 apt-get install fonts-inconsolata -y
 apt-get install xclip -y
 apt-get install vim -y
@@ -22,9 +22,15 @@ apt-get install enigmail -y
 apt-get install kgpg -y
 apt-get install git -y
 apt-get install gnuplot -y
+# install latex apps
+apt-get install texlive-full -y
+apt-get install bibtex2html -y
+apt-get install texmaker -y
+apt-get install hevea -y
+apt-get install latex-beamer -y
 # change default editor to vim
-sudo update-alternatives --config editor
-3
+3 | sudo update-alternatives --config editor
+
 # install meteor
 curl https://install.meteor.com/ | sh
 
