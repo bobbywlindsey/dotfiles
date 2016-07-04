@@ -14,3 +14,5 @@
 [user]
 	email = me@bobbywlindsey.com
 	name = Bobby
+[push]
+	default = simple
