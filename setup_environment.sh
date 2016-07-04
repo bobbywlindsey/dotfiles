@@ -1,9 +1,5 @@
 #!/bin/sh
 
-cd ~/GitProjects
-
-# copy Bobby.profile to ~/.local/share/konsole
-cp ~/GitProjects/environment-setup/Bobby.profile ~/.local/share/konsole
 # copy .bash_aliases to ~/
 cp ~/GitProjects/environment-setup/.bash_aliases ~/
 # copy .gitconfig to ~/
@@ -12,33 +8,30 @@ cp ~/GitProjects/environment-setup/.gitconfig ~/
 # get packages
 apt-get update
 apt-get upgrade -y
-apt-get install curl -y
-apt-get install fonts-inconsolata -y
 apt-get install xclip -y
 apt-get install vim -y
 apt-get install filezilla -y
-apt-get install thunderbird -y
-apt-get install enigmail -y
-apt-get install kgpg -y
 apt-get install git -y
 apt-get install gnuplot -y
-# install latex apps
-apt-get install texlive-full -y
-apt-get install bibtex2html -y
-apt-get install texmaker -y
-apt-get install hevea -y
-apt-get install latex-beamer -y
-# change default editor to vim
-3 | sudo update-alternatives --config editor
+# enable reverse mouse scrolling
+gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
+# install chrome via web browser
+apt-get install chromium-browser
+
+cd ~/Downloads
+# install Atom text editor
+wget https://atom.io/download/deb
+dpkg -i deb
 
 # install meteor
 curl https://install.meteor.com/ | sh
 
+# install Anaconda (do this last as install takes user input)
+wget http://repo.continuum.io/archive/Anaconda3-4.1.0-Linux-x86_64.sh
+bash Anaconda3-4.1.0-Linux-x86_64.sh
+
+# change default editor to vim
+#3 | sudo update-alternatives --config editor
+
 # set global default editor (already in .gitconfig)
 # git config --global core.editor "subl -n -w"
-
-# install chrome via web browser
-# install Anaconda via web browser
-# install sublime text 3 via web browser
-# install windows decorations "ghost" theme
-# change KDE workspace theme to "Breeze Dark"
