@@ -1,24 +1,25 @@
 #!/bin/sh
 
 # copy .bash_aliases to ~/
-cp ~/GitProjects/environment-setup/.bash_aliases ~/
+cp ~/Downloads/environment-setup-master/.bash_aliases ~/
 # copy .gitconfig to ~/
-cp ~/GitProjects/environment-setup/.gitconfig ~/
+cp ~/Downloads/environment-setup-master/.gitconfig ~/
 
 # get packages
-apt-get update
-apt-get upgrade -y
-apt-get install xclip -y
-apt-get install vim -y
-apt-get install filezilla -y
-apt-get install git -y
-apt-get install gnuplot -y
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get install xclip -y
+sudo apt-get install vim -y
+sudo apt-get install filezilla -y
+sudo apt-get install git -y
+sudo apt-get install gnuplot -y
+sudo apt-get install chromium-browser -y
+sudo apt-get install curl -y
+sudo apt-get install texlive-full -y
+sudo apt-get install xserver-xorg-input-libinput -y
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
-# install chrome via web browser
-apt-get install chromium-browser
 
-cd ~/Downloads
 # install Atom text editor
 wget https://atom.io/download/deb
 dpkg -i deb
