@@ -16,6 +16,8 @@ sudo apt-get install gnuplot -y
 sudo apt-get install chromium-browser -y
 sudo apt-get install curl -y
 sudo apt-get install texlive-full -y
+sudo apt-get install clamav clamav-daemon -y
+sudo freshclam
 sudo apt-get install xserver-xorg-input-libinput -y
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
