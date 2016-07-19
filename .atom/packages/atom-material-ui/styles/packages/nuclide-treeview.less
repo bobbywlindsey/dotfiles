@@ -1,0 +1,57 @@
+.nuclide-file-tree-toolbar {
+    top: 4rem;
+    right: 1rem;
+
+    .btn-group .btn {
+        padding: 0;
+        width: 2.25rem;
+        border-radius: 50%;
+
+        &.selected {
+            border-radius: 50%;
+        }
+    }
+    span::before {
+        margin: 0;
+    }
+}
+.nuclide-ui-panel-component {
+    transform: translate3d(0,0,0);
+
+    .blend-tree-view.tinted-tab-bar & {
+        .tabBlender {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        .nuclide-file-tree {
+            padding-top: 3rem;
+            box-sizing: content-box;
+        }
+    }
+    .blend-tree-view.tinted-tab-bar.compact-tab-bar & {
+        .nuclide-file-tree {
+            padding-top: 2.5rem;
+        }
+    }
+}
+atom-panel.tool-panel.panel-left.left {
+    .nuclide-ui-panel-component-scroller {
+        transform: translate3d(0,0,0);
+    }
+    .nuclide-ui-panel-component-resize-handle {
+        position: absolute;
+        right: 0;
+        width: 0.5rem;
+        height: 100%;
+        z-index: 100;
+    }
+    .nuclide-file-tree {
+        .list-tree {
+            &.has-collapsable-children .list-nested-item > .list-item::before {
+                z-index: 10;
+            }
+        }
+    }
+}
