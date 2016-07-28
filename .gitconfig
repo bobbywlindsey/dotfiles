@@ -13,6 +13,6 @@
 	editor = atom -n -w
 [user]
 	email = me@bobbywlindsey.com
-	name = Bobby
+	name = bobbywlindsey
 [push]
 	default = simple
