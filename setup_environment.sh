@@ -19,6 +19,7 @@ sudo apt-get install texlive-full -y
 sudo apt-get install clamav clamav-daemon -y
 sudo freshclam
 sudo apt-get install xserver-xorg-input-libinput -y
+sudo apt-get install exfat-utils exfat-fuse
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
 
