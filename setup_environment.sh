@@ -20,6 +20,11 @@ sudo apt-get install clamav clamav-daemon -y
 sudo freshclam
 sudo apt-get install xserver-xorg-input-libinput -y
 sudo apt-get install exfat-utils exfat-fuse
+# install Julia
+sudo add-apt-repository ppa:staticfloat/juliareleases
+sudo add-apt-repository ppa:staticfloat/julia-deps
+sudo apt-get update
+sudo apt-get install julia
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
 
@@ -31,8 +36,8 @@ dpkg -i deb
 curl https://install.meteor.com/ | sh
 
 # install Anaconda (do this last as install takes user input)
-wget http://repo.continuum.io/archive/Anaconda3-4.1.0-Linux-x86_64.sh
-bash Anaconda3-4.1.0-Linux-x86_64.sh
+wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
+bash Anaconda3-4.1.1-Linux-x86_64.sh
 
 # change default editor to vim
 #3 | sudo update-alternatives --config editor
