@@ -34,6 +34,8 @@ dpkg -i deb
 
 # install meteor
 curl https://install.meteor.com/ | sh
+# copy meteor files over
+cp -rf ~/Downloads/.atom ~/
 
 # install Anaconda (do this last as install takes user input)
 wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
