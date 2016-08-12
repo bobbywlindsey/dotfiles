@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# update everything
+sudo apt-get update
+sudo apt-get upgrade -y
+sudo apt-get dist-upgrade
+sudo apt-get autoremove
+
 # copy .bash_aliases to ~/
 cp ~/Downloads/environment-setup-master/.bash_aliases ~/
 # copy .gitconfig to ~/
@@ -31,11 +37,11 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
 # install Atom text editor
 wget https://atom.io/download/deb
 dpkg -i deb
+# copy Atom files over
+cp -rf ~/Downloads/.atom ~/
 
 # install meteor
 curl https://install.meteor.com/ | sh
-# copy meteor files over
-cp -rf ~/Downloads/.atom ~/
 
 # install Anaconda (do this last as install takes user input)
 wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
