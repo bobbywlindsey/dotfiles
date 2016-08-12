@@ -14,13 +14,13 @@ Array.prototype.forEach.call(panels, (panel) => observer.observe(panel, observer
 
 function getTreeViews() {
     var treeViews = [
-        document.querySelector('.tree-view-resizer'),
+        document.querySelector('.tree-view-resizer:not(.nuclide-ui-panel-component)'),
         document.querySelector('.remote-ftp-view'),
         (function () {
-            var nuclideTreeView = document.querySelector('.nuclide-file-tree');
+            var nuclideTreeView = document.querySelector('.nuclide-file-tree-toolbar-container');
 
             if (nuclideTreeView) {
-                return nuclideTreeView.closest('.nuclide-ui-panel-component');
+                return nuclideTreeView.closest('div[style*="display: flex;"]');
             }
         })()
     ];
@@ -28,18 +28,16 @@ function getTreeViews() {
     return treeViews;
 }
 
-function removeBlendingEl() {
-    var treeViews = getTreeViews();
+function removeBlendingEl(treeView) {
 
-    treeViews.forEach((treeView) => {
-        if (treeView) {
-            var blendingEl = treeView.querySelector('.tabBlender');
+    if (treeView) {
+        var blendingEl = treeView.querySelector('.tabBlender');
 
-            if (blendingEl) {
-                treeView.removeChild(blendingEl);
-            }
+        if (blendingEl) {
+            treeView.removeChild(blendingEl);
         }
-    });
+    }
+
 }
 
 function toggleBlendTreeView(bool) {
@@ -56,11 +54,11 @@ function toggleBlendTreeView(bool) {
 
                 if (treeView && bool) {
                     if (treeView.querySelector('.tabBlender')) {
-                        removeBlendingEl();
+                        removeBlendingEl(treeView);
                     }
                     treeView.insertBefore(blendingEl, treeView.firstChild);
                 } else if (treeView && !bool) {
-                    removeBlendingEl();
+                    removeBlendingEl(treeView);
                 } else if (!treeView && bool) {
                     if (atom.packages.getActivePackage('tree-view') || atom.packages.getActivePackage('Remote-FTP') || atom.packages.getActivePackage('nuclide')) {
                         return setTimeout(() => {
@@ -73,5 +71,11 @@ function toggleBlendTreeView(bool) {
         });
     });
 }
+
+atom.packages.onDidActivatePackage((pkg) => {
+    if (pkg.name === 'nuclide-file-tree') {
+        toggleBlendTreeView(atom.config.get('atom-material-ui.treeView.blendTabs'));
+    }
+});
 
 export default { toggleBlendTreeView };
