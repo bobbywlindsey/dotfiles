@@ -22,6 +22,7 @@ sudo apt-get install gnuplot -y
 sudo apt-get install chromium-browser -y
 sudo apt-get install curl -y
 sudo apt-get install texlive-full -y
+sudo apt-get install texstudio -y
 sudo apt-get install clamav clamav-daemon -y
 sudo freshclam
 sudo apt-get install xserver-xorg-input-libinput -y
@@ -46,6 +47,9 @@ curl https://install.meteor.com/ | sh
 # install Anaconda (do this last as install takes user input)
 wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
 bash Anaconda3-4.1.1-Linux-x86_64.sh
+
+# (install these Python packages after Anaconda installation)
+# pip install mkdoc mkdoc-material python-markdown-math
 
 # change default editor to vim
 #3 | sudo update-alternatives --config editor
