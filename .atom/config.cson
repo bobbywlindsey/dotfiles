@@ -22,9 +22,8 @@
     fontSize: 15
     scrollPastEnd: true
     showInvisibles: true
-    softTabs: false
     tabLength: 4
-    tabType: "hard"
+    tabType: "soft"
   "exception-reporting":
     userId: "e311789c-b980-d62e-cecc-de94547c7284"
   welcome:
