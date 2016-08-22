@@ -43,9 +43,11 @@
     ;; Assuming you wish to install "iedit" and "magit"
     (ensure-package-installed 'evil
 			      'evil-surround
-				  'magit
+                              'evil-leader
+			      'magit
 			      'evil-magit
 			      'org
+                              'evil-org
 			      'helm
 			      'projectile
 			      'powerline
@@ -56,6 +58,12 @@
 
 * Import and configure packages
 #+BEGIN_SRC emacs-lisp
+    (require 'evil-leader)
+    (global-evil-leader-mode)
+    (evil-leader/set-key
+        "e" 'find-file
+        "b" 'switch-to-buffer
+        "k" 'kill-buffer)
     (require 'evil)
     (evil-mode 1)
     (require 'evil-surround)
@@ -68,6 +76,7 @@
     (setq org-src-fontify-natively t)
     (setq org-src-tab-acts-natively t)
     (setq org-src-window-setup 'current-window)
+    (require 'evil-org)
     (require 'powerline)
     (powerline-default-theme)
     (require 'evil-magit)
