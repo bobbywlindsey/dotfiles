@@ -1,3 +1,15 @@
+(load-file "~/.emacs.d/sensible-defaults.el")
+(sensible-defaults/delete-trailing-whitespace)
+(sensible-defaults/quiet-startup)
+(sensible-defaults/make-dired-file-sizes-human-readable)
+(sensible-defaults/shorten-yes-or-no)
+(sensible-defaults/always-highlight-code)
+(sensible-defaults/refresh-buffers-when-files-change)
+(sensible-defaults/show-matching-parens)
+(sensible-defaults/set-default-line-length-to 80)
+
+
+;; -------------- add packages --------------
 (require 'package)
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -27,29 +39,34 @@ Return a list of installed packages or nil for every skipped package."
 
 ;; Assuming you wish to install "iedit" and "magit"
 (ensure-package-installed 'evil
+			  'evil-surround
 			  'evil-magit
 			  'org
 			  'helm
 			  'projectile
 			  'powerline
+			  'ox-twbs
+			  'ox-impress-js
+			  'org-bullets
 			  'monokai-theme
 			  'magit)
 			  
 
+;; -------------- import packages --------------
 (require 'evil)
 (evil-mode 1)
-
+(require 'evil-surround)
+(global-evil-surround-mode 1)
 (require 'helm-config)
 (helm-mode 1)
-
 (require 'org)
 (setq org-log-done t)
-
 (require 'powerline)
 (powerline-default-theme)
-
 (require 'evil-magit)
-
+(require 'ox-twbs)
+(require 'ox-impress-js)
+(require 'org-bullets)
 (load-theme 'monokai t)
 
 (custom-set-variables
@@ -57,15 +74,15 @@ Return a list of installed packages or nil for every skipped package."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(blink-cursor-mode nil)
- '(menu-bar-mode nil)
-)
+ '(blink-cursor-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-)
-
+ )
+;;(global-linum-mode t)
+(setq ring-bell-function 'ignore)
+;; -------------- custom key bindings --------------
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "C-x g") 'magit-status)
