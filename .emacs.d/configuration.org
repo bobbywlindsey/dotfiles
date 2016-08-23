@@ -39,18 +39,19 @@
     ;; Activate installed packages
     (package-initialize)
 
-    ;; Assuming you wish to install "iedit" and "magit"
     (ensure-package-installed 'evil
 			      'evil-surround
                               'evil-leader
 			      'magit
 			      'evil-magit
+                              'org
                               'evil-org
 			      'helm
 			      'projectile
 			      'powerline
 			      'ox-twbs
-			      'ox-impress-js
+			      'ox-reveal
+                              'htmlize
 			      'org-bullets)
 #+END_SRC
 * Custom variables and fonts
@@ -61,7 +62,8 @@
     ;; Your init file should contain only one such instance.
     ;; If there is more than one, they won't work right.
     '(blink-cursor-mode nil)
-    ;;'(show-paren-mode t))
+    ;;'(show-paren-mode t)
+    )
     (custom-set-faces
     ;; custom-set-faces was added by Custom.
     ;; If you edit it by hand, you could mess it up, so be careful.
@@ -100,7 +102,8 @@
     (powerline-default-theme)
     (require 'evil-magit)
     (require 'ox-twbs)
-    (require 'ox-impress-js)
+    (require 'ox-reveal)
+    (require 'htmlize)
     (require 'org-bullets)
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
     (load-theme 'misterioso t)
