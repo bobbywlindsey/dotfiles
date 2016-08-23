@@ -4,3 +4,4 @@
 .atom/.npm/
 .atom/.node-gyp/
 .emacs.d/configuration.el
+.tern-port

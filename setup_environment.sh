@@ -21,6 +21,7 @@ sudo apt-get install git -y
 sudo apt-get install gnuplot -y
 sudo apt-get install chromium-browser -y
 sudo apt-get install curl -y
+sudo apt-get install npm -y
 sudo apt-get install texlive-full -y
 sudo apt-get install texstudio -y
 sudo apt-get install clamav clamav-daemon -y
@@ -70,8 +71,19 @@ sudo ./RevoMath.sh
 cd ..
 rm -rf RevoMath/
 
+# setup for tern to work in emacs
+git clone git@github.com:ternjs/tern.git
+cd tern/
+npm install
+mv tern/ ~/.emacs.d/
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+
 # (install these Python packages after Anaconda installation)
 # pip install mkdoc mkdoc-material python-markdown-math
+# conda install flake8
+# pip install importmagic
+# pip install autopep8
+# pip install yapf
 
 # change default editor to vim
 #3 | sudo update-alternatives --config editor

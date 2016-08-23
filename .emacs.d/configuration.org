@@ -48,9 +48,13 @@
                               'evil-org
                               'helm
                               'projectile
+                              'diminish
+                              'helm-projectile
+                              'auto-complete
                               'powerline
                               'ox-twbs
                               'ox-reveal
+                              'flycheck
                               'htmlize
                               'org-bullets)
 #+END_SRC
@@ -133,11 +137,33 @@
     (powerline-default-theme)
     (require 'evil-magit)
     (require 'projectile)
+    (projectile-global-mode)
+    (setq projectile-completion-system 'helm)
+    (require 'helm-projectile)
+    (helm-projectile-on)
     (require 'ox-twbs)
     (require 'ox-reveal)
     (require 'htmlize)
     (require 'org-bullets)
     (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+    (require 'auto-complete-config)
+    (ac-config-default)
+    ;; setup tern
+    (add-to-list 'load-path "~/.emacs.d/tern/emacs/")
+    (autoload 'tern-mode "tern.el" nil t)
+    (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+    (eval-after-load 'tern
+        '(progn
+            (require 'tern-auto-complete)
+            (tern-ac-setup)))
+    (global-flycheck-mode)
+    ;; setup js2-mode
+    ;;(require 'js2-mode)
+    ;;(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+    ;;(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+    ;;(add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
+    ;;(js2-imenu-extras-mode)
+
     (load-theme 'misterioso t)
 #+END_SRC
 * Custom key bindings
@@ -145,4 +171,36 @@
     (global-set-key (kbd "M-x") 'helm-M-x)
     (global-set-key (kbd "C-x g") 'magit-status)
     (define-key global-map "\C-c\C-x\C-s" 'mark-done-and-archive)
+#+END_SRC
+* Hide certain mode from the modeline
+#+BEGIN_SRC emacs-lisp
+    (defmacro diminish-minor-mode (filename mode &optional abbrev)
+      `(eval-after-load (symbol-name ,filename)
+         '(diminish ,mode ,abbrev)))
+
+    (defmacro diminish-major-mode (mode-hook abbrev)
+      `(add-hook ,mode-hook
+                 (lambda () (setq mode-name ,abbrev))))
+
+    (diminish-minor-mode 'abbrev 'abbrev-mode)
+    (diminish-minor-mode 'simple 'auto-fill-function)
+    (diminish-minor-mode 'company 'company-mode)
+    (diminish-minor-mode 'eldoc 'eldoc-mode)
+    (diminish-minor-mode 'flycheck 'flycheck-mode)
+    (diminish-minor-mode 'flyspell 'flyspell-mode)
+    (diminish-minor-mode 'global-whitespace 'global-whitespace-mode)
+    (diminish-minor-mode 'projectile 'projectile-mode)
+    (diminish-minor-mode 'ruby-end 'ruby-end-mode)
+    (diminish-minor-mode 'subword 'subword-mode)
+    (diminish-minor-mode 'undo-tree 'undo-tree-mode)
+    (diminish-minor-mode 'yard-mode 'yard-mode)
+    (diminish-minor-mode 'yasnippet 'yas-minor-mode)
+    (diminish-minor-mode 'wrap-region 'wrap-region-mode)
+
+    (diminish-minor-mode 'paredit 'paredit-mode " π")
+
+    (diminish-major-mode 'emacs-lisp-mode-hook "el")
+    (diminish-major-mode 'haskell-mode-hook "λ=")
+    (diminish-major-mode 'lisp-interaction-mode-hook "λ")
+    (diminish-major-mode 'python-mode-hook "Py")
 #+END_SRC
