@@ -122,6 +122,8 @@
         "k" 'kill-buffer)
     (require 'evil)
     (evil-mode 1)
+    ;; fuzzy find files in current project
+    (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
     (require 'evil-surround)
     (global-evil-surround-mode 1)
     (require 'helm-config)
@@ -130,6 +132,7 @@
     (require 'powerline)
     (powerline-default-theme)
     (require 'evil-magit)
+    (require 'projectile)
     (require 'ox-twbs)
     (require 'ox-reveal)
     (require 'htmlize)
