@@ -25,34 +25,34 @@
     Return a list of installed packages or nil for every skipped package."
     (mapcar
     (lambda (package)
-	(if (package-installed-p package)
-	    nil
-	(if (y-or-n-p (format "Package %s is missing. Install it? " package))
-	    (package-install package)
-	    package)))
+        (if (package-installed-p package)
+            nil
+        (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+            (package-install package)
+             package)))
     packages))
 
     ;; Make sure to have downloaded archive description.
     (or (file-exists-p package-user-dir)
-	(package-refresh-contents))
+        (package-refresh-contents))
 
     ;; Activate installed packages
     (package-initialize)
 
     (ensure-package-installed 'evil
-			      'evil-surround
+                              'evil-surround
                               'evil-leader
-			      'magit
-			      'evil-magit
+                              'magit
+                              'evil-magit
                               'org
                               'evil-org
-			      'helm
-			      'projectile
-			      'powerline
-			      'ox-twbs
-			      'ox-reveal
+                              'helm
+                              'projectile
+                              'powerline
+                              'ox-twbs
+                              'ox-reveal
                               'htmlize
-			      'org-bullets)
+                              'org-bullets)
 #+END_SRC
 * Custom variables and fonts
 #+BEGIN_SRC emacs-lisp
@@ -73,10 +73,46 @@
 
     (global-linum-mode t)
     (setq ring-bell-function 'ignore)
+    (setq-default indent-tabs-mode nil)
     (global-visual-line-mode t)
     ;;(setq-default with-editor-emacsclient-executable "/usr/local/bin/emacsclient")
 #+END_SRC
-* Import and configure packages
+* Import Org and configure
+#+BEGIN_SRC emacs-lisp
+    (defun org-file-path (filename)
+        "Return the absolute address of an org file, given its relative name."
+        (concat (file-name-as-directory org-directory) filename))
+    (defun mark-done-and-archive ()
+        "Mark the state of an org-mode item as DONE and archive it."
+        (interactive)
+        (org-todo 'done)
+        (org-archive-subtree))
+    (require 'org)
+    (setq org-log-done t)
+    (setq org-ellipsis "⤵")
+    (setq org-src-fontify-natively t)
+    (setq org-src-tab-acts-natively t)
+    (setq org-src-window-setup 'current-window)
+    (setq org-html-postamble nil)
+    (setq org-enforce-todo-dependencies t)
+    (setq org-todo-keywords
+        '((sequence "TODO" "IN-PROGRESS" "WAITING" "SOMEDAY"
+                    "|" "DONE" "CANCELLED")))
+    (setq org-directory "~/GitProjects/notes")
+    (setq org-archive-location
+      (concat (org-file-path "archive.org") "::* From %s"))
+    (org-babel-do-load-languages
+        'org-babel-load-languages
+        '((emacs-lisp . t)
+          (ruby . t)
+          (python . t)
+          (dot . t)
+          (gnuplot . t)))
+    (setq org-confirm-babel-evaluate nil)
+    (setq org-export-with-smart-quotes t)
+    (setq org-html-postamble nil)
+#+END_SRC
+* Import and configure other packages
 #+BEGIN_SRC emacs-lisp
     (require 'evil-leader)
     (global-evil-leader-mode)
@@ -90,13 +126,6 @@
     (global-evil-surround-mode 1)
     (require 'helm-config)
     (helm-mode 1)
-    (require 'org)
-    (setq org-log-done t)
-    (setq org-ellipsis "⤵")
-    (setq org-src-fontify-natively t)
-    (setq org-src-tab-acts-natively t)
-    (setq org-src-window-setup 'current-window)
-    (setq org-html-postamble nil)
     (require 'evil-org)
     (require 'powerline)
     (powerline-default-theme)
@@ -112,4 +141,5 @@
 #+BEGIN_SRC emacs-lisp
     (global-set-key (kbd "M-x") 'helm-M-x)
     (global-set-key (kbd "C-x g") 'magit-status)
+    (define-key global-map "\C-c\C-x\C-s" 'mark-done-and-archive)
 #+END_SRC
