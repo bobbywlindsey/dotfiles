@@ -1,206 +1,228 @@
 * Use sensible-defaults.el
 #+BEGIN_SRC emacs-lisp
-    (load-file "~/GitProjects/environment-setup/.emacs.d/sensible-defaults.el")
-    (sensible-defaults/delete-trailing-whitespace)
-    (sensible-defaults/quiet-startup)
-    (sensible-defaults/make-dired-file-sizes-human-readable)
-    (sensible-defaults/shorten-yes-or-no)
-    (sensible-defaults/always-highlight-code)
-    (sensible-defaults/refresh-buffers-when-files-change)
-    (sensible-defaults/show-matching-parens)
-    (sensible-defaults/set-default-line-length-to 80)
+  (load-file "~/GitProjects/environment-setup/.emacs.d/sensible-defaults.el")
+  (sensible-defaults/delete-trailing-whitespace)
+  (sensible-defaults/quiet-startup)
+  (sensible-defaults/make-dired-file-sizes-human-readable)
+  (sensible-defaults/shorten-yes-or-no)
+  (sensible-defaults/always-highlight-code)
+  (sensible-defaults/refresh-buffers-when-files-change)
+  (sensible-defaults/show-matching-parens)
+  (sensible-defaults/set-default-line-length-to 80)
+#+END_SRC
+* Add package archives
+#+BEGIN_SRC emacs-lisp
+  (require 'package)
+  (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
+  (setq package-enable-at-startup nil)
+  (package-initialize)
 #+END_SRC
 * Check all packages installed upon startup
 #+BEGIN_SRC emacs-lisp
-    (require 'package)
-    (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-    (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-    (setq package-enable-at-startup nil)
-    (package-initialize)
+  (defun ensure-package-installed (&rest packages)
+  "Assure every package is installed, ask for installation if it’s not.
 
-    (defun ensure-package-installed (&rest packages)
-    "Assure every package is installed, ask for installation if it’s not.
+  Return a list of installed packages or nil for every skipped package."
+  (mapcar
+  (lambda (package)
+      (if (package-installed-p package)
+          nil
+      (if (y-or-n-p (format "Package %s is missing. Install it? " package))
+          (package-install package)
+              package)))
+  packages))
 
-    Return a list of installed packages or nil for every skipped package."
-    (mapcar
-    (lambda (package)
-        (if (package-installed-p package)
-            nil
-        (if (y-or-n-p (format "Package %s is missing. Install it? " package))
-            (package-install package)
-             package)))
-    packages))
+  ;; Make sure to have downloaded archive description.
+  (or (file-exists-p package-user-dir)
+      (package-refresh-contents))
 
-    ;; Make sure to have downloaded archive description.
-    (or (file-exists-p package-user-dir)
-        (package-refresh-contents))
+  ;; Activate installed packages
+  (package-initialize)
 
-    ;; Activate installed packages
-    (package-initialize)
-
-    (ensure-package-installed 'evil
-                              'evil-surround
-                              'evil-leader
-                              'magit
-                              'evil-magit
-                              'org
-                              'evil-org
-                              'helm
-                              'projectile
-                              'diminish
-                              'helm-projectile
-                              'auto-complete
-                              'powerline
-                              'ox-twbs
-                              'ox-reveal
-                              'flycheck
-                              'htmlize
-                              'org-bullets)
+  (ensure-package-installed 'evil
+                            'evil-surround
+                            'evil-leader
+                            'magit
+                            'evil-magit
+                            'org
+                            'evil-org
+                            'helm
+                            'projectile
+                            'diminish
+                            'helm-projectile
+                            'auto-complete
+                            'powerline
+                            'ox-twbs
+                            'ox-reveal
+                            'flycheck
+                            'js2-mode
+                            'js2-refactor
+                            'htmlize
+                            'org-bullets)
 #+END_SRC
 * Custom variables and fonts
 #+BEGIN_SRC emacs-lisp
-    (custom-set-variables
-    ;; custom-set-variables was added by Custom.
-    ;; If you edit it by hand, you could mess it up, so be careful.
-    ;; Your init file should contain only one such instance.
-    ;; If there is more than one, they won't work right.
-    '(blink-cursor-mode nil)
-    ;;'(show-paren-mode t)
-    )
-    (custom-set-faces
-    ;; custom-set-faces was added by Custom.
-    ;; If you edit it by hand, you could mess it up, so be careful.
-    ;; Your init file should contain only one such instance.
-    ;; If there is more than one, they won't work right.
-    '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 170 :width normal)))))
+  (custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+  '(blink-cursor-mode nil)
+  ;;'(show-paren-mode t)
+  )
+  (custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+  '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 170 :width normal)))))
 
-    (global-linum-mode t)
-    (setq ring-bell-function 'ignore)
-    (setq-default indent-tabs-mode nil)
-    (global-visual-line-mode t)
-    ;;(setq-default with-editor-emacsclient-executable "/usr/local/bin/emacsclient")
+  (global-linum-mode t)
+  (setq ring-bell-function 'ignore)
+  (setq-default indent-tabs-mode nil)
+  (global-visual-line-mode t)
+  ;;(setq-default with-editor-emacsclient-executable "/usr/local/bin/emacsclient")
 #+END_SRC
-* Import Org and configure
+* Import org and configure
 #+BEGIN_SRC emacs-lisp
-    (defun org-file-path (filename)
-        "Return the absolute address of an org file, given its relative name."
-        (concat (file-name-as-directory org-directory) filename))
-    (defun mark-done-and-archive ()
-        "Mark the state of an org-mode item as DONE and archive it."
-        (interactive)
-        (org-todo 'done)
-        (org-archive-subtree))
-    (require 'org)
-    (setq org-log-done t)
-    (setq org-ellipsis "⤵")
-    (setq org-src-fontify-natively t)
-    (setq org-src-tab-acts-natively t)
-    (setq org-src-window-setup 'current-window)
-    (setq org-html-postamble nil)
-    (setq org-enforce-todo-dependencies t)
-    (setq org-todo-keywords
-        '((sequence "TODO" "IN-PROGRESS" "WAITING" "SOMEDAY"
-                    "|" "DONE" "CANCELLED")))
-    (setq org-directory "~/GitProjects/notes")
-    (setq org-archive-location
+  (defun org-file-path (filename)
+      "Return the absolute address of an org file, given its relative name."
+      (concat (file-name-as-directory org-directory) filename))
+  (defun mark-done-and-archive ()
+      "Mark the state of an org-mode item as DONE and archive it."
+      (interactive)
+      (org-todo 'done)
+      (org-archive-subtree))
+  (require 'org)
+  (setq org-log-done t)
+  (setq org-ellipsis "⤵")
+  (setq org-src-fontify-natively t)
+  (setq org-src-tab-acts-natively t)
+  (setq org-src-window-setup 'current-window)
+  (setq org-html-postamble nil)
+  (setq org-enforce-todo-dependencies t)
+  (setq org-todo-keywords
+      '((sequence "TODO" "IN-PROGRESS" "WAITING" "SOMEDAY"
+                  "|" "DONE" "CANCELLED")))
+  (setq org-directory "~/GitProjects/notes")
+  (setq org-archive-location
       (concat (org-file-path "archive.org") "::* From %s"))
-    (org-babel-do-load-languages
-        'org-babel-load-languages
-        '((emacs-lisp . t)
+  (org-babel-do-load-languages
+      'org-babel-load-languages
+      '((emacs-lisp . t)
           (ruby . t)
           (python . t)
           (dot . t)
           (gnuplot . t)))
-    (setq org-confirm-babel-evaluate nil)
-    (setq org-export-with-smart-quotes t)
-    (setq org-html-postamble nil)
+  (setq org-confirm-babel-evaluate nil)
+  (setq org-export-with-smart-quotes t)
+  (setq org-html-postamble nil)
+  (require 'ox-twbs)
+  (require 'ox-reveal)
+  (require 'org-bullets)
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+#+END_SRC
+* Import evil and configure
+#+BEGIN_SRC emacs-lisp
+  (require 'evil-leader)
+  (global-evil-leader-mode)
+  (evil-leader/set-key
+      "e" 'find-file
+      "b" 'switch-to-buffer
+      "k" 'kill-buffer)
+  (require 'evil)
+  (evil-mode 1)
+  (require 'evil-surround)
+  (global-evil-surround-mode 1)
+  (require 'evil-org)
+  (require 'evil-magit)
+#+END_SRC
+* Import tern and configure
+#+BEGIN_SRC emacs-lisp
+  ;; setup tern
+  (add-to-list 'load-path "~/.emacs.d/tern/emacs/")
+  (autoload 'tern-mode "tern.el" nil t)
+  (add-hook 'js-mode-hook (lambda () (tern-mode t)))
+  (eval-after-load 'tern
+      '(progn
+          (require 'tern-auto-complete)
+          (tern-ac-setup)))
+#+END_SRC
+* Import JavaScript stuff and configure
+#+BEGIN_SRC emacs-lisp
+  ;; setup js2-mode
+  (require 'js2-mode)
+  (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+  (add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
+  (add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
+  (js2-imenu-extras-mode)
+
+  (require 'js2-refactor)
+  (add-hook 'js2-mode-hook #'js2-refactor-mode)
+  (js2r-add-keybindings-with-prefix "C-c C-m")
+  (setq js-indent-level 2)
+#+END_SRC
+* Import helm and configure
+#+BEGIN_SRC emacs-lisp
+  (require 'helm-config)
+  (helm-mode 1)
+  (require 'helm-projectile)
+  (helm-projectile-on)
 #+END_SRC
 * Import and configure other packages
 #+BEGIN_SRC emacs-lisp
-    (require 'evil-leader)
-    (global-evil-leader-mode)
-    (evil-leader/set-key
-        "e" 'find-file
-        "b" 'switch-to-buffer
-        "k" 'kill-buffer)
-    (require 'evil)
-    (evil-mode 1)
-    ;; fuzzy find files in current project
-    (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
-    (require 'evil-surround)
-    (global-evil-surround-mode 1)
-    (require 'helm-config)
-    (helm-mode 1)
-    (require 'evil-org)
-    (require 'powerline)
-    (powerline-default-theme)
-    (require 'evil-magit)
-    (require 'projectile)
-    (projectile-global-mode)
-    (setq projectile-completion-system 'helm)
-    (require 'helm-projectile)
-    (helm-projectile-on)
-    (require 'ox-twbs)
-    (require 'ox-reveal)
-    (require 'htmlize)
-    (require 'org-bullets)
-    (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-    (require 'auto-complete-config)
-    (ac-config-default)
-    ;; setup tern
-    (add-to-list 'load-path "~/.emacs.d/tern/emacs/")
-    (autoload 'tern-mode "tern.el" nil t)
-    (add-hook 'js-mode-hook (lambda () (tern-mode t)))
-    (eval-after-load 'tern
-        '(progn
-            (require 'tern-auto-complete)
-            (tern-ac-setup)))
-    (global-flycheck-mode)
-    ;; setup js2-mode
-    ;;(require 'js2-mode)
-    ;;(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-    ;;(add-to-list 'auto-mode-alist '("\\.jsx?\\'" . js2-jsx-mode))
-    ;;(add-to-list 'interpreter-mode-alist '("node" . js2-jsx-mode))
-    ;;(js2-imenu-extras-mode)
+  ;; fuzzy find files in current project
+  (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
+  (require 'powerline)
+  (powerline-default-theme)
+  (require 'projectile)
+  (projectile-global-mode)
+  (setq projectile-completion-system 'helm)
+  (require 'htmlize)
+  (require 'auto-complete-config)
+  (ac-config-default)
+  (global-flycheck-mode)
+  ;;(add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode))
 
-    (load-theme 'misterioso t)
+  (load-theme 'misterioso t)
 #+END_SRC
 * Custom key bindings
 #+BEGIN_SRC emacs-lisp
-    (global-set-key (kbd "M-x") 'helm-M-x)
-    (global-set-key (kbd "C-x g") 'magit-status)
-    (define-key global-map "\C-c\C-x\C-s" 'mark-done-and-archive)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+  (global-set-key (kbd "C-x g") 'magit-status)
+  (define-key global-map "\C-c\C-x\C-s" 'mark-done-and-archive)
 #+END_SRC
 * Hide certain mode from the modeline
 #+BEGIN_SRC emacs-lisp
-    (defmacro diminish-minor-mode (filename mode &optional abbrev)
-      `(eval-after-load (symbol-name ,filename)
-         '(diminish ,mode ,abbrev)))
+  (defmacro diminish-minor-mode (filename mode &optional abbrev)
+    `(eval-after-load (symbol-name ,filename)
+       '(diminish ,mode ,abbrev)))
 
-    (defmacro diminish-major-mode (mode-hook abbrev)
-      `(add-hook ,mode-hook
-                 (lambda () (setq mode-name ,abbrev))))
+  (defmacro diminish-major-mode (mode-hook abbrev)
+    `(add-hook ,mode-hook
+               (lambda () (setq mode-name ,abbrev))))
 
-    (diminish-minor-mode 'abbrev 'abbrev-mode)
-    (diminish-minor-mode 'simple 'auto-fill-function)
-    (diminish-minor-mode 'company 'company-mode)
-    (diminish-minor-mode 'eldoc 'eldoc-mode)
-    (diminish-minor-mode 'flycheck 'flycheck-mode)
-    (diminish-minor-mode 'flyspell 'flyspell-mode)
-    (diminish-minor-mode 'global-whitespace 'global-whitespace-mode)
-    (diminish-minor-mode 'projectile 'projectile-mode)
-    (diminish-minor-mode 'ruby-end 'ruby-end-mode)
-    (diminish-minor-mode 'subword 'subword-mode)
-    (diminish-minor-mode 'undo-tree 'undo-tree-mode)
-    (diminish-minor-mode 'yard-mode 'yard-mode)
-    (diminish-minor-mode 'yasnippet 'yas-minor-mode)
-    (diminish-minor-mode 'wrap-region 'wrap-region-mode)
+  (diminish-minor-mode 'abbrev 'abbrev-mode)
+  (diminish-minor-mode 'simple 'auto-fill-function)
+  (diminish-minor-mode 'company 'company-mode)
+  (diminish-minor-mode 'eldoc 'eldoc-mode)
+  (diminish-minor-mode 'flycheck 'flycheck-mode)
+  (diminish-minor-mode 'flyspell 'flyspell-mode)
+  (diminish-minor-mode 'global-whitespace 'global-whitespace-mode)
+  (diminish-minor-mode 'projectile 'projectile-mode)
+  (diminish-minor-mode 'ruby-end 'ruby-end-mode)
+  (diminish-minor-mode 'subword 'subword-mode)
+  (diminish-minor-mode 'undo-tree 'undo-tree-mode)
+  (diminish-minor-mode 'yard-mode 'yard-mode)
+  (diminish-minor-mode 'yasnippet 'yas-minor-mode)
+  (diminish-minor-mode 'wrap-region 'wrap-region-mode)
 
-    (diminish-minor-mode 'paredit 'paredit-mode " π")
+  (diminish-minor-mode 'paredit 'paredit-mode " π")
 
-    (diminish-major-mode 'emacs-lisp-mode-hook "el")
-    (diminish-major-mode 'haskell-mode-hook "λ=")
-    (diminish-major-mode 'lisp-interaction-mode-hook "λ")
-    (diminish-major-mode 'python-mode-hook "Py")
+  (diminish-major-mode 'emacs-lisp-mode-hook "el")
+  (diminish-major-mode 'haskell-mode-hook "λ=")
+  (diminish-major-mode 'lisp-interaction-mode-hook "λ")
+  (diminish-major-mode 'python-mode-hook "Py")
 #+END_SRC
