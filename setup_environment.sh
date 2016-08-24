@@ -78,10 +78,11 @@ sudo ./RevoMath.sh
 cd ..
 rm -rf RevoMath/
 
-# setup for tern to work in emacs
+# setup tern for emacs
 git clone https://github.com/ternjs/tern.git
 cd tern/
 npm install
+cd ..
 mv tern/ ~/.emacs.d/
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 
