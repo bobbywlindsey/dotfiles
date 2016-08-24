@@ -7,9 +7,9 @@ sudo apt-get dist-upgrade
 sudo apt-get autoremove
 
 # copy .bash_aliases to ~/
-cp ~/Downloads/environment-setup-master/.bash_aliases ~/
+cp ./.bash_aliases ~/
 # copy .gitconfig to ~/
-cp ~/Downloads/environment-setup-master/.gitconfig ~/
+cp ./.gitconfig ~/
 
 # get packages
 sudo apt-get update
@@ -42,26 +42,33 @@ sudo fc-cache -fv
 # install R Open
 sudo apt-get install MRO-3.3.0-Ubuntu-15.4.x86_64.deb -y
 # download MLK (install later in script)
-wget https://mran.microsoft.com/install/mro/3.3.0/RevoMath-3.3.0.tar.gz
+curl -O https://mran.microsoft.com/install/mro/3.3.0/RevoMath-3.3.0.tar.gz
 
 # install RStudio
-wget https://download1.rstudio.org/rstudio-0.99.903-amd64.deb
+curl -O https://download1.rstudio.org/rstudio-0.99.903-amd64.deb
 sudo gdebi -n rstudio-0.99.903-amd64.deb
 rm rstudio-0.99.903-amd64.deb
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
 
 # install Atom text editor
-wget https://atom.io/download/deb
+curl -O https://atom.io/download/deb
 dpkg -i deb
 # copy Atom files over
-cp -rf ~/Downloads/.atom ~/
+cp -rf ./.atom ~/
 
 # install meteor
 curl https://install.meteor.com/ | sh
 
+# install oh my zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# install z
+curl -o ~/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
+chsh -s `which zsh`
+
 # install Anaconda (follow prompts)
-wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
+curl -O http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
 bash Anaconda3-4.1.1-Linux-x86_64.sh
 # install MLK (follow prompts)
 tar -xzf RevoMath-3.3.0.tar.gz
@@ -72,7 +79,7 @@ cd ..
 rm -rf RevoMath/
 
 # setup for tern to work in emacs
-git clone git@github.com:ternjs/tern.git
+git clone https://github.com/ternjs/tern.git
 cd tern/
 npm install
 mv tern/ ~/.emacs.d/
@@ -80,13 +87,6 @@ sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 # (install these Python packages after Anaconda installation)
 # pip install mkdoc mkdoc-material python-markdown-math
-# conda install flake8
-# pip install importmagic
-# pip install autopep8
-# pip install yapf
-
-# change default editor to vim
-#3 | sudo update-alternatives --config editor
 
 # set global default editor (already in .gitconfig)
 # git config --global core.editor "subl -n -w"
