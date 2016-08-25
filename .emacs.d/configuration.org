@@ -1,10 +1,11 @@
 * Add package archives
 #+BEGIN_SRC emacs-lisp
   (require 'package)
+  (add-to-list 'package-archives '("gnu" . "http://elpa.gnu.org/packages/"))
   (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
-  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
-  (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/") t)
-  (setq package-enable-at-startup nil)
+  (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
+  (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+  ;;(setq package-enable-at-startup nil)
   (package-initialize)
 #+END_SRC
 * Use sensible-defaults.el
@@ -69,6 +70,7 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
   '(blink-cursor-mode nil)
+  '(custom-enabled-themes (quote (misterioso)))
   (if (eq system-type 'darwin)
       '(with-editor-emacsclient-executable "/usr/local/bin/emacsclient")
   )
@@ -88,6 +90,9 @@
 #+END_SRC
 * Import org and configure
 #+BEGIN_SRC emacs-lisp
+  (if (eq system-type 'gnu/linux)
+      (add-to-list 'load-path "~/.emacs.d/org-8.3.5/lisp")
+  )
   (defun org-file-path (filename)
       "Return the absolute address of an org file, given its relative name."
       (concat (file-name-as-directory org-directory) filename))
@@ -124,6 +129,7 @@
   (require 'ox-reveal)
   (require 'org-bullets)
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+  (org-reload)
 #+END_SRC
 * Import evil and configure
 #+BEGIN_SRC emacs-lisp
@@ -186,8 +192,6 @@
   (ac-config-default)
   (global-flycheck-mode)
   ;;(add-to-list 'auto-mode-alist (cons (rx ".js" eos) 'js2-mode))
-
-  (load-theme 'misterioso t)
 #+END_SRC
 * Custom key bindings
 #+BEGIN_SRC emacs-lisp

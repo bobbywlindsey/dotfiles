@@ -85,6 +85,12 @@ npm install
 cd ..
 mv tern/ ~/.emacs.d/
 sudo ln -s /usr/bin/nodejs /usr/bin/node
+# setup org-mode for emacs
+git clone git://orgmode.org/org-mode.git
+cd ./org-8.3.5/
+make autoloads
+cd ..
+mv ./org-8.3.5/ ~/.emacs.d/
 
 # (install these Python packages after Anaconda installation)
 # pip install mkdoc mkdoc-material python-markdown-math
