@@ -12,3 +12,15 @@ brew linkapps emacs
 brew install aspell --lang=en
 brew install coreutils
 brew install z
+# install meteor
+curl https://install.meteor.com/ | sh
+# install js node pacakges for spacemacs support
+npm install -g tern
+npm install -g js-beautify
+npm install -g jshint
+npm install -g eslint
+npm install -g babel-eslint
+npm install -g eslint-plugin-react
+# install spacemacs
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+cp .spacemacs ~/

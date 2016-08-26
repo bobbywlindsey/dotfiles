@@ -78,19 +78,20 @@ sudo ./RevoMath.sh
 cd ..
 rm -rf RevoMath/
 
-# setup tern for emacs
-git clone https://github.com/ternjs/tern.git
-cd tern/
-npm install
-cd ..
-mv tern/ ~/.emacs.d/
+# make node command compatible
 sudo ln -s /usr/bin/nodejs /usr/bin/node
-# setup org-mode for emacs
-git clone git://orgmode.org/org-mode.git
-cd ./org-8.3.5/
-make autoloads
-cd ..
-mv ./org-8.3.5/ ~/.emacs.d/
+
+# install js node pacakges for spacemacs support
+npm install -g tern
+npm install -g js-beautify
+npm install -g jshint
+npm install -g eslint
+npm install -g babel-eslint
+npm install -g eslint-plugin-react
+
+# install spacemacs
+git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
+cp .spacemacs ~/
 
 # (install these Python packages after Anaconda installation)
 # pip install mkdoc mkdoc-material python-markdown-math

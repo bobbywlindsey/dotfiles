@@ -20,22 +20,35 @@ values."
    '(
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
-     ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
+     ;; Endowment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
      better-defaults
-     emacs-lisp
      git
-     markdown
      org
-     (shell :variables
-            shell-default-shell 'eshell
-            shell-default-height 30
-            shell-default-position 'bottom)
      spell-checking
      syntax-checking
      version-control
+     (shell :variables
+            shell-default-shell 'multi-term
+            shell-default-term-shell "zsh"
+            multi-term-program "zsh"
+            shell-default-height 30
+            shell-default-position 'bottom)
+     ;; language support
+     emacs-lisp
+     markdown
+     javascript
+     html
+     react
+     c-c++
+     ipython-notebook
+     php
+     python
+     ruby
+     shell-scripts
+     sql
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -284,7 +297,39 @@ you should place your code here."
   (require 'ox-twbs)
   ;; enable line numbers
   (global-linum-mode t)
-  )
+  ;; disable global line highlighting
+  (global-hl-line-mode -1)
+  (javascript :variables javascript-disable-tern-port-files nil)
+  ;; js2-mode and web-mode
+  (setq-default
+    js2-basic-offset 2
+    js-indent-level 2
+    css-indent-offset 2
+    web-mode-markup-indent-offset 2
+    web-mode-css-indent-offset 2
+    web-mode-code-indent-offset 2
+    web-mode-attr-indent-offset 2
+    )
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+)
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (web-mode tagedit sql-indent slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv pyvenv pytest pyenv-mode py-yapf pip-requirements phpunit phpcbf php-extras php-auto-yasnippets less-css-mode jade-mode hy-mode helm-pydoc helm-css-scss haml-mode fish-mode emmet-mode ein websocket drupal-mode php-mode disaster cython-mode company-web web-completion-data company-c-headers company-anaconda cmake-mode clang-format chruby bundler inf-ruby anaconda-mode pythonic f web-beautify json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode xterm-color ws-butler window-numbering volatile-highlights vi-tilde-fringe toc-org spacemacs-theme spaceline powerline smooth-scrolling smeargle shell-pop restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines ox-twbs ox-reveal orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc s markdown-mode magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck-pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight eshell-prompt-extras esh-help elisp-slime-nav diff-hl define-word company-statistics company-quickhelp pos-tip company clean-aindent-mode buffer-move bracketed-paste auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup quelpa package-build use-package which-key bind-key bind-map evil))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(company-tooltip-common ((t (:inherit company-tooltip :weight bold :underline nil))))
+ '(company-tooltip-common-selection ((t (:inherit company-tooltip-selection :weight bold :underline nil)))))
