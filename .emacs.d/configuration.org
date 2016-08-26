@@ -82,11 +82,12 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
   '(default ((t (:family "Inconsolata" :foundry "PfEd" :slant normal :weight normal :height 170 :width normal)))))
-
+  (setq user-full-name "Bobby Lindsey")
   (global-linum-mode t)
   (setq ring-bell-function 'ignore)
   (setq-default indent-tabs-mode nil)
   (global-visual-line-mode t)
+
 #+END_SRC
 * Import org and configure
 #+BEGIN_SRC emacs-lisp
@@ -133,18 +134,18 @@
 #+END_SRC
 * Import evil and configure
 #+BEGIN_SRC emacs-lisp
-  (require 'evil-leader)
-  (global-evil-leader-mode)
-  (evil-leader/set-key
-      "e" 'find-file
-      "b" 'switch-to-buffer
-      "k" 'kill-buffer)
-  (require 'evil)
-  (evil-mode 1)
-  (require 'evil-surround)
-  (global-evil-surround-mode 1)
-  (require 'evil-org)
-  (require 'evil-magit)
+  ;;(require 'evil-leader)
+  ;;(global-evil-leader-mode)
+  ;;(evil-leader/set-key
+      ;;"e" 'find-file
+      ;;"b" 'switch-to-buffer
+      ;;"k" 'kill-buffer)
+  ;;(require 'evil)
+  ;;(evil-mode 1)
+  ;;(require 'evil-surround)
+  ;;(global-evil-surround-mode 1)
+  ;;(require 'evil-org)
+  ;;(require 'evil-magit)
 #+END_SRC
 * Import tern and configure
 #+BEGIN_SRC emacs-lisp
@@ -181,7 +182,7 @@
 * Import and configure other packages
 #+BEGIN_SRC emacs-lisp
   ;; fuzzy find files in current project
-  (define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
+  ;;(define-key evil-normal-state-map (kbd "C-p") 'projectile-find-file)
   (require 'powerline)
   (powerline-default-theme)
   (require 'projectile)
@@ -198,8 +199,12 @@
   (global-set-key (kbd "M-x") 'helm-M-x)
   (global-set-key (kbd "C-x g") 'magit-status)
   (define-key global-map "\C-c\C-x\C-s" 'mark-done-and-archive)
+  (global-set-key "\C-cl" 'org-store-link)
+  (global-set-key "\C-ca" 'org-agenda)
+  (global-set-key "\C-cc" 'org-capture)
+  (global-set-key "\C-cb" 'org-iswitchb)
 #+END_SRC
-* Hide certain mode from the modeline
+* Hide certain modes from the modeline
 #+BEGIN_SRC emacs-lisp
   (defmacro diminish-minor-mode (filename mode &optional abbrev)
     `(eval-after-load (symbol-name ,filename)
