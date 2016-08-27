@@ -61,11 +61,17 @@ cp -rf ./.atom ~/
 curl https://install.meteor.com/ | sh
 
 # install oh my zsh
+sudo apt-get install zsh -y
+sudo apt-get install git-core
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # install z
 curl -o ~/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
-chsh -s `which zsh`
+#chsh -s `which zsh`
+
+# install zsh cobalt2 theme
+git clone https://github.com/wesbos/Cobalt2-iterm.git
+mv Cobalt2-iterm/cobalt2.zsh-theme ~/.oh-my-zsh/themes/
 
 # install Anaconda (follow prompts)
 curl -O http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh

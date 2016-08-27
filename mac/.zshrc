@@ -38,9 +38,9 @@ plugins=(git extract osx copydir brew npm)
 
 # User configuration
 if [[ `uname` == 'Darwin' ]]; then
-    export PATH="/Users/lindseb/anaconda/bin:/Users/lindseb/.rvm/gems/ruby-2.2.1/bin:/Users/lindseb/.rvm/gems/ruby-2.2.1@global/bin:/Users/lindseb/.rvm/rubies/ruby-2.2.1/bin:/Users/lindseb/anaconda/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin:/Users/lindseb/scripts_in_path:/Users/lindseb/.rvm/bin:/Users/lindseb/Dropbox/Me/University/Grad\ School/mathematics/stochastic_modeling"
+    export PATH="/Users/lindseb/anaconda/bin:/Users/lindseb/.rvm/gems/ruby-2.2.1/bin:/Users/lindseb/.rvm/gems/ruby-2.2.1@global/bin:/Users/lindseb/.rvm/rubies/ruby-2.2.1/bin:/Users/lindseb/anaconda/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin:/Users/lindseb/scripts_in_path:/Users/lindseb/.rvm/bin"
 else
-    export PATH=""
+    export PATH=$HOME/bin:/usr/local/bin:$PATH
 fi
 
 source $ZSH/oh-my-zsh.sh
@@ -49,11 +49,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='mvim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
