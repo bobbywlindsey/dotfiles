@@ -69,10 +69,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 curl -o ~/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
 #chsh -s `which zsh`
 
-# install zsh cobalt2 theme
-git clone https://github.com/wesbos/Cobalt2-iterm.git
-mv Cobalt2-iterm/cobalt2.zsh-theme ~/.oh-my-zsh/themes/
-
 # install Anaconda (follow prompts)
 curl -O http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
 bash Anaconda3-4.1.1-Linux-x86_64.sh
