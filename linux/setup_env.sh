@@ -50,6 +50,8 @@ sudo gdebi -n rstudio-0.99.903-amd64.deb
 rm rstudio-0.99.903-amd64.deb
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
+# swap escape and caps lock keys
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
 # install Atom text editor
 curl -O https://atom.io/download/deb
