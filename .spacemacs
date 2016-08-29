@@ -298,7 +298,9 @@ you should place your code here."
   (require 'ox-reveal)
   (require 'ox-twbs)
   ;; enable relative line numbers
-  dotspacemacs-line-numbers 'relative
+  (global-linum-mode)
+  (with-eval-after-load 'linum
+    (linum-relative-toggle))
   ;; disable global line highlighting
   (global-hl-line-mode -1)
   (with-eval-after-load 'javascript
