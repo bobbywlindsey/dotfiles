@@ -274,8 +274,10 @@ you should place your code here."
   (with-eval-after-load 'org
     (setq org-ellipsis "⤵")
     (setq org-src-tab-acts-natively t)
+    (setq org-agenda-files (list "~/GitProjects/notes"))
     (setq org-src-window-setup 'current-window)
     (setq org-html-postamble nil)
+    (setq org-twbs-postamble nil)
     (setq org-enforce-todo-dependencies t)
     (setq org-confirm-babel-evaluate nil)
     (setq org-export-with-smart-quotes t)
@@ -299,7 +301,9 @@ you should place your code here."
   (global-linum-mode t)
   ;; disable global line highlighting
   (global-hl-line-mode -1)
-  (javascript :variables javascript-disable-tern-port-files nil)
+  (with-eval-after-load 'javascript
+      (javascript :variables javascript-disable-tern-port-files nil)
+      )
   ;; js2-mode and web-mode
   (setq-default
     js2-basic-offset 2
