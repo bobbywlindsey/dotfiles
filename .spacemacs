@@ -297,10 +297,8 @@ you should place your code here."
   ;; enable org export packages
   (require 'ox-reveal)
   (require 'ox-twbs)
-  ;; enable line numbers
-  ;;(global-linum-mode t)
   ;; enable relative line numbers
-  (setq linum-relative-current-symbol)
+  dotspacemacs-line-numbers 'relative
   ;; disable global line highlighting
   (global-hl-line-mode -1)
   (with-eval-after-load 'javascript
