@@ -274,7 +274,10 @@ you should place your code here."
   (with-eval-after-load 'org
     (setq org-ellipsis "⤵")
     (setq org-src-tab-acts-natively t)
-    (setq org-agenda-files (list "~/GitProjects/notes"))
+    (setq org-agenda-files
+          (mapcar 'abbreviate-file-name
+                  (split-string
+                   (shell-command-to-string "find ~/GitProjects/notes -name \"*.org\"") "\n")))
     (setq org-src-window-setup 'current-window)
     (setq org-html-postamble nil)
     (setq org-twbs-postamble nil)
@@ -302,7 +305,7 @@ you should place your code here."
   (with-eval-after-load 'linum
     (linum-relative-toggle))
   ;; disable global line highlighting
-  (global-hl-line-mode -1)
+  (setq global-hl-line-mode nil)
   (with-eval-after-load 'javascript
       (javascript :variables javascript-disable-tern-port-files nil)
       )
