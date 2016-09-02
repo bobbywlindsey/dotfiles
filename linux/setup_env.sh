@@ -29,8 +29,9 @@ sudo freshclam
 sudo apt-get install xserver-xorg-input-libinput -y
 sudo apt-get install exfat-utils exfat-fuse -y
 sudo apt-get install vlc -y
-sudo apt-get install gdebi-core
-sudo apt-get install emacs24
+sudo apt-get install gdebi-core -y
+sudo apt-get install emacs24 -y
+sudo apt-get install global -y
 # install Julia
 sudo add-apt-repository ppa:staticfloat/juliareleases
 sudo add-apt-repository ppa:staticfloat/julia-deps
