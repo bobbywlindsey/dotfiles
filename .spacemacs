@@ -31,6 +31,7 @@ values."
      syntax-checking
      version-control
      gtags
+     elfeed
      (shell :variables
             shell-default-shell 'multi-term
             shell-default-term-shell "zsh"
@@ -307,10 +308,14 @@ you should place your code here."
     (linum-relative-toggle))
   ;; disable global line highlighting
   (setq global-hl-line-mode nil)
+  ;; rss feeds
+  (require 'elfeed-org)
+  (elfeed-org)
+  (setq rmh-elfeed-org-files (list "~/GitProjects/notes/blogs.org"))
+  ;; js2-mode and web-mode
   (with-eval-after-load 'javascript
       (javascript :variables javascript-disable-tern-port-files nil)
       )
-  ;; js2-mode and web-mode
   (setq-default
     js2-basic-offset 2
     js-indent-level 2
