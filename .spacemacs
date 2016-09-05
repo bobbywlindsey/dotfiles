@@ -308,6 +308,8 @@ you should place your code here."
     (linum-relative-toggle))
   ;; disable global line highlighting
   (setq global-hl-line-mode nil)
+  ;; enable line-wrapping
+  (toggle-truncate-lines)
   ;; rss feeds
   (require 'elfeed-org)
   (elfeed-org)
