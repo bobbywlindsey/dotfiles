@@ -4,3 +4,4 @@
 .atom/.npm/
 .atom/.node-gyp/
 .tern-port
+.DS_Store
