@@ -13,6 +13,7 @@ brew linkapps emacs
 brew install aspell --lang=en
 brew install coreutils
 brew install z
+brew install node
 # install meteor
 curl https://install.meteor.com/ | sh
 # install js node pacakges for spacemacs support
@@ -28,7 +29,6 @@ npm install -g gulp
 npm install -g jshint
 npm install -g uglify-js
 npm install -g static-server
-npm install -g npm
 
 npm install gulp-jshint jshint-stylish --save-dev
 npm install gulp-sass --save-dev
