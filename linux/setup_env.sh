@@ -32,6 +32,9 @@ sudo apt-get install vlc -y
 sudo apt-get install gdebi-core -y
 sudo apt-get install emacs24 -y
 sudo apt-get install global -y
+sudo apt-get install wajig -y
+sudo apt-get update
+wajig install libgtk2.0-dev
 # install Julia
 sudo add-apt-repository ppa:staticfloat/juliareleases
 sudo add-apt-repository ppa:staticfloat/julia-deps
@@ -51,6 +54,8 @@ sudo gdebi -n rstudio-0.99.903-amd64.deb
 rm rstudio-0.99.903-amd64.deb
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
+# turn terminal cursor blinking off
+gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default|tr -d \')/ cursor-blink-mode off
 # swap escape and caps lock keys
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
