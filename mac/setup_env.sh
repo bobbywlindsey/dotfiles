@@ -30,7 +30,7 @@ npm install -g gulp
 npm install -g jshint
 npm install -g uglify-js
 npm install -g static-server
-
+# some useful npm packages you might use in project
 npm install gulp-jshint jshint-stylish --save-dev
 npm install gulp-sass --save-dev
 npm install gulp-sourcemaps --save-dev
@@ -57,3 +57,6 @@ npm install classnames --save-dev
 # install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp .spacemacs ~/
+# symlink julia executable (path will change with updated versions of Julia)
+sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
+
