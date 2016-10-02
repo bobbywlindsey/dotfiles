@@ -32,6 +32,8 @@ sudo apt-get install vlc -y
 sudo apt-get install gdebi-core -y
 sudo apt-get install emacs24 -y
 sudo apt-get install global -y
+sudo apt-get install libtiff5-dev
+sudo apt-get install libfftw3-dev
 sudo apt-get install wajig -y
 sudo apt-get update
 wajig install libgtk2.0-dev
