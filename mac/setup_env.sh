@@ -8,6 +8,8 @@ brew install global
 brew install gcc
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# update default Ruby version
+curl -sSL https://get.rvm.io | bash -s stable --ruby
 # install emacs
 brew install emacs --HEAD --with-cocoa --srgb
 brew linkapps emacs

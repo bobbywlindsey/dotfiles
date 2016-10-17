@@ -18,6 +18,7 @@ values."
    ;; of a list then all discovered layers will be installed.
    dotspacemacs-configuration-layers
    '(
+     yaml
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Endowment some layer names and press <SPC f e R> (Vim style) or
@@ -270,6 +271,12 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
 
+  ;; disable global line highlighting
+  (setq global-hl-line-mode nil)
+  ;; enable org export packages
+  (require 'ox-reveal)
+  (require 'ox-twbs)
+  (require 'ox-md)
   ;; org-bullets config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
   ;; org-config
@@ -299,15 +306,10 @@ you should place your code here."
        (dot . t)
        (gnuplot . t)))
     )
-  ;; enable org export packages
-  (require 'ox-reveal)
-  (require 'ox-twbs)
   ;; enable relative line numbers
   (global-linum-mode)
   (with-eval-after-load 'linum
     (linum-relative-toggle))
-  ;; disable global line highlighting
-  (setq global-hl-line-mode nil)
   ;; enable line-wrapping
   (toggle-truncate-lines)
   ;; rss feeds
@@ -320,6 +322,7 @@ you should place your code here."
       )
   (setq-default
     js2-basic-offset 2
+    react-mode-offset 2
     js-indent-level 2
     css-indent-offset 2
     web-mode-markup-indent-offset 2
@@ -342,7 +345,7 @@ you should place your code here."
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (helm-gtags ggtags web-mode tagedit sql-indent slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv pyvenv pytest pyenv-mode py-yapf pip-requirements phpunit phpcbf php-extras php-auto-yasnippets less-css-mode jade-mode hy-mode helm-pydoc helm-css-scss haml-mode fish-mode emmet-mode ein websocket drupal-mode php-mode disaster cython-mode company-web web-completion-data company-c-headers company-anaconda cmake-mode clang-format chruby bundler inf-ruby anaconda-mode pythonic f web-beautify json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode xterm-color ws-butler window-numbering volatile-highlights vi-tilde-fringe toc-org spacemacs-theme spaceline powerline smooth-scrolling smeargle shell-pop restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines ox-twbs ox-reveal orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc s markdown-mode magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck-pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight eshell-prompt-extras esh-help elisp-slime-nav diff-hl define-word company-statistics company-quickhelp pos-tip company clean-aindent-mode buffer-move bracketed-paste auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup quelpa package-build use-package which-key bind-key bind-map evil))))
+    (yaml-mode yapfify uuidgen rake py-isort pug-mode org-projectile org-download mwim livid-mode skewer-mode live-py-mode link-hint git-link flyspell-correct-helm flyspell-correct eyebrowse evil-visual-mark-mode evil-unimpaired evil-ediff eshell-z dumb-jump company-shell column-enforce-mode undo-tree elfeed-web simple-httpd elfeed-org elfeed-goodies ace-jump-mode noflet elfeed helm-gtags ggtags web-mode tagedit sql-indent slim-mode scss-mode sass-mode rvm ruby-tools ruby-test-mode rubocop rspec-mode robe rbenv pyvenv pytest pyenv-mode py-yapf pip-requirements phpunit phpcbf php-extras php-auto-yasnippets less-css-mode jade-mode hy-mode helm-pydoc helm-css-scss haml-mode fish-mode emmet-mode ein websocket drupal-mode php-mode disaster cython-mode company-web web-completion-data company-c-headers company-anaconda cmake-mode clang-format chruby bundler inf-ruby anaconda-mode pythonic f web-beautify json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern dash-functional tern coffee-mode xterm-color ws-butler window-numbering volatile-highlights vi-tilde-fringe toc-org spacemacs-theme spaceline powerline smooth-scrolling smeargle shell-pop restart-emacs rainbow-delimiters popwin persp-mode pcre2el paradox hydra spinner page-break-lines ox-twbs ox-reveal orgit org-repo-todo org-present org-pomodoro alert log4e gntp org-plus-contrib org-bullets open-junk-file neotree multi-term move-text mmm-mode markdown-toc s markdown-mode magit-gitflow macrostep lorem-ipsum linum-relative leuven-theme info+ indent-guide ido-vertical-mode hungry-delete htmlize hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation help-fns+ helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile helm-gitignore request helm-flyspell helm-flx helm-descbinds helm-company helm-c-yasnippet helm-ag google-translate golden-ratio gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md flycheck-pos-tip flycheck pkg-info epl flx-ido flx fill-column-indicator fancy-battery expand-region exec-path-from-shell evil-visualstar evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-magit magit magit-popup git-commit with-editor evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-args evil-anzu anzu eval-sexp-fu highlight eshell-prompt-extras esh-help elisp-slime-nav diff-hl define-word company-statistics company-quickhelp pos-tip company clean-aindent-mode buffer-move bracketed-paste auto-yasnippet yasnippet auto-highlight-symbol auto-dictionary auto-compile packed dash aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core async ac-ispell auto-complete popup quelpa package-build use-package which-key bind-key bind-map evil))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
