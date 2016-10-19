@@ -26,6 +26,8 @@ COMPLETION_WAITING_DOTS="true"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git extract osx copydir brew npm)
 
+export PATH="/home/bobby/anaconda3/bin:$PATH"
+
 # User configuration
 source $ZSH/oh-my-zsh.sh
 
