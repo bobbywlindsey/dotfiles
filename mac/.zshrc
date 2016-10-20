@@ -38,7 +38,7 @@ plugins=(git extract osx copydir brew npm)
 
 # User configuration
 if [[ `uname` == 'Darwin' ]]; then
-    export PATH="/Users/bobbylindsey/anaconda/bin:/Users/bobbylindsey/.rvm/bin:/Users/bobbylindsey/anaconda/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin:/Users/bobbylindsey/scripts_in_path:/Users/bobbylindsey/.rvm/bin"
+    export PATH="/Users/bobbylindsey/anaconda3/bin:/Users/bobbylindsey/.rvm/bin:/Users/bobbylindsey/anaconda3/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin:/Users/bobbylindsey/scripts_in_path:/Users/bobbylindsey/.rvm/bin"
 else
     export PATH=$HOME/bin:/usr/local/bin:$PATH
 fi
@@ -60,5 +60,3 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
