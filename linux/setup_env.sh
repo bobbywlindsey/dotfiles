@@ -136,6 +136,7 @@ cp .spacemacs ~/
 
 # (install these Python packages after Anaconda installation)
 # pip install mkdoc mkdoc-material python-markdown-math
+#conda install -c r r-essentials
 
 # set global default editor (already in .gitconfig)
 # git config --global core.editor "subl -n -w"
