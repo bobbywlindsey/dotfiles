@@ -63,3 +63,8 @@ cp .spacemacs ~/
 sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
 # install conda packages
 # conda install -c r r-essentials
+
+# To configure atom
+# cd ~/.atom/packages/linter-eslint
+# npm install eslint-plugin-react
+# npm install babel-eslint
