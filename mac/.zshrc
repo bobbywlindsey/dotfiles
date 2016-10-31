@@ -1,6 +1,3 @@
-# Path to your oh-my-zsh installation.
-export ZSH=$HOME/.oh-my-zsh
-
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -35,13 +32,6 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git extract osx copydir brew npm)
-
-# User configuration
-if [[ `uname` == 'Darwin' ]]; then
-    export PATH="/Users/bobbylindsey/.rvm/gems/ruby-2.3.0/bin:/Users/bobbylindsey/anaconda/bin:/Users/bobbylindsey/.rvm/bin:/Users/bobbylindsey/anaconda/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/Library/TeX/texbin:/Users/bobbylindsey/scripts_in_path:/Users/bobbylindsey/.rvm/scripts/rvm"
-else
-    export PATH=$HOME/bin:/usr/local/bin:$PATH
-fi
 
 source $ZSH/oh-my-zsh.sh
 
