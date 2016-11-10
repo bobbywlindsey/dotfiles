@@ -5,7 +5,15 @@ brew update
 brew upgrade
 brew install curl
 brew install global
+# install gcc
 brew install gcc
+# install gcc alternative
+brew tap homebrew/versions
+brew install homebrew/versions/gcc6 --with-all-languages --with-java --with-jit --with-nls
+# install R
+brew tap homebrew/science
+brew install Caskroom/cask/xquartz
+brew install r
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # update default Ruby version
