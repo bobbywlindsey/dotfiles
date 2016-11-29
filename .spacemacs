@@ -71,8 +71,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(
-                                      ox-twbs
-                                      ox-reveal
+                                      ;;ox-twbs
+                                      ;;ox-reveal
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -350,8 +350,8 @@ you should place your code here."
        (gnuplot . t)))
     )
   ;; enable org export packages
-  (require 'ox-reveal)
-  (require 'ox-twbs)
+  ;;(require 'ox-reveal)
+  ;;(require 'ox-twbs)
   (require 'ox-md)
   ;; disable global line highlighting
   (setq global-hl-line-mode nil)
