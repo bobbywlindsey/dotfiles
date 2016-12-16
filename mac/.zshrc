@@ -13,6 +13,7 @@ alias db="cd ~/Dropbox/"
 alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
+alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html/blog"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then
