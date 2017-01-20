@@ -14,6 +14,7 @@ alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
 alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html/blog"
+alias aws-connect="ssh -i "~/.ssh/data-miningII.pem" ubuntu@ec2-35-162-48-136.us-west-2.compute.amazonaws.com"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then
@@ -33,6 +34,9 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git extract osx copydir brew npm)
+
+# override default Python
+export PATH="$HOME/anaconda/bin:$PATH"
 
 source $ZSH/oh-my-zsh.sh
 

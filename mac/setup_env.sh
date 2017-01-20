@@ -18,6 +18,9 @@ brew install r
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # update default Ruby version
 curl -sSL https://get.rvm.io | bash -s stable --ruby
+# install OpenAI Gym dependencies
+brew install cmake boost boost-python sdl2 swig wget
+pip install 'gym[all]'
 # install emacs
 brew install emacs --HEAD --with-cocoa --srgb
 brew linkapps emacs
