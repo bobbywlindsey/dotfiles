@@ -51,6 +51,9 @@ sudo fc-cache -fv
 sudo apt-get install MRO-3.3.0-Ubuntu-15.4.x86_64.deb -y
 # download MLK (install later in script)
 curl -O https://mran.microsoft.com/install/mro/3.3.0/RevoMath-3.3.0.tar.gz
+# make available the latest Nvidia drivers
+sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt-get update
 
 # install RStudio
 curl -O https://download1.rstudio.org/rstudio-0.99.903-amd64.deb
@@ -142,3 +145,6 @@ cp .spacemacs ~/
 
 # set global default editor (already in .gitconfig)
 # git config --global core.editor "subl -n -w"
+
+# install CUDA toolkit once choosing the latest Nvidia driver
+#sudo apt-get install cuda
