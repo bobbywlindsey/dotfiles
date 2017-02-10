@@ -28,6 +28,8 @@ brew install aspell --lang=en
 brew install coreutils
 brew install z
 brew install node
+# install GLUT
+brew install freeglut
 # install meteor
 curl https://install.meteor.com/ | sh
 # install js node pacakges for spacemacs support
