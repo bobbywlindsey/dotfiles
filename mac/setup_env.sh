@@ -14,6 +14,9 @@ brew install homebrew/versions/gcc6 --with-all-languages --with-java --with-jit 
 brew tap homebrew/science
 brew install Caskroom/cask/xquartz
 brew install r
+
+brew cask install macdown
+
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # update default Ruby version
