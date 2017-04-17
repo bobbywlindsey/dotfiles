@@ -84,3 +84,8 @@ sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/l
 # cd ~/.atom/packages/linter-eslint
 # npm install eslint-plugin-react
 # npm install babel-eslint
+
+# To configure Sublime Text
+brew install sublime-text
+mkdir ~/bin
+ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
