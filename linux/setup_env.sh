@@ -34,6 +34,7 @@ sudo apt-get install emacs24 -y
 sudo apt-get install global -y
 sudo apt-get install libtiff5-dev
 sudo apt-get install libfftw3-dev
+sudo apt-get install libcupti-dev
 # R dependency
 sudo apt-get install libgmp3-dev
 sudo apt-get install wajig -y
@@ -142,6 +143,8 @@ cp .spacemacs ~/
 # (install these Python packages after Anaconda installation)
 # pip install mkdoc mkdoc-material python-markdown-math
 #conda install -c r r-essentials
+#conda install theano pygpu
+#pip install tensorflow-gpu
 
 # set global default editor (already in .gitconfig)
 # git config --global core.editor "subl -n -w"
