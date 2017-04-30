@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # update everything
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt update
+sudo apt upgrade -y
 sudo apt-get dist-upgrade
 sudo apt-get autoremove
 
@@ -32,9 +32,18 @@ sudo apt-get install vlc -y
 sudo apt-get install gdebi-core -y
 sudo apt-get install emacs24 -y
 sudo apt-get install global -y
-sudo apt-get install libtiff5-dev
-sudo apt-get install libfftw3-dev
-sudo apt-get install libcupti-dev
+sudo apt-get install libtiff5-dev -y
+sudo apt-get install libfftw3-dev -y
+sudo apt-get install libcupti-dev -y
+sudo apt-get install tmux -y
+sudo apt-get install iptables-persistent -y
+#sudo iptables -I INPUT -p tcp -s 0.0.0.0/0 --dport 8888 -j ACCEPT
+#sudo iptables -I INPUT -p tcp -s 0.0.0.0/0 --dport 443 -j ACCEPT
+#sudo netfilter-persistent save
+#sudo netfilter-persistent reload
+# saved rules are stored below
+sudo vim /etc/iptables/rules.v4
+
 # R dependency
 sudo apt-get install libgmp3-dev
 sudo apt-get install wajig -y
@@ -139,6 +148,12 @@ npm install classnames --save-dev
 # install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp .spacemacs ~/
+
+# confgiure ssh server
+sudo apt-get install openssh-server -y
+# systemctl status ssh
+# sudo service ssh restart
+# config file located at /etc/ssh/sshd_config
 
 # (install these Python packages after Anaconda installation)
 # pip install mkdoc mkdoc-material python-markdown-math
