@@ -40,6 +40,7 @@ sudo apt-get install gdebi-core -y
 sudo apt-get install vim -y
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
+# :set relativenumber then :set number to turn on relative line numbers
 # install Sublime Text 3
 sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 sudo apt update
