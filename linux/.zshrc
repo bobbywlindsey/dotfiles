@@ -14,6 +14,7 @@ alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
 alias clipboard="xclip -sel clip"
+alias open="xdg-open"
 
 # include Z, yo
 . $HOME/z.sh
@@ -25,8 +26,6 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git extract osx copydir brew npm)
-
-#export PATH="$HOME/anaconda/bin:$PATH"
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
@@ -46,3 +45,5 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+cd ~/GitProjects
