@@ -9,7 +9,12 @@ ZSH_THEME="clean"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+sn() {
+    grep -rnwi "$HOME/Dropbox/Collections/notes" -e "$1" | sed s_$HOME'/Dropbox/Collections/'__ | grep -i "$1"
+}
+
 alias db="cd ~/Dropbox/"
+alias notes="cd ~/Dropbox/Collections/notes"
 alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
