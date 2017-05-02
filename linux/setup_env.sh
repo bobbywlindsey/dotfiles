@@ -41,16 +41,10 @@ sudo apt-get install vim -y
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
-# :set relativenumber then :set number to turn on relative line numbers
 # install Sublime Text 3
 sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 sudo apt update
 sudo apt-get install sublime-text-installer
-# install Atom text editor
-curl -O https://atom.io/download/deb
-dpkg -i deb
-# copy Atom files over
-cp -rf ../.atom ~/
 # install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp .spacemacs ~/
@@ -105,12 +99,12 @@ sudo apt update
 sudo apt-get install julia -y
 
 # install paper theme
+sudo apt-get install gnome-tweak-tool -y
 sudo add-apt-repository ppa:snwh/pulp -y
 sudo apt update
 sudo apt-get install paper-icon-theme -y
 sudo apt-get install paper-gtk-theme -y
 sudo apt-get install paper-cursor-theme -y
-sudo apt-get install gnome-tweak-tool -y
 sudo apt-get install tree
 # install inconsolata
 sudo apt-get install fonts-inconsolata -y
@@ -125,13 +119,19 @@ dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 # make available the latest Nvidia drivers
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo apt update
+# install CUDA toolkit once choosing the latest Nvidia driver
+#sudo apt-get install cuda
+# to fix any screen tearing with Ubuntu 16.04 and Nvidia GTX 1070
+# nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+# then go into Nvidia X Server, click on X Server Display Configuration, and
+# click Save to X Configuration File
 
 # install meteor
 curl https://install.meteor.com/ | sh
 
 # install Anaconda (follow prompts)
-curl -O http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
-bash Anaconda3-4.1.1-Linux-x86_64.sh
+curl -O https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh
+bash Anaconda3-4.3.1-Linux-x86_64.sh
 # install MLK (follow prompts)
 tar -xzf RevoMath-3.3.0.tar.gz
 rm RevoMath-3.3.0.tar.gz
@@ -156,36 +156,6 @@ npm install -g gulp
 npm install -g jshint
 npm install -g uglify-js
 npm install -g static-server
-npm install gulp-jshint jshint-stylish --save-dev
-npm install gulp-sass --save-dev
-npm install gulp-sourcemaps --save-dev
-npm install gulp-concat --save-dev
-npm install gulp-react --save-dev
-npm install gulp-html-replace --save-dev
-npm install react react-dom babelify babel-preset-react --save-dev
-npm install bootstrap-sass --save-dev
-npm install jquery --save-dev
-npm install browserify --save-dev
-npm install babel-preset-es2015 --sav-dev
-npm install react-dom --save-dev
-npm install browser-sync gulp --save-dev
-npm install browser-sync --save-dev
-npm install del --save-dev
-npm install watchify --save-dev
-npm install gulp-notify --save-dev
-npm install superagent --save-dev
-npm install glob --save-dev
-npm install co --save-dev
-npm install react-router --save-dev
-npm install react-validate-decorator --save-dev
-npm install classnames --save-dev
-
-# install CUDA toolkit once choosing the latest Nvidia driver
-#sudo apt-get install cuda
-# to fix any screen tearing with Ubuntu 16.04 and Nvidia GTX 1070
-# nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-# then go into Nvidia X Server, click on X Server Display Configuration, and
-# click Save to X Configuration File
 
 # confgiure ssh server
 sudo apt-get install openssh-server -y

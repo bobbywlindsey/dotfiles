@@ -4,6 +4,7 @@
 set background=dark
 let g:solarized_termtrans = 1
 " colorscheme solarized
-colorscheme peaksea
+" colorscheme peaksea
+colorscheme pyte
 set relativenumber
 set gcr=a:blinkon0
