@@ -16,6 +16,7 @@ brew install Caskroom/cask/xquartz
 brew install r
 
 brew cask install macdown
+brew install tree
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
