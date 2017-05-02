@@ -9,8 +9,8 @@ ZSH_THEME="cobalt2"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
-search-notes() {
-    grep -rnwi "$HOME/Dropbox/Collections/notes" -e "$1"
+sn() {
+    grep -rnwi "$HOME/Dropbox/Collections/notes" -e "$1" | sed s_$HOME'/Dropbox/Collections/'__ | grep -i "$1"
 }
 
 alias db="cd ~/Dropbox/"
