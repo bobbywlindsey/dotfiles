@@ -179,6 +179,13 @@ npm install react-router --save-dev
 npm install react-validate-decorator --save-dev
 npm install classnames --save-dev
 
+# install CUDA toolkit once choosing the latest Nvidia driver
+#sudo apt-get install cuda
+# to fix any screen tearing with Ubuntu 16.04 and Nvidia GTX 1070
+# nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
+# then go into Nvidia X Server, click on X Server Display Configuration, and
+# click Save to X Configuration File
+
 # confgiure ssh server
 sudo apt-get install openssh-server -y
 # systemctl status ssh
@@ -193,11 +200,3 @@ sudo apt-get install openssh-server -y
 
 # set global default editor (already in .gitconfig)
 # git config --global core.editor "subl -n -w"
-
-# install CUDA toolkit once choosing the latest Nvidia driver
-#sudo apt-get install cuda
-
-# to fix any screen tearing with Ubuntu 16.04 and Nvidia GTX 1070
-# nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
-# then go into Nvidia X Server, click on X Server Display Configuration, and
-# click Save to X Configuration File
