@@ -9,12 +9,18 @@ ZSH_THEME="cobalt2"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 
+search-notes() {
+    grep -rnwi "$HOME/Dropbox/Collections/notes" -e "$1"
+}
+
 alias db="cd ~/Dropbox/"
+alias notes="cd ~/Dropbox/Collections/notes"
 alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
 alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html/blog"
 alias aws-connect="ssh -i "~/.ssh/data-miningII.pem" ubuntu@ec2-35-162-48-136.us-west-2.compute.amazonaws.com"
+alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then
