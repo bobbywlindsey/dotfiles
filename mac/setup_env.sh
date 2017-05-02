@@ -90,3 +90,11 @@ sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/l
 brew install sublime-text
 mkdir ~/bin
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+
+# download cuDNN (must login to Nvidia first): https://developer.nvidia.com/cudnn
+# sudo cp include/cudnn.h /Developer/NVIDIA/CUDA-8.0/include
+# sudo cp lib/libcudnn* /usr/local/cuda/lib
+# create .theanorc file in home directory with contents:
+# [global]
+# device = gpu0
+# floatX = float32

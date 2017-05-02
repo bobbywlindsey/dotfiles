@@ -125,6 +125,17 @@ sudo apt update
 # nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
 # then go into Nvidia X Server, click on X Server Display Configuration, and
 # click Save to X Configuration File
+# download cuDNN (must login to Nvidia first): https://developer.nvidia.com/cudnn
+# run the following commands:
+# sudo cp -P include/cudnn.h /usr/include
+# sudo cp -P lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
+# sudo chmod a+r /usr/lib/x86_64-linux-gnu/libcudnn*
+# sudo cp -P include/cudnn.h /usr/local/cuda-8.0/include
+# sudo cp -rP lib64 /usr/local/cuda-8.0/lib64
+# create .theanorc file in home directory with contents:
+# [global]
+# device = cuda
+# floatX = float32
 
 # install meteor
 curl https://install.meteor.com/ | sh
