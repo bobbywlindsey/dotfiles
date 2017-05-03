@@ -182,3 +182,9 @@ sudo apt-get install openssh-server -y
 
 # set global default editor (already in .gitconfig)
 # git config --global core.editor "subl -n -w"
+
+# manually mount Plex drive
+# sudo parted -l
+# sudo mkdir /media/Media
+# sudo mount -t ntfs-3g -o ro /dev/sdd1 /media/Media
+
