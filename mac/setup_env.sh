@@ -98,3 +98,6 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 # [global]
 # device = gpu0
 # floatX = float32
+
+# if getting rvm error with oh my zsh
+# rm ~/.zcomp*
