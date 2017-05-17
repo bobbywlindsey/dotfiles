@@ -10,7 +10,7 @@ ZSH_THEME="clean"
 # For a full list of active aliases, run `alias`.
 
 sn() {
-    grep -rnwi "$HOME/Dropbox/Collections/notes" -e "$1" | sed s_$HOME'/Dropbox/Collections/'__ | grep -i "$1"
+    grep -rnwi "$HOME/Dropbox/collections/notes" -e "$1" | sed s_$HOME'/Dropbox/collections/'__ | grep -i "$1"
 }
 
 apply-naming-scheme() {
@@ -25,7 +25,7 @@ apply-naming-scheme() {
 }
 
 alias db="cd ~/Dropbox/"
-alias notes="cd ~/Dropbox/Collections/notes"
+alias notes="cd ~/Dropbox/collections/notes"
 alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
@@ -62,4 +62,6 @@ fi
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+# load rbenv automatically
+eval "$(rbenv init -)"
 cd ~/GitProjects
