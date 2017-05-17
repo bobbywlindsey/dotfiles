@@ -188,3 +188,6 @@ sudo apt-get install openssh-server -y
 # sudo mkdir /media/Media
 # sudo mount -t ntfs-3g -o ro /dev/sdd1 /media/Media
 
+# configure keyboard shortcuts for media:
+# settings --> Keyboard --> Sound and Media
+# disable "Play (or play/pause)", "Previous Track", and "Next Track"
