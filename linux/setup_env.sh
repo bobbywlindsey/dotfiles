@@ -5,8 +5,8 @@
 # update everything
 sudo apt update
 sudo apt upgrade -y
-sudo apt-get dist-upgrade
-sudo apt-get autoremove
+sudo apt-get dist-upgrade -y
+sudo apt-get autoremove -y
 
 # install oh my zsh
 sudo apt-get install zsh -y
