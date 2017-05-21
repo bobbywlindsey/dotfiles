@@ -15,6 +15,7 @@ conda update --all
 # (install these Python packages after Anaconda installation)
 pip install mkdoc mkdoc-material python-markdown-math
 conda install -c r r-essentials
+conda install mysql-connector-python
 conda install theano pygpu
 pip install tensorflow-gpu
 
