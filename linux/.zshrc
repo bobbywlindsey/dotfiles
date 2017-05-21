@@ -31,7 +31,7 @@ alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
 alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html/blog"
 alias clipboard="xclip -sel clip"
-alias open="xdg-open >nul 2>&1"
+alias open="xdg-open > /dev/null 2>&1"
 
 # include Z, yo
 . $HOME/z.sh
