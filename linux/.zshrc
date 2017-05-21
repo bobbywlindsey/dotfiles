@@ -29,6 +29,7 @@ alias notes="cd ~/Dropbox/collections/notes"
 alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
+alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html/blog"
 alias clipboard="xclip -sel clip"
 alias open="xdg-open"
 
@@ -64,4 +65,3 @@ fi
 
 # load rbenv automatically
 eval "$(rbenv init -)"
-cd ~/GitProjects
