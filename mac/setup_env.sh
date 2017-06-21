@@ -32,6 +32,11 @@ brew install aspell --lang=en
 brew install coreutils
 brew install z
 brew install node
+# install postgresql
+brew install postgresql
+sudo ln -s /usr/local/Cellar/postgresql /usr/local/opt/postgresql
+# install ODBC dependency for R
+brew install unixODBC
 # install GLUT
 brew install freeglut
 # install meteor
