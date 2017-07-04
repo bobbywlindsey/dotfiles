@@ -48,6 +48,10 @@ npm install -g gulp
 npm install -g jshint
 npm install -g uglify-js
 npm install -g static-server
+# install shell script to check internet speed
+npm install --global fast-cli
+# install shell script to find emojis
+npm install --global emoj
 
 # install Anaconda (follow prompts) (HARDLINK)
 curl -O https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh

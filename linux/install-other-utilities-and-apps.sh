@@ -46,3 +46,7 @@ sudo apt-get install openssh-server -y
 # systemctl status ssh
 # sudo service ssh restart
 # config file located at /etc/ssh/sshd_config
+
+# install youtube-dl
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+sudo chmod a+rx /usr/local/bin/youtube-dl

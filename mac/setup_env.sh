@@ -17,6 +17,8 @@ brew install r
 
 brew cask install macdown
 brew install tree
+# install youtube-dl
+brew install youtube-dl
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -78,6 +80,10 @@ npm install co --save-dev
 npm install react-router --save-dev
 npm install react-validate-decorator --save-dev
 npm install classnames --save-dev
+# install shell script to check internet speed
+npm install --global fast-cli
+# install shell script to find emojis
+npm install --global emoj
 # install spacemacs
 git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 cp .spacemacs ~/
