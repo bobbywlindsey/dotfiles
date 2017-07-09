@@ -22,6 +22,7 @@ alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.
 alias aws-connect="ssh -i "~/.ssh/data-miningII.pem" ubuntu@ec2-35-162-48-136.us-west-2.compute.amazonaws.com"
 alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 alias clipboard="pbcopy"
+alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app'"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then

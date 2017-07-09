@@ -90,6 +90,7 @@ cp .spacemacs ~/
 # symlink julia executable (path will change with updated versions of Julia)
 sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
 # install conda packages
+conda install feedparser
 # conda install -c r r-essentials
 
 # To configure atom

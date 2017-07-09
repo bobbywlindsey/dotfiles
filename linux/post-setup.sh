@@ -17,6 +17,7 @@ pip install mkdoc mkdoc-material python-markdown-math
 conda install -c r r-essentials
 conda install mysql-connector-python
 conda install theano pygpu
+conda install feedparser
 pip install tensorflow-gpu
 
 # download MLK (HARDLINK)
