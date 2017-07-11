@@ -13,6 +13,17 @@ sn() {
     grep -rnwi "$HOME/Dropbox/Collections/notes" -e "$1" | sed s_$HOME'/Dropbox/Collections/'__ | grep -i "$1"
 }
 
+apply-naming-scheme() {
+    # lowercase all folders
+    find . -depth -type d -execdir rename -f 'y/A-Z/a-z/' {} \;
+    # lowercase all files
+    find . -depth -type f -execdir rename -f 'y/A-Z/a-z/' {} \;
+    # replace spaces with hyphens for all folders
+    find . -depth -type d -execdir rename 's/ /-/g' {} \;
+    # replace spaces with hyphens for all files
+    find . -depth -type f -execdir rename 's/ /-/g' {} \;
+}
+
 alias db="cd ~/Dropbox/"
 alias notes="cd ~/Dropbox/Collections/notes"
 alias zs="source ~/.zshrc"
@@ -20,7 +31,6 @@ alias gum="git pull upstream master"
 alias emacs="/usr/local/opt/emacs/Emacs.app/Contents/MacOS/Emacs"
 alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html"
 alias aws-connect="ssh -i "~/.ssh/data-miningII.pem" ubuntu@ec2-35-162-48-136.us-west-2.compute.amazonaws.com"
-alias mvim="/Applications/MacVim.app/Contents/MacOS/MacVim"
 alias clipboard="pbcopy"
 alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app'"
 

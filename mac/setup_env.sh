@@ -19,6 +19,8 @@ brew cask install macdown
 brew install tree
 # install youtube-dl
 brew install youtube-dl
+# install rename
+brew install rename
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
