@@ -26,6 +26,14 @@ brew cask install caskroom/fonts/font-hack
 # install Atom text editor
 brew cask install atom
 
+# install vim
+brew install vim && brew install macvim
+brew link macvim
+git clone https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+cp ./my_configs.vim ~/.vim_runtime
+git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/sources_non_forked/vim-pencil
+
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 # update default Ruby version
