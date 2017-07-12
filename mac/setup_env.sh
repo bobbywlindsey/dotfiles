@@ -21,6 +21,10 @@ brew install tree
 brew install youtube-dl
 # install rename
 brew install rename
+# install Hack font
+brew cask install caskroom/fonts/font-hack
+# install Atom text editor
+brew cask install atom
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"

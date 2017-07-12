@@ -7,6 +7,8 @@ sudo apt-get install vim -y
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
+# install Hack font
+sudo apt-get install fonts-hack-ttf
 # install Sublime Text 3
 sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 sudo apt update
