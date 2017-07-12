@@ -14,3 +14,13 @@ nmap <Leader>a= :Tab /=<CR>
 vmap <Leader>a= :Tab /=<CR>
 nmap <Leader>a: :Tab /:<CR>
 vmap <Leader>a: :Tab /:<CR>
+
+" configure markdown
+let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
+
+" configure pencil
+augroup pencil
+  autocmd!
+  autocmd FileType markdown,md,mkd call pencil#init()
+  autocmd FileType text            call pencil#init()
+augroup END
