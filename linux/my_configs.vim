@@ -6,7 +6,7 @@ let g:solarized_termtrans = 1
 " colorscheme pyte
 set relativenumber
 set gcr=a:blinkon0
-set guifont=Hack:h15
+set guifont=Hack\ 15
 
 " shortcut for common alignment characters
 let mapleader=','
