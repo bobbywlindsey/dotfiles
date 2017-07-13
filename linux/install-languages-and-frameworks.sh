@@ -18,6 +18,7 @@ sudo apt-get install julia -y
 # install support for LaTeX
 sudo apt-get install texlive-full -y
 sudo apt-get install texstudio -y
+sudo apt-get install texlive-math-extra -y
 
 # install R dependencies
 sudo apt-get install libgmp3-dev

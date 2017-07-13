@@ -9,6 +9,10 @@ git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
 git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/sources_non_forked/vim-pencil
+git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/sources_non_forked/vimtek
+sudo apt-get install libsynctex-dev -y
+sudo apt-get install libgtk-3-dev -y
+sudo apt-get install zathura -y
 # install Hack font
 sudo apt-get install fonts-hack-ttf -y
 # install Sublime Text 3

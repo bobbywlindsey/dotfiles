@@ -24,3 +24,6 @@ augroup pencil
   autocmd FileType markdown,md,mkd call pencil#init()
   autocmd FileType text            call pencil#init()
 augroup END
+"
+" configure vimtex
+let g:vimtex_view_method = 'zathura'

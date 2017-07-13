@@ -29,10 +29,14 @@ brew cask install atom
 # install vim
 brew install vim && brew install macvim
 brew link macvim
+brew tap zegervdv/zathura
+brew install zathura
+brew install zathura-pdf-poppler
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
 git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/sources_non_forked/vim-pencil
+git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/sources_non_forked/vimtek
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
