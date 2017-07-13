@@ -8,7 +8,7 @@ set relativenumber
 set gcr=a:blinkon0
 set guifont=Hack\ 14
 
-" shortcut for common alignment characters
+" shortcuts for common alignment characters
 let mapleader=','
 nmap <Leader>a= :Tab /=<CR>
 vmap <Leader>a= :Tab /=<CR>
@@ -28,3 +28,20 @@ augroup END
 " configure vimtex
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
+
+" resolve common LaTeX errors and warnings
+function! CleanLatexFunction()
+    :%s/}\ \\label/}\\label/ge
+    :%s/\ \\ref/\~\\ref/ge
+    :%s/\ "/\ ``/ge
+    :%s/"\ /''\ /ge
+    :%s/",/'',/ge
+    :%s/"\./''\./ge
+    :%s/")/'')/ge
+    :%s/i\.e\.\ /i\.e\.\\\ /ge
+endfunction
+" :call CleanLatexFunction()
+command! CleanLatex call CleanLatexFunction()
+" :cleanlatex
+
+" :so % to reload configs
