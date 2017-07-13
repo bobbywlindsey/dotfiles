@@ -25,6 +25,7 @@ apply-naming-scheme() {
 }
 
 alias db="cd ~/Dropbox/"
+alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/collections/notes"
 alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"

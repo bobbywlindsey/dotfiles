@@ -39,6 +39,7 @@ function! CleanLatexFunction()
     :%s/"\./''\./ge
     :%s/")/'')/ge
     :%s/i\.e\.\ /i\.e\.\\\ /ge
+    :%s/e\.g\.\ /e\.g\.\\\ /ge
 endfunction
 " :call CleanLatexFunction()
 command! CleanLatex call CleanLatexFunction()

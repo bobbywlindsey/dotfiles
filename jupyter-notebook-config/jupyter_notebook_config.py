@@ -12,6 +12,8 @@ def post_save(model, os_path, contens_manager):
     check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
     check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
 
+c.NotebookApp.browser = u'chrome'
+
 # uncomment if you want to save .py and .html every
 # time you save your notebook
 # c.FileContentsManager.post_save_hook = post_save
