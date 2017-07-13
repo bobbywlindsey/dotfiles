@@ -27,3 +27,4 @@ augroup END
 "
 " configure vimtex
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_quickfix_latexlog = {'default' : 0}
