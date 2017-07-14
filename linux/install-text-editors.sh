@@ -8,8 +8,6 @@ sudo apt-get install libgtk-3-dev -y
 sudo apt-get install zathura -y
 sudo apt-get install neovim -y
 pip install neovim
-# install Hack font
-sudo apt-get install fonts-hack-ttf -y
 # install Sublime Text 3
 sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
 sudo apt update

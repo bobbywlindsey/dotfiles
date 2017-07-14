@@ -4,7 +4,6 @@ set -e
 
 # install developer stuff
 sudo apt-get install xclip -y
-sudo apt-get install emacs24 -y
 sudo apt-get install git -y
 sudo apt-get install filezilla -y
 sudo apt-get install gnuplot -y

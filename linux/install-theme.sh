@@ -10,8 +10,9 @@ sudo apt-get install paper-icon-theme -y
 sudo apt-get install paper-gtk-theme -y
 sudo apt-get install paper-cursor-theme -y
 sudo apt-get install tree
-# install inconsolata
+# install fonts
 sudo apt-get install fonts-inconsolata -y
+sudo apt-get install fonts-hack-ttf -y
 sudo fc-cache -fv
 # enable reverse mouse scrolling
 gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
