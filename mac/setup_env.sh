@@ -27,11 +27,12 @@ brew cask install caskroom/fonts/font-hack
 brew cask install atom
 
 # install vim
-brew install vim && brew install macvim
-brew link macvim
+brew install --HEAD neovim
+pip install neovim
 brew tap zegervdv/zathura
 brew install zathura
 brew install zathura-pdf-poppler
+brew install xdotool
 brew cask install skim
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
@@ -62,13 +63,6 @@ brew install unixODBC
 brew install freeglut
 # install meteor
 curl https://install.meteor.com/ | sh
-# install js node pacakges for spacemacs support
-npm install -g tern
-npm install -g js-beautify
-npm install -g jshint
-npm install -g eslint
-npm install -g babel-eslint
-npm install -g eslint-plugin-react
 # install js node packages for react dev
 npm install -g browserify
 npm install -g gulp
@@ -103,9 +97,6 @@ npm install classnames --save-dev
 npm install --global fast-cli
 # install shell script to find emojis
 npm install --global emoj
-# install spacemacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-cp .spacemacs ~/
 # symlink julia executable (path will change with updated versions of Julia)
 sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
 # install conda packages

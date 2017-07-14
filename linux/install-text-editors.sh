@@ -3,16 +3,11 @@
 set -e
 
 # install vim
-sudo apt-get install vim -y
-sudo apt-get install vim-gtk3 -y
-git clone https://github.com/amix/vimrc.git ~/.vim_runtime
-sh ~/.vim_runtime/install_awesome_vimrc.sh
-cp ./my_configs.vim ~/.vim_runtime
-git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/sources_non_forked/vim-pencil
-git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/sources_non_forked/vimtek
 sudo apt-get install libsynctex-dev -y
 sudo apt-get install libgtk-3-dev -y
 sudo apt-get install zathura -y
+sudo apt-get install neovim -y
+pip install neovim
 # install Hack font
 sudo apt-get install fonts-hack-ttf -y
 # install Sublime Text 3
@@ -21,6 +16,3 @@ sudo apt update
 sudo apt-get install sublime-text-installer
 rm -rf ~/.config/sublime-text-3/Packages/User/
 ln -t ~/.config/sublime-text-3/Packages/ -s ~/Dropbox/collections/dev/sublime-text/User
-# install spacemacs
-git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
-cp .spacemacs ~/
