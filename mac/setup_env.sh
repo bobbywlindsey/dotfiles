@@ -35,9 +35,9 @@ brew cask install skim
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
-git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/sources_non_forked/vim-pencil
-git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/sources_non_forked/vimtek
-git clone https://github.com/joshdick/onedark.vim.git ~/.vim_runtime/sources_non_forked/onedark.vim
+git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/my_plugins/vim-pencil
+git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/my_plugins/vimtek
+git clone https://github.com/joshdick/onedark.vim.git ~/.vim_runtime/my_plugins/onedark.vim
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
