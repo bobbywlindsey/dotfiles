@@ -1,4 +1,16 @@
-# Automated environment setup for Linux
-Copies development settings and installs necessary packages from a clean install of Ubuntu Gnome.
+# dotfiles for Ubuntu and Mac OS
 
-Also some support for a slightly automated Mac OS X environment setup.
+For Ubuntu:
+
+```
+cd linux/
+sudo ./update_sys.sh
+sudo ./setup_env.sh
+```
+
+For MacOS:
+
+```
+cd mac/
+./setup_env.sh
+```

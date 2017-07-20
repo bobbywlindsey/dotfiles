@@ -27,8 +27,6 @@ brew cask install caskroom/fonts/font-hack
 brew cask install atom
 
 # install vim
-brew install --HEAD neovim
-pip install neovim
 brew tap zegervdv/zathura
 brew install zathura
 brew install zathura-pdf-poppler
@@ -39,6 +37,7 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
 git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/sources_non_forked/vim-pencil
 git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/sources_non_forked/vimtek
+git clone https://github.com/joshdick/onedark.vim.git ~/.vim_runtime/sources_non_forked/onedark.vim
 
 # install oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -100,8 +99,12 @@ npm install --global emoj
 # symlink julia executable (path will change with updated versions of Julia)
 sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/local/bin/julia
 # install conda packages
-conda install feedparser
+# conda install feedparser
 # conda install -c r r-essentials
+
+# install jupyter theme
+# pip install jupyterthemes lesscpy
+# jt -t grade3
 
 # To configure atom
 # cd ~/.atom/packages/linter-eslint

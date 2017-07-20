@@ -57,6 +57,9 @@ npm install --global emoj
 # install Anaconda (follow prompts) (HARDLINK)
 curl -O https://repo.continuum.io/archive/Anaconda3-4.3.1-Linux-x86_64.sh
 bash Anaconda3-4.3.1-Linux-x86_64.sh
+# install jupyter notebook theme
+# pip install jupyterthemes lesscpy
+# jt -t grade3
 # install MLK (follow prompts) (HARDLINK)
 tar -xzf RevoMath-3.3.0.tar.gz
 rm RevoMath-3.3.0.tar.gz

@@ -24,12 +24,15 @@ apply-naming-scheme() {
     find . -depth -type f -execdir rename 's/ /-/g' {} \;
 }
 
+push-site() {
+    rsync -v -rz --checksum --delete _site/ $1@bobbywlindsey.com:public_html
+}
+
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/collections/notes"
 alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
-alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html"
 alias clipboard="xclip -sel clip"
 alias open="xdg-open > /dev/null 2>&1"
 
@@ -42,7 +45,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract osx copydir brew npm)
+plugins=(git extract copydir brew npm)
 
 # User configuration
 source $ZSH/oh-my-zsh.sh
