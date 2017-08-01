@@ -28,9 +28,11 @@ let g:vimtex_compiler_latexmk = {'callback' : 0}
 " disable warnings for LaTeX files
 let g:syntastic_tex_chktex_quiet_messages={'level':'warnings'}
 
+" copy to clipboard with YY
+vnoremap  YY "*y
+
 " resolve common LaTeX errors and warnings
 function! CleanLatexFunction()
-    :%s/}\ \\label/}\\label/ge
     :%s/\ \\ref/\~\\ref/ge
     :%s/\ "/\ ``/ge
     :%s/"\ /''\ /ge
@@ -42,6 +44,32 @@ function! CleanLatexFunction()
 endfunction
 " :call CleanLatexFunction()
 command! CleanLatex call CleanLatexFunction()
-" :cleanlatex
+" :CleanLatex
+
+" append characters to rows of numbers or text
+function! PadMaterialsFunction() range
+    silent execute a:firstline . ',' . a:lastline . 's/^/000/'
+endfunction
+command! -range PadMaterials <line1>,<line2> call PadMaterialsFunction()
+
+" convert rows of numbers or text (as if pasted from excel column) to a tuple
+function! ToTupleFunction() range
+    silent execute a:firstline . "," . a:lastline . "s/^/'/"
+    silent execute a:firstline . "," . a:lastline . "s/$/',/"
+    silent execute a:firstline . "," . a:lastline . "join"
+    silent execute "normal I("
+    silent execute "normal $xa)"
+    silent execute "normal ggVGYY"
+endfunction
+command! -range ToTuple <line1>,<line2> call ToTupleFunction()
+
+" convert rows of numbers or text (as if pasted from excel column) to an array
+function! ToArrayFunction() range
+    silent execute a:firstline . "," . a:lastline . "s/^/'/"
+    silent execute a:firstline . "," . a:lastline . "s/$/',/"
+    silent execute a:firstline . "," . a:lastline . "join"
+    silent execute "normal I["
+    silent execute "normal $xa]"
+endfunction
 
 " :so % to reload configs

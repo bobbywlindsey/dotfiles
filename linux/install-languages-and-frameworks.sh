@@ -60,6 +60,9 @@ bash Anaconda3-4.3.1-Linux-x86_64.sh
 # install jupyter notebook theme
 # pip install jupyterthemes lesscpy
 # jt -t grade3
+# install MS SQL support
+sudo apt-get install freetds-dev -y
+conda install pymssql
 # install MLK (follow prompts) (HARDLINK)
 tar -xzf RevoMath-3.3.0.tar.gz
 rm RevoMath-3.3.0.tar.gz

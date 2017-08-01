@@ -106,6 +106,9 @@ sudo ln -s /Applications/Julia-0.5.app/Contents/Resources/julia/bin/julia /usr/l
 # pip install jupyterthemes lesscpy
 # jt -t grade3
 
+pip install spotipy
+pip install gmusicapi
+
 # To configure atom
 # cd ~/.atom/packages/linter-eslint
 # npm install eslint-plugin-react
@@ -126,3 +129,6 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 
 # if getting rvm error with oh my zsh
 # rm ~/.zcomp*
+
+brew install freetds
+conda install pymssql

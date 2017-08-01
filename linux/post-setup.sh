@@ -20,6 +20,9 @@ conda install theano pygpu
 conda install feedparser
 pip install tensorflow-gpu
 
+pip install spotipy
+pip install gmusicapi
+
 # download MLK (HARDLINK)
 curl -O https://mran.microsoft.com/install/mro/3.3.0/RevoMath-3.3.0.tar.gz
 
