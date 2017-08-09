@@ -24,14 +24,27 @@ apply-naming-scheme() {
     find . -depth -type f -execdir rename 's/ /-/g' {} \;
 }
 
+push-site() {
+    rsync -v -rz --checksum --delete _site/ $1@bobbywlindsey.com:public_html
+}
+
+jarvis-connect() {
+    ssh bobby@$1 -p 22222
+}
+
+jn-connect() {
+    ssh -N -L localhost:8888:localhost:8889 bobby@$1 -p 22222
+}
+
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/Collections/notes"
+alias blog="cd ~/GitProjects/bobbywlindsey"
+alias dsi="cd ~/Dropbox/me/career/technipfmc/dsi"
+alias dotfiles="cd ~/Gitprojects/dotfiles"
 alias zs="source ~/.zshrc"
+alias ezs="vim ~/.zshrc"
 alias gum="git pull upstream master"
-alias vim="nvim"
-alias push-site="rsync -v -rz --checksum --delete _site/ massivi1@bobbywlindsey.com:public_html"
-alias aws-connect="ssh -i "~/.ssh/data-miningII.pem" ubuntu@ec2-35-162-48-136.us-west-2.compute.amazonaws.com"
 alias clipboard="pbcopy"
 alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app'"
 
