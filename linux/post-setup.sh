@@ -16,7 +16,8 @@ conda update --all
 pip install mkdoc mkdoc-material python-markdown-math
 conda install -c r r-essentials
 conda install mysql-connector-python
-conda install theano pygpu
+conda install theano
+conda install pygpu=0.6.2
 conda install feedparser
 pip install tensorflow-gpu
 
@@ -32,7 +33,7 @@ sudo apt-get install cuda
 # nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
 # then go into Nvidia X Server, click on X Server Display Configuration, and
 # click Save to X Configuration File
-# download cuDNN (must login to Nvidia first): https://developer.nvidia.com/cudnn
+# download cuDNN 5.1 (must login to Nvidia first): https://developer.nvidia.com/cudnn
 # run the following commands:
 # sudo cp -P include/cudnn.h /usr/include
 # sudo cp -P lib64/libcudnn* /usr/lib/x86_64-linux-gnu/
