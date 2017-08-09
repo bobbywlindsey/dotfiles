@@ -35,6 +35,9 @@ alias zs="source ~/.zshrc"
 alias gum="git pull upstream master"
 alias clipboard="xclip -sel clip"
 alias open="xdg-open > /dev/null 2>&1"
+alias pycharm="charm&"
+alias mm="sudo mount -t ntfs-3g -o ro /dev/sdd1 /media/Media"
+alias jupyter-notebook-remote="jupyter-notebook --ip='*' --no-browser --port=8889"
 
 # include Z, yo
 . $HOME/z.sh
