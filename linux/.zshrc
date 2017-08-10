@@ -28,19 +28,13 @@ push-site() {
     rsync -v -rz --checksum --delete _site/ $1@bobbywlindsey.com:public_html
 }
 
-jarvis-connect() {
-    ssh bobby@$1 -p 22222
-}
-
-jn-connect() {
-    ssh -N -L localhost:8888:localhost:8889 bobby@$1 -p 22222
-}
 
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/collections/notes"
 alias blog="cd ~/GitProjects/bobbywlindsey"
 alias dsi="cd ~/Dropbox/me/career/technipfmc/dsi"
+alias dotfiles="cd ~/GitProjects/dotfiles"
 alias zs="source ~/.zshrc"
 alias ezs="vim ~/.zshrc"
 alias gum="git pull upstream master"
@@ -49,6 +43,7 @@ alias open="xdg-open > /dev/null 2>&1"
 alias pycharm="charm&"
 alias mm="sudo mount -t ntfs-3g -o ro /dev/sdd1 /media/Media"
 alias jn-remote="jupyter-notebook --ip='*' --no-browser --port=8889"
+alias update-sys="sudo ~/GitProjects/dotfiles/linux/update_sys.sh"
 
 # include Z, yo
 . $HOME/z.sh
