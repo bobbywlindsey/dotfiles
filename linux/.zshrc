@@ -25,9 +25,8 @@ apply-naming-scheme() {
 }
 
 push-site() {
-    rsync -v -rz --checksum --delete _site/ $1@bobbywlindsey.com:public_html
+    rsync -v -rz -e ssh --checksum --delete _site/ $1@bobbywlindsey.com:public_html
 }
-
 
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
