@@ -43,6 +43,7 @@ alias pycharm="charm&"
 alias mm="sudo mount -t ntfs-3g -o ro /dev/sdd1 /media/Media"
 alias jn-remote="jupyter-notebook --ip='*' --no-browser --port=8889"
 alias update-sys="sudo ~/GitProjects/dotfiles/linux/update_sys.sh"
+alias wan="curl 'https://api.ipify.org'"
 
 # include Z, yo
 . $HOME/z.sh

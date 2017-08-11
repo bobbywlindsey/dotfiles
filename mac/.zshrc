@@ -47,6 +47,7 @@ alias ezs="vim ~/.zshrc"
 alias gum="git pull upstream master"
 alias clipboard="pbcopy"
 alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app'"
+alias wan="curl 'https://api.ipify.org'"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then
