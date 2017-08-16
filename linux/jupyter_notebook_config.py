@@ -1,23 +1,36 @@
 # Configuration file for jupyter-notebook.
 
 c = get_config()
+
 import os
 from subprocess import check_call
+from bs4 import BeautifulSoup
+# from notebook.utils import to_api_path
 
-def post_save(model, os_path, contens_manager):
-    """ post-save hook for converting notebooks to .py scripts """
+_script_exporter = None
+_html_exporter = None
+
+
+def script_post_save(model, os_path, contents_manager):
     if model['type'] != 'notebook':
-        return # only do this for notebooks
-    d, fname = os.path.split(os_path)
-    check_call(['jupyter', 'nbconvert', '--to', 'script', fname], cwd=d)
-    check_call(['jupyter', 'nbconvert', '--to', 'html', fname], cwd=d)
+        return
+    # save as HTML
+    directory, file_name = os.path.split(os_path)
+    check_call(['jupyter', 'nbconvert', '--to', 'html', file_name], cwd=directory)
 
+    # scrub code cells
+    file_name = file_name[:-6]
+    with open(file_name + '.html', 'r') as content_file:
+        content = content_file.read()
+    soup = BeautifulSoup(content)
+    [div.extract() for div in soup.findAll('div', {'class': 'input'})]
+    with open('test.html', 'w') as output_file:
+        output_file.write(str(soup))
+
+
+# save notebook as html and remove code cells
+c.FileContentsManager.post_save_hook = script_post_save
 c.NotebookApp.browser = u'chrome'
-
-# uncomment if you want to save .py and .html every
-# time you save your notebook
-# c.FileContentsManager.post_save_hook = post_save
-
 
 #------------------------------------------------------------------------------
 # Application(SingletonConfigurable) configuration
