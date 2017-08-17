@@ -4,7 +4,6 @@ c = get_config()
 
 import os
 from subprocess import check_call
-from bs4 import BeautifulSoup
 # from notebook.utils import to_api_path
 
 _script_exporter = None
@@ -17,15 +16,6 @@ def script_post_save(model, os_path, contents_manager):
     # save as HTML
     directory, file_name = os.path.split(os_path)
     check_call(['jupyter', 'nbconvert', '--to', 'html', file_name], cwd=directory)
-
-    # scrub code cells
-    file_name = file_name[:-6]
-    with open(file_name + '.html', 'r') as content_file:
-        content = content_file.read()
-    soup = BeautifulSoup(content)
-    [div.extract() for div in soup.findAll('div', {'class': 'input'})]
-    with open('test.html', 'w') as output_file:
-        output_file.write(str(soup))
 
 
 # save notebook as html and remove code cells

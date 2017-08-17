@@ -24,6 +24,11 @@ apply-naming-scheme() {
     find . -depth -type f -execdir rename 's/ /-/g' {} \;
 }
 
+new-project() {
+    cp -r ~/GitProjects/data-science/project-template/helpers .
+    cp ~/GitProjects/data-science/project-template/project-template.ipynb .
+}
+
 push-site() {
     rsync -v -rz -e ssh --checksum --delete _site/ $1@bobbywlindsey.com:public_html
 }
