@@ -18,6 +18,7 @@ conda install -c r r-essentials
 conda install mysql-connector-python
 conda install theano
 conda install pygpu=0.6.2
+conda install cudatoolkit
 conda install feedparser
 pip install tensorflow-gpu
 

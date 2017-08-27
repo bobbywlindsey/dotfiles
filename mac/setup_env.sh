@@ -132,3 +132,6 @@ ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/sub
 
 brew install freetds
 conda install pymssql
+
+pip install luigi
+conda install cudatoolkit
