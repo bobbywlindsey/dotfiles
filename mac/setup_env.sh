@@ -3,6 +3,11 @@
 # update Homebrew
 brew update
 brew upgrade
+# set up terminal
+brew install iterm2
+brew install zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
 brew install curl
 brew install global
 # install gcc

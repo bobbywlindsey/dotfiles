@@ -2,7 +2,8 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="cobalt2"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+DEFAULT_USER="bobbylindsey"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -28,6 +29,13 @@ push-site() {
     rsync -v -rz -e ssh --checksum --delete _site/ $1@bobbywlindsey.com:public_html
 }
 
+publish2dsi() {
+    absfilepath=$(readlink $1)
+    python ~/.jupyter/scrub_code_cells.py $absfilepath
+    tail -n +2 "$1" > "$1.tmp" && mv "$1.tmp" "$1"
+    echo '---\ncategories: ["analyses"]\n---'  | cat - "$1" > temp && mv temp "$1"
+}
+
 jarvis-connect() {
     ssh bobby@$1 -p 22222
 }
@@ -36,18 +44,32 @@ jn-connect() {
     ssh -N -L localhost:8888:localhost:8889 bobby@$1 -p 22222
 }
 
+new-project() {
+    cp -r ~/GitProjects/data-science/project-template/helpers .
+    cp ~/GitProjects/data-science/project-template/project-template.ipynb .
+}
+
+readlink() {
+  cd $(dirname $1)         # or  cd ${1%/*}
+  echo $PWD/$(basename $1) # or  echo $PWD/${1##*/}
+}
+
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/Collections/notes"
 alias blog="cd ~/GitProjects/bobbywlindsey"
 alias dsi="cd ~/Dropbox/me/career/technipfmc/dsi"
 alias dotfiles="cd ~/GitProjects/dotfiles"
+alias projects="cd ~/GitProjects"
+alias ds="cd ~/GitProjects/data-science/project-template"
 alias zs="source ~/.zshrc"
 alias ezs="vim ~/.zshrc"
 alias gum="git pull upstream master"
 alias clipboard="pbcopy"
 alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app'"
+alias datagrip="/usr/bin/open -a '/Applications/DataGrip.app'"
 alias wan="curl 'https://api.ipify.org'"
+alias create="touch"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then
