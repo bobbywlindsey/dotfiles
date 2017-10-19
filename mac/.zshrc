@@ -68,6 +68,7 @@ alias gum="git pull upstream master"
 alias clipboard="pbcopy"
 alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app'"
 alias datagrip="/usr/bin/open -a '/Applications/DataGrip.app'"
+alias vim="/usr/bin/open -a '/Applications/MacVim.app'"
 alias wan="curl 'https://api.ipify.org'"
 alias create="touch"
 

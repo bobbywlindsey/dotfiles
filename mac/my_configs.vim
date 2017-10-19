@@ -5,10 +5,14 @@
 " colorscheme solarized
 colorscheme onedark
 set relativenumber
+set guicursor+=n-v-c:blinkon0
 
 " remap tabular to align on anything
 let mapleader=','
 vnoremap <Leader>a :Tabular<space>/
+
+" exit zenroom
+nnoremap <silent> <leader>Z :Goyo! \| colorscheme onedark<cr>
 
 " configure pencil
 augroup pencil
@@ -71,5 +75,6 @@ function! ToArrayFunction() range
     silent execute "normal I["
     silent execute "normal $xa]"
 endfunction
+command! -range ToArray <line1>,<line2> call ToArrayFunction()
 
 " :so % to reload configs
