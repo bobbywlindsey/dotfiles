@@ -30,7 +30,7 @@ new-project() {
 }
 
 push-site() {
-    rsync -v -rz -e ssh --checksum --delete _site/ $1@bobbywlindsey.com:public_html
+    rsync -v -rz -e ssh --checksum --delete ~/Dropbox/me/career/website-and-blog/bobbywlindsey/_site/ $1@bobbywlindsey.com:public_html
 }
 
 alias db="cd ~/Dropbox/"

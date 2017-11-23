@@ -26,7 +26,7 @@ apply-naming-scheme() {
 }
 
 push-site() {
-    rsync -v -rz -e ssh --checksum --delete _site/ $1@bobbywlindsey.com:public_html
+    rsync -v -rz -e ssh --checksum --delete ~/Dropbox/me/career/website-and-blog/bobbywlindsey/_site/ $1@bobbywlindsey.com:public_html
 }
 
 publish2dsi() {
@@ -57,7 +57,7 @@ readlink() {
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/Collections/notes"
-alias blog="cd ~/GitProjects/bobbywlindsey"
+alias blog="cd ~/Dropbox/me/career/website-and-blog/bobbywlindsey"
 alias dsi="cd ~/Dropbox/me/career/technipfmc/dsi"
 alias dotfiles="cd ~/GitProjects/dotfiles"
 alias projects="cd ~/GitProjects"
@@ -71,6 +71,7 @@ alias datagrip="/usr/bin/open -a '/Applications/DataGrip.app'"
 alias vim="/usr/bin/open -a '/Applications/MacVim.app'"
 alias wan="curl 'https://api.ipify.org'"
 alias create="touch"
+alias school="cd ~/Dropbox/me/university/grad-school/courses/fall-2017"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then

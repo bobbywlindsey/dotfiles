@@ -5,7 +5,7 @@
 " colorscheme solarized
 colorscheme onedark
 set relativenumber
-set guicursor+=n-v-c:blinkon0
+:set guicursor+=a:blinkon0
 
 " remap tabular to align on anything
 let mapleader=','
