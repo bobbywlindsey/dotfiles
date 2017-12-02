@@ -52,3 +52,5 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 
 # install htop to monitor resources from command line
 sudo apt-get install htop -y
+
+sudo apt-get install unrar -y

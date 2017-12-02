@@ -29,6 +29,14 @@ new-project() {
     cp ~/GitProjects/data-science/project-template/project-template.ipynb .
 }
 
+build-prod-site() {
+    JEKYLL_ENV=production bundle exec jekyll build
+}
+
+build-dev-site() {
+    bundle exec jekyll serve --drafts
+}
+
 push-site() {
     rsync -v -rz -e ssh --checksum --delete ~/Dropbox/me/career/website-and-blog/bobbywlindsey/_site/ $1@bobbywlindsey.com:public_html
 }

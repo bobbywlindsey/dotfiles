@@ -25,6 +25,16 @@ apply-naming-scheme() {
     find . -depth -type f -execdir rename 's/ /-/g' {} \;
 }
 
+build-prod-site() {
+    cd ~/Dropbox/me/career/website-and-blog/bobbywlindsey;
+    JEKYLL_ENV=production jekyll build;
+}
+
+build-dev-site() {
+    cd ~/Dropbox/me/career/website-and-blog/bobbywlindsey;
+    bundle exec jekyll serve --drafts;
+}
+
 push-site() {
     rsync -v -rz -e ssh --checksum --delete ~/Dropbox/me/career/website-and-blog/bobbywlindsey/_site/ $1@bobbywlindsey.com:public_html
 }
