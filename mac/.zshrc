@@ -56,12 +56,24 @@ jn-connect() {
 
 new-project() {
     cp -r ~/GitProjects/data-science/project-template/helpers .
+    cp -r ~/GitProjects/data-science/project-template/deeplearning .
     cp ~/GitProjects/data-science/project-template/project-template.ipynb .
 }
 
 readlink() {
-  cd $(dirname $1)         # or  cd ${1%/*}
-  echo $PWD/$(basename $1) # or  echo $PWD/${1##*/}
+    cd $(dirname $1)         # or  cd ${1%/*}
+    echo $PWD/$(basename $1) # or  echo $PWD/${1##*/}
+}
+
+create-post() {
+    title="$1"
+    date="$(date +'%Y-%m-%d')"
+    time="$(date +'%H:%M:%S') -0600"
+    hyphened_title=${title// /-}
+    lower_case_hyphened_title="$(echo $hyphened_title | tr '[A-Z]' '[a-z]')"
+    file_name=$date-$lower_case_hyphened_title.md
+    touch $file_name
+    echo "---\nlayout: post\ncomments: true\ntitle: $title\ndescription: $2\ndate: $date $time\ncategories: [\"$3\"]\n---\n\n" >> $file_name
 }
 
 alias db="cd ~/Dropbox/"

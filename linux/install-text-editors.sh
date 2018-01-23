@@ -3,6 +3,7 @@
 set -e
 
 # install vim
+sudo apt-get install vim vim-gnome -y
 sudo apt-get install libsynctex-dev -y
 sudo apt-get install libgtk-3-dev -y
 sudo apt-get install zathura -y

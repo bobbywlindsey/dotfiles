@@ -26,6 +26,7 @@ apply-naming-scheme() {
 
 new-project() {
     cp -r ~/GitProjects/data-science/project-template/helpers .
+    cp -r ~/GitProjects/data-science/project-template/deeplearning .
     cp ~/GitProjects/data-science/project-template/project-template.ipynb .
 }
 
@@ -41,12 +42,33 @@ push-site() {
     rsync -v -rz -e ssh --checksum --delete ~/Dropbox/me/career/website-and-blog/bobbywlindsey/_site/ $1@bobbywlindsey.com:public_html
 }
 
+jarvis-connect() {
+    ssh bobby@$1 -p 22222
+}
+
+jn-connect() {
+    ssh -N -L localhost:8888:localhost:8889 bobby@$1 -p 22222
+}
+
+create-post() {
+    title="$1"
+    date="$(date +'%Y-%m-%d')"
+    time="$(date +'%H:%M:%S') -0600"
+    hyphened_title=${title// /-}
+    lower_case_hyphened_title="$(echo $hyphened_title | tr '[A-Z]' '[a-z]')"
+    file_name=$date-$lower_case_hyphened_title.md
+    touch $file_name
+    echo "---\nlayout: post\ncomments: true\ntitle: $title\ndescription: $2\ndate: $date $time\ncategories: [\"$3\"]\n---\n\n" >> $file_name
+}
+
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/collections/notes"
 alias blog="cd ~/GitProjects/bobbywlindsey"
 alias dsi="cd ~/Dropbox/me/career/technipfmc/dsi"
 alias dotfiles="cd ~/GitProjects/dotfiles"
+alias projects="cd ~/GitProjects"
+alias ds="cd ~/GitProjects/data-science/project-template"
 alias zs="source ~/.zshrc"
 alias ezs="vim ~/.zshrc"
 alias gum="git pull upstream master"
@@ -57,6 +79,7 @@ alias mm="sudo mount -t ntfs-3g -o ro /dev/sdd1 /media/Media"
 alias jn-remote="jupyter-notebook --ip='*' --no-browser --port=8889"
 alias update-sys="sudo ~/GitProjects/dotfiles/linux/update_sys.sh"
 alias wan="curl 'https://api.ipify.org'"
+alias create="touch"
 
 # include Z, yo
 . $HOME/z.sh

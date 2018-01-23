@@ -54,3 +54,4 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 sudo apt-get install htop -y
 
 sudo apt-get install unrar -y
+sudo apt-get install tree
