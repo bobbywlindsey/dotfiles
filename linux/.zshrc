@@ -64,7 +64,7 @@ create-post() {
 alias db="cd ~/Dropbox/"
 alias dls="cd ~/Downloads/"
 alias notes="cd ~/Dropbox/collections/notes"
-alias blog="cd ~/GitProjects/bobbywlindsey"
+alias blog="cd ~/Dropbox/me/career/website-and-blog/bobbywlindsey"
 alias dsi="cd ~/Dropbox/me/career/technipfmc/dsi"
 alias dotfiles="cd ~/GitProjects/dotfiles"
 alias projects="cd ~/GitProjects"

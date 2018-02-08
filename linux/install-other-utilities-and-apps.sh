@@ -55,3 +55,7 @@ sudo apt-get install htop -y
 
 sudo apt-get install unrar -y
 sudo apt-get install tree
+
+# install Cisco AnyConnect
+sudo apt-get install network-manager-vpnc network-manager-vpnc-gnome network-manager-openconnect-gnome -y
+

@@ -4,10 +4,16 @@
 
 set -e
 
-# get Ruby dependencies
+# install Ruby via RVM
 sudo apt-get remove ruby -y
-sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs -y
-git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev nodejs software-properties-common -y
+gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+sudo apt-add-repository -y ppa:rael-gc/rvm
+sudo apt-get update
+sudo apt-get install rvm -y
+# change your terminal window with these directions https://github.com/rvm/ubuntu_rvm
+# after a reboot, install Ruby: rvm install ruby-2.5.0
+#git clone https://github.com/rbenv/rbenv.git ~/.rbenv
 
 # install Julia
 sudo add-apt-repository ppa:staticfloat/juliareleases -y
