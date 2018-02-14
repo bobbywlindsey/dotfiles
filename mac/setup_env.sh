@@ -6,26 +6,39 @@ brew upgrade
 
 # set up terminal
 brew install iterm2
-brew install zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 brew cask install caskroom/fonts/font-hack
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+brew install zsh-syntax-highlighting
+source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# install powerline fonts
+pip install --user powerline-status
+cd ~/Donwloads
+git clone https://github.com/powerline/fonts
+cd fonts
+./install.sh
 
 # install vim
-brew tap zegervdv/zathura
-brew install zathura
-brew install zathura-pdf-poppler
-brew install xdotool
-brew cask install skim
-git clone https://github.com/amix/vimrc.git ~/.vim_runtime
+brew install vim --with-override-system-vi
+brew install macvim --with-override-system-vim
+brew linkapps
+# install ultimate vim config
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
+git clone https://github.com/joshdick/onedark.vim.git ~/.vim_runtime/my_plugins
+# brew tap zegervdv/zathura
+# brew install zathura
+# brew install zathura-pdf-poppler
+# brew install xdotool
+# brew cask install skim
 cp ./my_configs.vim ~/.vim_runtime
 git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/my_plugins/vim-pencil
 git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/my_plugins/vimtek
 git clone https://github.com/joshdick/onedark.vim.git ~/.vim_runtime/my_plugins/onedark.vim
 
 # install Sublime Text
-brew install sublime-text
+brew tap caskroom/versions
+brew cask install sublime-text
 mkdir ~/bin
 ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
 
@@ -44,13 +57,11 @@ brew install coreutils
 brew install z
 brew install node
 brew install freeglut
-brew tap homebrew/versions
-brew install homebrew/versions/gcc6 --with-all-languages --with-java --with-jit --with-nls
+brew install gcc6 --with-all-languages --with-java --with-jit --with-nls
 npm install --global fast-cli
 npm install --global emoj
 
 # install R
-brew tap homebrew/science
 brew install Caskroom/cask/xquartz
 brew install r
 
