@@ -82,7 +82,7 @@ alias jn-remote="jupyter-notebook --ip='*' --no-browser --port=8889"
 alias update-sys="sudo ~/GitProjects/dotfiles/linux/update_sys.sh"
 alias wan="curl 'https://api.ipify.org'"
 alias create="touch"
-alias vim="gvim"
+alias vim="gvim -p --remote-tab-silent"
 alias chrome="chromium-browser"
 
 # include Z, yo

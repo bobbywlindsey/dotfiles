@@ -3,7 +3,15 @@
 " let g:solarized_termtrans = 1
 " set background=dark
 " colorscheme solarized
-colorscheme onedark
+" colorscheme onedark
+
+colorscheme one
+let g:airline_theme='one'
+" let g:airline_powerline_fonts=1
+let g:one_allow_italics=1
+set background=light
+set t_Co=256
+
 set relativenumber
 :set guicursor+=a:blinkon0
 
