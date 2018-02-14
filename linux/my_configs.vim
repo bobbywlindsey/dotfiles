@@ -32,8 +32,12 @@ let g:vimtex_compiler_latexmk = {'callback' : 0}
 " disable warnings for LaTeX files
 let g:syntastic_tex_chktex_quiet_messages={'level':'warnings'}
 
-" copy to clipboard with YY
-vnoremap  YY "*y
+" copy to clipboard with YY or Ctrl-c
+vnoremap  YY "+y
+vnoremap <C-c> "+y
+" paste from clipboard with Ctrl-v
+set pastetoggle=<F10>
+inoremap <C-v> <F10><C-r>+<F10>
 
 " resolve common LaTeX errors and warnings
 function! CleanLatexFunction()

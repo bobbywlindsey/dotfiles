@@ -31,11 +31,13 @@ new-project() {
 }
 
 build-prod-site() {
-    JEKYLL_ENV=production bundle exec jekyll build
+    cd ~/Dropbox/me/career/website-and-blog/bobbywlindsey;
+    JEKYLL_ENV=production bundle exec jekyll build;
 }
 
 build-dev-site() {
-    bundle exec jekyll serve --drafts
+    cd ~/Dropbox/me/career/website-and-blog/bobbywlindsey;
+    bundle exec jekyll serve --drafts;
 }
 
 push-site() {
@@ -80,6 +82,8 @@ alias jn-remote="jupyter-notebook --ip='*' --no-browser --port=8889"
 alias update-sys="sudo ~/GitProjects/dotfiles/linux/update_sys.sh"
 alias wan="curl 'https://api.ipify.org'"
 alias create="touch"
+alias vim="gvim"
+alias chrome="chromium-browser"
 
 # include Z, yo
 . $HOME/z.sh
