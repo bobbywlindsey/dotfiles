@@ -27,7 +27,7 @@ apply-naming-scheme() {
 
 build-prod-site() {
     cd ~/Dropbox/me/career/website-and-blog/bobbywlindsey;
-    JEKYLL_ENV=production jekyll build;
+    JEKYLL_ENV=production bundle exec jekyll build;
 }
 
 build-dev-site() {
@@ -86,6 +86,7 @@ alias projects="cd ~/GitProjects"
 alias ds="cd ~/GitProjects/data-science/project-template"
 alias zs="source ~/.zshrc"
 alias ezs="vim ~/.zshrc"
+alias evim="vim ~/.vim_runtime/my_configs.vim"
 alias gum="git pull upstream master"
 alias clipboard="pbcopy"
 alias chrome="/usr/bin/open -a '/Applications/Google Chrome.app'"
@@ -115,7 +116,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git extract osx copydir brew npm)
 
 # override default Python
-export PATH="$HOME/anaconda/bin:$PATH"
+export PATH=/anaconda3/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 

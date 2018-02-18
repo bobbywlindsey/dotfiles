@@ -6,6 +6,7 @@
 colorscheme onedark
 set relativenumber
 :set guicursor+=a:blinkon0
+set nofoldenable " disable line folding
 
 " remap tabular to align on anything
 let mapleader=','
