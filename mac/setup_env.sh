@@ -75,8 +75,10 @@ brew install postgresql
 sudo ln -s /usr/local/Cellar/postgresql /usr/local/opt/postgresql
 # install ODBC dependency for R
 brew install unixODBC
-brew install freetds
+brew install freetds@0.91
+brew link --force freetds@0.91
 conda install pymssql
+conda install psycopg2
 pip install jupyterthemes
 pip install spotipy
 pip install gmusicapi
