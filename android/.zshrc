@@ -101,7 +101,7 @@ create-post() {
 }
 
 sn() {
-    grep -rnwi "$HOME/storage/Android/data/com.dropbox.android/files/u21602247/scratch/collections/notes" -e "$1" | sed s_$HOME'/Dropbox/collections/'__ | grep -i "$1"
+    grep -rnwi "$HOME/storage/Android/data/com.dropbox.android/files/u21602247/scratch/collections/notes" -e "$1" | sed s_$HOME'/storage/Android/data/com.dropbox.android/files/u21602247/scratch/collections/'__ | grep -i "$1"
 }
 
 build-prod-site() {
