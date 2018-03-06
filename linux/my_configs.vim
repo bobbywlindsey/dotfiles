@@ -1,26 +1,31 @@
 " store in ~/.vim_runtime
 " https://github.com/amix/vimrc
+
 " let g:solarized_termtrans = 1
 " set background=dark
 " colorscheme solarized
-" colorscheme onedark
+colorscheme onedark
+set guifont=IBM\ Plex\ Mono\ 12
+" let g:airline_theme='silver'
 
-colorscheme one
-let g:airline_theme='one'
+" One theme
+" let g:airline_theme='one'
 " let g:airline_powerline_fonts=1
-let g:one_allow_italics=1
-set background=light
-set t_Co=256
+" let g:one_allow_italics=1
+" colorscheme one
+" set background=light
+" set t_Co=256
 
 set relativenumber
 :set guicursor+=a:blinkon0
+set nofoldenable "disable line folding
 
 " remap tabular to align on anything
 let mapleader=','
 vnoremap <Leader>a :Tabular<space>/
 
 " exit zenroom
-nnoremap <silent> <leader>Z :Goyo! \| colorscheme onedark<cr>
+nnoremap <silent> <leader>Z :Goyo! \| colorscheme solarized<cr>
 
 " configure pencil
 augroup pencil
