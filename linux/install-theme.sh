@@ -18,5 +18,5 @@ gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
 # turn terminal cursor blinking off
 gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default|tr -d \')/ cursor-blink-mode off
 # swap escape and caps lock keys
-sudo apt-get install dconf -y
+sudo apt-get install dconf-tools -y
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"

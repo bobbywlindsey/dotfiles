@@ -14,21 +14,21 @@ sudo apt-get install libfftw3-dev -y
 sudo apt-get install libcupti-dev -y
 sudo apt-get install tmux -y
 sudo apt-get install global -y
-sudo apt-get install xserver-xorg-input-libinput -y
+#sudo apt-get install xserver-xorg-input-libinput -y
 sudo apt-get install gdebi-core -y
 
 # antivirus
-sudo apt-get install clamav clamav-daemon -y
-sudo freshclam
+#sudo apt-get install clamav clamav-daemon -y
+#sudo freshclam
 
 # install media software
-sudo apt-get install chromium-browser -y
+#sudo apt-get install chromium-browser -y
 sudo apt-get install vlc -y
 
 # install feedreader
 sudo add-apt-repository ppa:eviltwin1/feedreader-stable -y
 sudo apt update
-sudo apt-get install feedreader-y
+#sudo apt-get install feedreader-y
 
 # install support for exfat
 sudo apt-get install exfat-utils exfat-fuse -y
