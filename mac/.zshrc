@@ -95,6 +95,7 @@ alias vim="/usr/bin/open -a '/Applications/MacVim.app'"
 alias wan="curl 'https://api.ipify.org'"
 alias create="touch"
 alias school="cd ~/Dropbox/me/university/grad-school/courses/fall-2017"
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then
