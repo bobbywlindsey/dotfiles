@@ -12,7 +12,7 @@
 
 ; list the packages you want
 (setq package-list
-          '(magit elpy jedi flycheck py-autopep8 org helm exec-path-from-shell solarized-theme helm-projectile markdown-mode))
+          '(magit elpy jedi flycheck py-autopep8 org helm exec-path-from-shell solarized-theme zenburn-theme helm-projectile markdown-mode))
 
 ; remember to pip install jedi flake8 autopep8 virtualenv
 
@@ -36,6 +36,8 @@
   (exec-path-from-shell-initialize))
 
 (elpy-enable)
+(setq python-shell-interpreter "ipython"
+  python-shell-interpreter-args "-i --simple-prompt")
 
 ; jedi
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -63,7 +65,8 @@
 
 (blink-cursor-mode 0) ; turn off blinking cursor
 (global-linum-mode t) ; turn on line numbers
-(load-theme 'solarized-light t) ; set theme
+;(load-theme 'solarized-light t) ; set theme
+(load-theme 'zenburn t)
 (setq backup-directory-alist `(("." . "~/.saves"))) ; redirect temp files
 (setq inhibit-startup-message t) ; hide the startup message
 
