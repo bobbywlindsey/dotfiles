@@ -28,6 +28,23 @@
     (unless (package-installed-p package)
           (package-install package)))
 
+; personal functions
+(defun my/insert-line-before ()
+  "Inserts a newline(s) above the line containing the cursor."
+  (interactive)
+  (move-beginning-of-line 1)
+  (newline)
+  (previous-line))
+
+(defun my/insert-line-after ()
+  "Inserts a newline(s) below the line containing the cursor."
+  (interactive)
+  (move-end-of-line 1)
+  (newline))
+
+(global-set-key (kbd "C-S-o")
+		'my/insert-line-before)
+
 ; configure packages
 (require 'org)
 
@@ -69,6 +86,7 @@
 (load-theme 'zenburn t)
 (setq backup-directory-alist `(("." . "~/.saves"))) ; redirect temp files
 (setq inhibit-startup-message t) ; hide the startup message
+(setq linum-format "  %d ") ; put a space on both sides of line number to handle weird fringe glitch on MacOS
 
 (require 'markdown-mode)
 
