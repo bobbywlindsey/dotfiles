@@ -4,17 +4,17 @@
 " let g:solarized_termtrans = 1
 " set background=dark
 " colorscheme solarized
-colorscheme onedark
-set guifont=IBM\ Plex\ Mono\ 12
+" colorscheme onedark
+set guifont=Source\ Code\ Pro\ 12
 " let g:airline_theme='silver'
 
 " One theme
-" let g:airline_theme='one'
-" let g:airline_powerline_fonts=1
-" let g:one_allow_italics=1
-" colorscheme one
-" set background=light
-" set t_Co=256
+let g:airline_theme='one'
+let g:airline_powerline_fonts=1
+let g:one_allow_italics=1
+colorscheme one
+set background=light
+set t_Co=256
 
 set relativenumber
 :set guicursor+=a:blinkon0

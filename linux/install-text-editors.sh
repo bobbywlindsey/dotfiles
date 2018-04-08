@@ -12,13 +12,8 @@ sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
 git clone https://github.com/lervag/vimtex.git ~/.vim_runtime/my_plugins/vimtek
 git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/my_plugins/vim-pencil
-git clone https://github.com/joshdick/onedark.vim.git ~/.vim_runtime/my_plugins/onedark.vim
 git clone https://github.com/vim-airline/vim-airline.git ~/.vim_runtime/my_plugins/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes.git ~/.vim_runtime/my_plugins/vim-airline-themes
 git clone https://github.com/rakr/vim-one.git ~/.vim_runtime/my_plugins/vim-one
-# install Sublime Text 3
-sudo add-apt-repository ppa:webupd8team/sublime-text-3 -y
-sudo apt update
-sudo apt-get install sublime-text-installer
-rm -rf ~/.config/sublime-text-3/Packages/User/
-ln -t ~/.config/sublime-text-3/Packages/ -s ~/Dropbox/collections/dev/sublime-text/User
+# install powerline fonts
+sudo apt-get install fonts-powerline
