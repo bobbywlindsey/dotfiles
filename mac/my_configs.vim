@@ -1,42 +1,95 @@
 " store in ~/.vim_runtime
 " https://github.com/amix/vimrc
-" let g:solarized_termtrans = 1
-" set background=dark
-" colorscheme solarized
-colorscheme onedark
+
+""""""""""""""""""""""""""""""""
+" => AESTHETICS
+""""""""""""""""""""""""""""""""
+
+" Overwrite statusbar settings (make sure to clone PaperColor theme)
+let g:lightline = {'colorscheme': 'PaperColor'}
+
+" Set theme
+colorscheme one
+set background=light
+set guifont=Inconsolata\ for\ Powerline:h15
+"let g:airline_theme='one'
+"let g:airline_powerline_fonts=1
+let g:one_allow_italics=1
+
+" Make window bigger on startup
+if has("gui_running")
+    set lines=60 columns=150
+endif
+
+" Turn on relative line numbering
 set relativenumber
-:set guicursor+=a:blinkon0
-set nofoldenable " disable line folding
+" Turn off blinking cursor
+set guicursor+=a:blinkon0
+" Disable line folding
+set nofoldenable
 
-" remap tabular to align on anything
-let mapleader=','
-vnoremap <Leader>a :Tabular<space>/
+" Change title of window
+autocmd BufEnter * let &titlestring = "Hey man, you're editing" .  " " . expand("%:t")
 
-" exit zenroom
-nnoremap <silent> <leader>Z :Goyo! \| colorscheme onedark<cr>
+" Set default working directory
+cd ~/GitProjects/
 
-" configure pencil
+""""""""""""""""""""""""""""""""
+" => CONFIGURATIONS
+""""""""""""""""""""""""""""""""
+
+" Exit zenroom without fucking up theme
+nnoremap <silent> <leader>Z :Goyo! \| colorscheme one<cr>
+
+" Configure pencil to make wrapped lines more easy to navigate
 augroup pencil
   autocmd!
   autocmd FileType markdown,md,mkd call pencil#init({'wrap': 'soft'})
   autocmd FileType text            call pencil#init()
 augroup END
 
-" configure markdown
+" Markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
-" configure vimtex
+" Vimtex
 let g:vimtex_view_method = 'skim'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_compiler_latexmk = {'callback' : 0}
-
-" disable warnings for LaTeX files
+" Disable warnings for LaTeX files
 let g:syntastic_tex_chktex_quiet_messages={'level':'warnings'}
 
-" copy to clipboard with YY
-vnoremap  YY "*y
+" Ale
+let g:ale_python_flake8_executable = '/anaconda3/bin/flake8'
+" Only lint when saving the file
+let g:ale_lint_on_text_changed = 'never'
+" Don't lint when opening a file
+let g:ale_lint_on_enter = 0
 
-" resolve common LaTeX errors and warnings
+" Jedi
+let g:pymode_python = 'python3'
+let g:pymode_virtualenv_path='/anaconda3'
+let g:jedi#force_py_version=3
+
+""""""""""""""""""""""""""""""""
+" => REMAPS
+""""""""""""""""""""""""""""""""
+
+" Remap tabular to align on anything
+let mapleader=','
+vnoremap <Leader>a :Tabular<space>/
+
+" Copy to clipboard with YY or Ctrl-c
+vnoremap  YY "+y
+vnoremap <C-c> "+y
+" paste from clipboard with Ctrl-v
+set pastetoggle=<F10>
+inoremap <C-v> <F10><C-r>+<F10>
+
+""""""""""""""""""""""""""""""""
+" => CUSTOM FUNCTIONS
+""""""""""""""""""""""""""""""""
+
+" Resolve common LaTeX errors and warnings
 function! CleanLatexFunction()
     :%s/\ \\ref/\~\\ref/ge
     :%s/\ "/\ ``/ge
@@ -51,13 +104,13 @@ endfunction
 command! CleanLatex call CleanLatexFunction()
 " :CleanLatex
 
-" append characters to rows of numbers or text
+" Append characters to rows of numbers or text
 function! PadMaterialsFunction() range
     silent execute a:firstline . ',' . a:lastline . 's/^/000/'
 endfunction
 command! -range PadMaterials <line1>,<line2> call PadMaterialsFunction()
 
-" convert rows of numbers or text (as if pasted from excel column) to a tuple
+" Convert rows of numbers or text (as if pasted from excel column) to a tuple
 function! ToTupleFunction() range
     silent execute a:firstline . "," . a:lastline . "s/^/'/"
     silent execute a:firstline . "," . a:lastline . "s/$/',/"
@@ -68,7 +121,7 @@ function! ToTupleFunction() range
 endfunction
 command! -range ToTuple <line1>,<line2> call ToTupleFunction()
 
-" convert rows of numbers or text (as if pasted from excel column) to an array
+" Convert rows of numbers or text (as if pasted from excel column) to an array
 function! ToArrayFunction() range
     silent execute a:firstline . "," . a:lastline . "s/^/'/"
     silent execute a:firstline . "," . a:lastline . "s/$/',/"
@@ -78,4 +131,3 @@ function! ToArrayFunction() range
 endfunction
 command! -range ToArray <line1>,<line2> call ToArrayFunction()
 
-" :so % to reload configs
