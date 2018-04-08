@@ -1,58 +1,61 @@
 " store in ~/.vim_runtime
 " https://github.com/amix/vimrc
 
-" let g:solarized_termtrans = 1
-" set background=dark
-" colorscheme solarized
-" colorscheme onedark
-set guifont=Source\ Code\ Pro\ 12
-" let g:airline_theme='silver'
-
-" One theme
+" Set theme
 let g:airline_theme='one'
 let g:airline_powerline_fonts=1
 let g:one_allow_italics=1
 colorscheme one
 set background=light
 set t_Co=256
+set guifont=Inconsolata\ 12
 
+" Make window bigger on startup
+set lines=60 columns=150
+
+" Set default working directory
+cd ~/GitProjects/
+
+" Turn on relative line numbering
 set relativenumber
+" Turn off blinking cursor
 :set guicursor+=a:blinkon0
-set nofoldenable "disable line folding
+" Disable line folding
+set nofoldenable 
 
-" remap tabular to align on anything
+" Remap tabular to align on anything
 let mapleader=','
 vnoremap <Leader>a :Tabular<space>/
 
-" exit zenroom
-nnoremap <silent> <leader>Z :Goyo! \| colorscheme solarized<cr>
+" Exit zenroom without fucking up theme
+nnoremap <silent> <leader>Z :Goyo! \| colorscheme one<cr>
 
-" configure pencil
+" Configure pencil to make wrapped lines more easy to navigate
 augroup pencil
   autocmd!
   autocmd FileType markdown,md,mkd call pencil#init({'wrap': 'soft'})
   autocmd FileType text            call pencil#init()
 augroup END
 
-" configure markdown
+" Configure markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
-" configure vimtex
+" Configure vimtex
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 
-" disable warnings for LaTeX files
+" Disable warnings for LaTeX files
 let g:syntastic_tex_chktex_quiet_messages={'level':'warnings'}
 
-" copy to clipboard with YY or Ctrl-c
+" Copy to clipboard with YY or Ctrl-c
 vnoremap  YY "+y
 vnoremap <C-c> "+y
 " paste from clipboard with Ctrl-v
 set pastetoggle=<F10>
 inoremap <C-v> <F10><C-r>+<F10>
 
-" resolve common LaTeX errors and warnings
+" Resolve common LaTeX errors and warnings
 function! CleanLatexFunction()
     :%s/\ \\ref/\~\\ref/ge
     :%s/\ "/\ ``/ge
@@ -67,13 +70,13 @@ endfunction
 command! CleanLatex call CleanLatexFunction()
 " :CleanLatex
 
-" append characters to rows of numbers or text
+" Append characters to rows of numbers or text
 function! PadMaterialsFunction() range
     silent execute a:firstline . ',' . a:lastline . 's/^/000/'
 endfunction
 command! -range PadMaterials <line1>,<line2> call PadMaterialsFunction()
 
-" convert rows of numbers or text (as if pasted from excel column) to a tuple
+" Convert rows of numbers or text (as if pasted from excel column) to a tuple
 function! ToTupleFunction() range
     silent execute a:firstline . "," . a:lastline . "s/^/'/"
     silent execute a:firstline . "," . a:lastline . "s/$/',/"
@@ -84,7 +87,7 @@ function! ToTupleFunction() range
 endfunction
 command! -range ToTuple <line1>,<line2> call ToTupleFunction()
 
-" convert rows of numbers or text (as if pasted from excel column) to an array
+" Convert rows of numbers or text (as if pasted from excel column) to an array
 function! ToArrayFunction() range
     silent execute a:firstline . "," . a:lastline . "s/^/'/"
     silent execute a:firstline . "," . a:lastline . "s/$/',/"
@@ -93,5 +96,15 @@ function! ToArrayFunction() range
     silent execute "normal $xa]"
 endfunction
 command! -range ToArray <line1>,<line2> call ToArrayFunction()
+
+" Change title of window
+let &titlestring = "Hey man, you're editing" . " " . expand("%:t")
+if &term == "screen"
+    set t_ts=^[k
+    set t_fs=^[\
+endif
+if &term == "screen" || &term == "xterm"
+    set title
+endif
 
 " :so % to reload configs
