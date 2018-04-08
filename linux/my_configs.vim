@@ -1,31 +1,42 @@
 " store in ~/.vim_runtime
 " https://github.com/amix/vimrc
 
+""""""""""""""""""""""""""""""""
+" => AESTHETICS
+""""""""""""""""""""""""""""""""
+
+" Overwrite statusbar settings (make sure to clone PaperColor theme)
+let g:lightline = {'colorscheme': 'PaperColor'}
+
 " Set theme
-let g:airline_theme='one'
-let g:airline_powerline_fonts=1
-let g:one_allow_italics=1
 colorscheme one
 set background=light
-set t_Co=256
-set guifont=Inconsolata\ 12
+set guifont=Inconsolata\ 13
+"let g:airline_theme='one'
+"let g:airline_powerline_fonts=1
+let g:one_allow_italics=1
 
 " Make window bigger on startup
-set lines=60 columns=150
-
-" Set default working directory
-cd ~/GitProjects/
+if has("gui_running")
+    set lines=60 columns=150
+endif
 
 " Turn on relative line numbering
 set relativenumber
 " Turn off blinking cursor
-:set guicursor+=a:blinkon0
+set guicursor+=a:blinkon0
 " Disable line folding
-set nofoldenable 
+set nofoldenable
 
-" Remap tabular to align on anything
-let mapleader=','
-vnoremap <Leader>a :Tabular<space>/
+" Change title of window
+autocmd BufEnter * let &titlestring = "Hey man, you're editing" .  " " . expand("%:t")
+
+" Set default working directory
+cd ~/GitProjects/
+
+""""""""""""""""""""""""""""""""
+" => CONFIGURATIONS
+""""""""""""""""""""""""""""""""
 
 " Exit zenroom without fucking up theme
 nnoremap <silent> <leader>Z :Goyo! \| colorscheme one<cr>
@@ -37,16 +48,35 @@ augroup pencil
   autocmd FileType text            call pencil#init()
 augroup END
 
-" Configure markdown
+" Markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
-" Configure vimtex
+" Vimtex
 let g:vimtex_view_method = 'zathura'
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 let g:vimtex_compiler_latexmk = {'callback' : 0}
-
 " Disable warnings for LaTeX files
 let g:syntastic_tex_chktex_quiet_messages={'level':'warnings'}
+
+" Ale
+let g:ale_python_flake8_executable = 'home/bobby/anaconda/bin/flake8'
+" Only lint when saving the file
+let g:ale_lint_on_text_changed = 'never'
+" Don't lint when opening a file
+let g:ale_lint_on_enter = 0
+
+" Jedi
+let g:pymode_python = 'python3'
+let g:pymode_virtualenv_path='/home/bobby/anaconda'
+let g:jedi#force_py_version=3
+
+""""""""""""""""""""""""""""""""
+" => REMAPS
+""""""""""""""""""""""""""""""""
+
+" Remap tabular to align on anything
+let mapleader=','
+vnoremap <Leader>a :Tabular<space>/
 
 " Copy to clipboard with YY or Ctrl-c
 vnoremap  YY "+y
@@ -54,6 +84,10 @@ vnoremap <C-c> "+y
 " paste from clipboard with Ctrl-v
 set pastetoggle=<F10>
 inoremap <C-v> <F10><C-r>+<F10>
+
+""""""""""""""""""""""""""""""""
+" => CUSTOM FUNCTIONS
+""""""""""""""""""""""""""""""""
 
 " Resolve common LaTeX errors and warnings
 function! CleanLatexFunction()
@@ -96,15 +130,3 @@ function! ToArrayFunction() range
     silent execute "normal $xa]"
 endfunction
 command! -range ToArray <line1>,<line2> call ToArrayFunction()
-
-" Change title of window
-let &titlestring = "Hey man, you're editing" . " " . expand("%:t")
-if &term == "screen"
-    set t_ts=^[k
-    set t_fs=^[\
-endif
-if &term == "screen" || &term == "xterm"
-    set title
-endif
-
-" :so % to reload configs
