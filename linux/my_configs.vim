@@ -29,7 +29,7 @@ set guicursor+=a:blinkon0
 set nofoldenable
 
 " Change title of window
-autocmd BufEnter * let &titlestring = "Hey man, you're editing" .  " " . expand("%:t")
+autocmd BufEnter * if expand("%:t")=='' | let &titlestring = "Hey man, you're not editing anything at the moment" | else | let &titlestring = "Hey man, you're editing" .  " " . expand("%:t") | endif
 
 " Set default working directory
 cd ~/GitProjects/

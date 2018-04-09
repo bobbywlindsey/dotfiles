@@ -29,7 +29,7 @@ set guicursor+=a:blinkon0
 set nofoldenable
 
 " Change title of window
-autocmd BufEnter * let &titlestring = "Hey man, you're editing" .  " " . expand("%:t")
+autocmd BufEnter * if expand("%:t")=='' | let &titlestring = "Hey man, you're not editing anything at the moment" | else | let &titlestring = "Hey man, you're editing" .  " " . expand("%:t") | endif
 
 " Set default working directory
 cd ~/GitProjects/
@@ -70,6 +70,9 @@ let g:pymode_python = 'python3'
 let g:pymode_virtualenv_path='/anaconda3'
 let g:jedi#force_py_version=3
 
+" fzf
+set rtp+=~/.fzf
+
 """"""""""""""""""""""""""""""""
 " => REMAPS
 """"""""""""""""""""""""""""""""
@@ -84,6 +87,10 @@ vnoremap <C-c> "+y
 " paste from clipboard with Ctrl-v
 set pastetoggle=<F10>
 inoremap <C-v> <F10><C-r>+<F10>
+
+" fzf mappings
+nmap ; :Buffers<CR>
+nmap <Leader>t :Files<CR>
 
 """"""""""""""""""""""""""""""""
 " => CUSTOM FUNCTIONS

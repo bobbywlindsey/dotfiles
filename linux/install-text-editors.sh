@@ -8,6 +8,8 @@ sudo apt-get install libsynctex-dev -y
 sudo apt-get install libgtk-3-dev -y
 sudo apt-get install zathura -y
 sudo apt-get install ack-grep -y
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
