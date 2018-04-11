@@ -9,6 +9,12 @@ sudo apt-get install libgtk-3-dev -y
 sudo apt-get install zathura -y
 sudo apt-get install ack-grep -y
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+# install YouCompleteMe for Vim
+sudo apt-get install build-essential cmake
+sudo apt-get install python-dev python3-dev
+git clone --recursive git@github.com:Valloric/YouCompleteMe.git ~/.vim_runtime/my_plugins
+cd ~/.vim_runtime/my_plugins/YouCompleteMe
+./install.py --clang-completer
 ~/.fzf/install
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh

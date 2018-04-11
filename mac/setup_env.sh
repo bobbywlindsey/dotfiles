@@ -26,6 +26,10 @@ brew linkapps
 git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 git clone https://github.com/joshdick/onedark.vim.git ~/.vim_runtime/my_plugins
+# install YouCompleteMe for Vim
+git clone --recursive git@github.com:Valloric/YouCompleteMe.git ~/.vim_runtime/my_plugins
+cd ~/.vim_runtime/my_plugins/YouCompleteMe
+./install.py --clang-completer
 # brew tap zegervdv/zathura
 # brew install zathura
 # brew install zathura-pdf-poppler
