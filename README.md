@@ -53,3 +53,15 @@ rbenv global 2.5.1
 # install Jekyll
 gem install bundler
 ```
+
+Install vim configs by using this repo and installing:
+
+```
+git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+sh ~/.vim_runtime/install_awesome_vimrc.sh
+git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/my_plugins/vim-pencil
+git clone https://github.com/vim-airline/vim-airline.git ~/.vim_runtime/my_plugins/vim-airline
+git clone https://github.com/vim-airline/vim-airline-themes.git ~/.vim_runtime/my_plugins/vim-airline-themes
+git clone https://github.com/rakr/vim-one.git ~/.vim_runtime/my_plugins/vim-one
+sudo apt-get install fonts-powerline -y
+```
