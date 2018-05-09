@@ -8,7 +8,7 @@ sudo ./update_sys.sh
 sudo ./setup_env.sh
 ```
 
-### For MacOS
+### MacOS
 
 ```
 cd mac/
