@@ -7,7 +7,7 @@ export ZSH=/home/bobby/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="clean"
+ZSH_THEME=""
 
 sn() {
     grep -rnwi "/mnt/c/Users/Bobby/Dropbox/collections/notes" -e "$1" | sed s_$HOME'/Dropbox/collections/'__ | grep -i "$1"
@@ -31,12 +31,12 @@ new-project() {
 }
 
 build-prod-site() {
-    cd /mnt/c/Users/Bobby/Dropbox/Me/Career/website-and-blog/bobbywlindsey;
+    cd /mnt/c/Users/Bobby/Dropbox/me/career/website-and-blog/bobbywlindsey;
     JEKYLL_ENV=production bundle exec jekyll build;
 }
 
 build-dev-site() {
-    cd /mnt/c/Users/Bobby/Dropbox/Me/Career/website-and-blog/bobbywlindsey;
+    cd /mnt/c/Users/Bobby/Dropbox/me/career/website-and-blog/bobbywlindsey;
     bundle exec jekyll serve --drafts;
 }
 
@@ -66,8 +66,8 @@ create-post() {
 alias db="cd /mnt/c/Users/Bobby/Dropbox/"
 alias dls="cd /mnt/c/Users/Bobby/Downloads/"
 alias notes="cd /mnt/c/Users/Bobby/Dropbox/collections/notes"
-alias blog="cd /mnt/c/Users/Bobby/Dropbox/Me/Career/website-and-blog/bobbywlindsey"
-alias dsi="cd /mnt/c/Users/Bobby/Dropbox/Me/Career/technipfmc/dsi"
+alias blog="cd /mnt/c/Users/Bobby/Dropbox/me/career/website-and-blog/bobbywlindsey"
+alias dsi="cd /mnt/c/Users/Bobby/Dropbox/me/career/technipfmc/dsi"
 alias dotfiles="cd /mnt/c/Users/Bobby/GitProjects/dotfiles"
 alias projects="cd /mnt/c/Users/Bobby/GitProjects"
 alias ds="cd /mnt/c/Users/Bobby/GitProjects/data-science/project-template"
@@ -97,7 +97,17 @@ plugins=(
   git
 )
 
+export PATH=~/anaconda3/bin:$PATH
+
 source $ZSH/oh-my-zsh.sh
+
+# load pure prompt
+autoload -U promptinit; promptinit
+prompt pure
+PURE_PROMPT_SYMBOL=">"
+PURE_GIT_DOWN_ARROW="↓"
+PURE_GIT_UP_ARROW="↑"
+eval `dircolors ~/dircolors-solarized/dircolors.256dark`
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
