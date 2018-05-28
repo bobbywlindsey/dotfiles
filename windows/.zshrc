@@ -41,15 +41,15 @@ build-dev-site() {
 }
 
 push-site() {
-    rsync -v -rz -e ssh --checksum --delete mnt/c/Users/Bobby/Dropbox/me/career/website-and-blog/bobbywlindsey/_site/ $1@bobbywlindsey.com:public_html
+    rsync -v -rz -e ssh --checksum --delete /mnt/c/Users/Bobby/Dropbox/me/career/website-and-blog/bobbywlindsey/_site/ $1@bobbywlindsey.com:public_html
 }
 
 jarvis-connect() {
-    ssh bobby@$1 -p 22222
+    ssh $1@$2 -p 22222
 }
 
 jn-connect() {
-    ssh -N -L localhost:8888:localhost:8889 bobby@$1 -p 22222
+    ssh -N -L localhost:8888:localhost:8888 $1@$2 -p 22222
 }
 
 create-post() {
