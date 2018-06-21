@@ -18,7 +18,7 @@ def script_post_save(model, os_path, contents_manager):
     check_call(['jupyter', 'nbconvert', '--to', 'html', file_name], cwd=directory)
 
 
-# save notebook as html and remove code cells
+# save notebook as html
 c.FileContentsManager.post_save_hook = script_post_save
 c.NotebookApp.browser = u'chrome'
 
