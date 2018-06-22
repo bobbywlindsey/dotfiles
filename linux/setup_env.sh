@@ -1,7 +1,5 @@
 #!/bin/sh
 
-# NOTE: update hardcoded links before running script to get latest version of software
-
 set -e
 
 # update everything

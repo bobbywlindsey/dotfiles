@@ -2,6 +2,9 @@
 
 set -e
 
+# install Docker
+curl -sSL https://get.docker.com/ | sh
+
 # install developer stuff
 sudo apt-get install xclip -y
 sudo apt-get install git -y

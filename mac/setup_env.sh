@@ -70,43 +70,17 @@ npm install --global emoj
 brew install Caskroom/cask/xquartz
 brew install r
 
-# install dev libraries
-curl -sSL https://get.rvm.io | bash -s stable --ruby
 # install OpenAI Gym dependencies
 brew install cmake boost boost-python sdl2 swig wget
 pip install 'gym[all]'
 # install postgresql
 brew install postgresql
 sudo ln -s /usr/local/Cellar/postgresql /usr/local/opt/postgresql
-# install ODBC dependency for R
+# install database stuff
 brew install unixODBC
 brew install freetds@0.91
 brew link --force freetds@0.91
-conda install pymssql
-conda install psycopg2
-pip install jupyterthemes
-pip install spotipy
-pip install gmusicapi
-pip install luigi
-conda install cudatoolkit
 
 # productivity apps
-brew cask install flux
 brew cask install bettertouchtool
 brew cask install alfred
-
-# post install commads
-# jt -t grade3
-# conda install feedparser
-# conda install -c r r-essentials
-
-# download cuDNN (must login to Nvidia first): https://developer.nvidia.com/cudnn
-# sudo cp include/cudnn.h /Developer/NVIDIA/CUDA-8.0/include
-# sudo cp lib/libcudnn* /usr/local/cuda/lib
-# create .theanorc file in home directory with contents:
-# [global]
-# device = gpu0
-# floatX = float32
-
-# if getting rvm error with oh my zsh
-# rm ~/.zcomp*

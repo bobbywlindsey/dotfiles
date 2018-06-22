@@ -5,29 +5,6 @@
 
 set -e
 
-# install Ruby
-rbenv install 2.4.0
-rbenv global 2.4.0
-gem install jekyll bundler
-
-conda update conda
-conda update --all
-# (install these Python packages after Anaconda installation)
-pip install mkdoc mkdoc-material python-markdown-math
-conda install -c r r-essentials
-conda install mysql-connector-python
-conda install theano
-conda install pygpu=0.6.2
-conda install cudatoolkit
-conda install feedparser
-pip install tensorflow-gpu
-
-pip install spotipy
-pip install gmusicapi
-
-# download MLK (HARDLINK)
-curl -O https://mran.microsoft.com/install/mro/3.3.0/RevoMath-3.3.0.tar.gz
-
 # install CUDA toolkit once choosing the latest Nvidia driver
 sudo apt-get install cuda
 # to fix any screen tearing with Ubuntu 16.04 and Nvidia GTX 1070
