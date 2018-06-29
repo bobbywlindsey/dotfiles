@@ -2,7 +2,8 @@
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=""
 DEFAULT_USER="bobbylindsey"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
@@ -47,17 +48,16 @@ publish2dsi() {
 }
 
 jarvis-connect() {
-    ssh bobby@$1 -p 22222
+    ssh $1@$2 -p 22222
 }
 
 jn-connect() {
-    ssh -N -L localhost:8888:localhost:8889 bobby@$1 -p 22222
+    ssh -N -L localhost:8888:localhost:8888 $1@$2 -p 22222
 }
 
 new-project() {
-    cp -r ~/GitProjects/data-science/project-template/helpers .
-    cp -r ~/GitProjects/data-science/project-template/deeplearning .
-    cp ~/GitProjects/data-science/project-template/project-template.ipynb .
+    cp -r ~/GitProjects/data-science/helpers .
+    cp -r ~/GitProjects/data-science/deeplearning .
 }
 
 readlink() {
@@ -96,6 +96,7 @@ alias wan="curl 'https://api.ipify.org'"
 alias create="touch"
 alias school="cd ~/Dropbox/me/university/grad-school/courses/fall-2017"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+alias julia="/Applications/Julia-0.6.app/Contents/Resources/julia/bin/julia"
 
 # include Z, yo
 if [[ `uname` == 'Darwin' ]]; then
@@ -121,8 +122,16 @@ export PATH=/anaconda3/bin:$PATH
 
 source $ZSH/oh-my-zsh.sh
 
+# load pure prompt
+autoload -U promptinit; promptinit
+prompt pure
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
+LC_CTYPE=en_US.UTF-8
+LC_ALL=en_US.UTF-8
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
@@ -136,3 +145,6 @@ fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source $HOME/.rvm/scripts/rvm
