@@ -50,17 +50,16 @@ sudo apt-get install unrar -y
 sudo apt-get install tree -y
 sudo apt-get install network-manager-vpnc network-manager-vpnc-gnome network-manager-openconnect-gnome -y
 
-# install oh my zsh
-sudo apt-get install zsh -y
-sudo apt-get install git-core
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-# install z
-curl -o ~/z.sh https://raw.githubusercontent.com/rupa/z/master/z.sh
-# chsh -s `which zsh`
-# copy .zshrc to ~/
-cp ./.zshrc ~/
-# copy .zshenv to ~/
-cp ./.zshenv ~/
+# install fish
+sudo apt-add-repository ppa:fish-shell/release-2 -y
+sudo apt-get update
+sudo apt-get install fish -y
+chsh -s /usr/bin/fish
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+fisher rafaelrinaldi/pure
+mkdir -p ~/.config/fish/functions
+cp ./fish/config.fish ~/.config/fish
+cp -R ./fish/functions/. ~/.config/fish/functions/
 
 # install vim
 sudo apt-get install vim vim-gnome -y
@@ -77,7 +76,6 @@ git clone https://github.com/reedes/vim-pencil ~/.vim_runtime/my_plugins/vim-pen
 git clone https://github.com/vim-airline/vim-airline.git ~/.vim_runtime/my_plugins/vim-airline
 git clone https://github.com/vim-airline/vim-airline-themes.git ~/.vim_runtime/my_plugins/vim-airline-themes
 git clone https://github.com/rakr/vim-one.git ~/.vim_runtime/my_plugins/vim-one
-
 
 # install paper theme for Gnome
 sudo apt-get install gnome-tweak-tool -y
@@ -104,14 +102,14 @@ sudo apt-get install dconf-tools -y
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
 # install nodejs and npm
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y nodejs
-sudo ln -s /usr/bin/nodejs /usr/bin/node
+# curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+# sudo apt-get install -y nodejs
+# sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 # install npm cli tools
-npm install --global emoj
-npm install --global fast-cli
-npm install --global pure-prompt
+# npm install --global emoj
+# npm install --global fast-cli
+# npm install --global pure-prompt
 
 ### POST SETUP ###
 # install CUDA toolkit once choosing the latest Nvidia driver
