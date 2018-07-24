@@ -51,13 +51,6 @@ augroup END
 " Markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
-" Vimtex
-let g:vimtex_view_method = 'zathura'
-let g:vimtex_quickfix_latexlog = {'default' : 0}
-let g:vimtex_compiler_latexmk = {'callback' : 0}
-" Disable warnings for LaTeX files
-let g:syntastic_tex_chktex_quiet_messages={'level':'warnings'}
-
 " Ale
 " let g:ale_python_flake8_executable = 'home/bobby/anaconda/bin/flake8'
 let g:ale_python_flake8_executable = 'home/lindseb/anaconda3/bin/flake8'
@@ -65,13 +58,6 @@ let g:ale_python_flake8_executable = 'home/lindseb/anaconda3/bin/flake8'
 let g:ale_lint_on_text_changed = 'never'
 " Don't lint when opening a file
 let g:ale_lint_on_enter = 0
-
-" YouCompleteMe
-" let g:ycm_python_binary_path = '/home/bobby/anaconda/bin/python3'
-let g:ycm_python_binary_path = '/home/lindseb/anaconda3/bin/python3'
-
-" zfz
-set rtp+=~/.fzf
 
 """"""""""""""""""""""""""""""""
 " => REMAPS
@@ -87,14 +73,6 @@ vnoremap <C-c> "+y
 " paste from clipboard with Ctrl-v
 set pastetoggle=<F10>
 inoremap <C-v> <F10><C-r>+<F10>
-
-" fzf mappings
-nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
-
-" YouCompleteMe mappings
-nnoremap <leader>g :YcmCompleter GoToDeclaration<CR>
-nnoremap <leader>d :YcmCompleter GoToDefinition<CR>
 
 """"""""""""""""""""""""""""""""
 " => CUSTOM FUNCTIONS
