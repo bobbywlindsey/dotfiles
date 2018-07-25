@@ -50,17 +50,6 @@ sudo apt-get install unrar -y
 sudo apt-get install tree -y
 sudo apt-get install network-manager-vpnc network-manager-vpnc-gnome network-manager-openconnect-gnome -y
 
-# install fish
-sudo apt-add-repository ppa:fish-shell/release-2 -y
-sudo apt-get update
-sudo apt-get install fish -y
-chsh -s /usr/bin/fish
-curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-fisher rafaelrinaldi/pure
-mkdir -p ~/.config/fish/functions
-cp ./fish/config.fish ~/.config/fish
-cp -R ./fish/functions/. ~/.config/fish/functions/
-
 # install vim
 sudo apt-get install vim vim-gnome -y
 sudo apt-get install libsynctex-dev -y
@@ -117,6 +106,20 @@ $BEGINNING/custom1/ binding '<Shift><Alt>dollar'
 # swap escape and caps lock keys
 sudo apt-get install dconf-tools -y
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+
+# install fish
+sudo apt-add-repository ppa:fish-shell/release-2 -y
+sudo apt-get update
+sudo apt-get install fish -y
+chsh -s /usr/bin/fish
+sudo chown -R bobby:bobby ~/.config/fish
+curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+fish
+fisher rafaelrinaldi/pure
+bash
+mkdir -p ~/.config/fish/functions
+cp ./fish/config.fish ~/.config/fish
+cp -R ./fish/functions/. ~/.config/fish/functions/
 
 # install nodejs and npm
 # curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
