@@ -107,6 +107,11 @@ $BEGINNING/custom1/ binding '<Shift><Alt>dollar'
 sudo apt-get install dconf-tools -y
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
+# install Signal desktop
+sudo curl -s https://updates.signal.org/desktop/apt/keys.asc | sudo apt-key add -
+echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+sudo apt update && sudo apt install signal-desktop -y
+
 # install fish
 sudo apt-add-repository ppa:fish-shell/release-2 -y
 sudo apt-get update
