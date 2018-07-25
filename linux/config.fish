@@ -1,6 +1,6 @@
 # add locations to path variable
 set -g -x PATH /usr/local/bin \
-               $HOME/anaconda/bin \
+               $HOME/anaconda3/bin \
 $PATH
 
 # set greeting message
