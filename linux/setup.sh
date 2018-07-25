@@ -9,7 +9,10 @@ sudo apt-get dist-upgrade -y
 sudo apt-get autoremove -y
 
 # install Docker
-curl -sSL https://get.docker.com/ | sh
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt-get install -y docker-ce
+sudo usermod -aG docker ${USER}
 
 # install developer stuff
 sudo apt-get install xclip -y
