@@ -92,10 +92,27 @@ sudo apt-get install fonts-powerline
 sudo fc-cache -fv
 
 # enable reverse mouse scrolling
-gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
+/usr/bin/gsettings set org.gnome.desktop.peripherals.mouse natural-scroll true
 
 # turn terminal cursor blinking off
-gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default|tr -d \')/ cursor-blink-mode off
+/usr/bin/gsettings set org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:$(gsettings get org.gnome.Terminal.ProfilesList default|tr -d \')/ cursor-blink-mode off
+
+# Custom keybindings
+BEGINNING="/usr/bin/gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+KEY_PATH="/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings"
+/usr/bin/gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings \
+"['$KEY_PATH/custom0/', '$KEY_PATH/custom1/']"
+# Screenshot to clipboard with Ctrl + Shift + Alt + 4
+$BEGINNING/custom0/ name 'screenshot to clipboard'
+$BEGINNING/custom0/ command 'gnome-screenshot -ac'
+$BEGINNING/custom0/ binding '<Primary><Shift><Alt>dollar'
+# Screenshot to Downloads folder with Shift + Alt + 4
+$BEGINNING/custom1/ name 'screenshot to downloads'
+$BEGINNING/custom1/ command 'gnome-screenshot -a'
+$BEGINNING/custom1/ binding '<Shift><Alt>dollar'
+
+# Set default location for screenshots to Downloads folder
+/usr/bin/gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$USER/Downloads/"
 
 # swap escape and caps lock keys
 sudo apt-get install dconf-tools -y
