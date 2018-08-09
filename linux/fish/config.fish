@@ -1,8 +1,6 @@
 # add locations to path variable
-set -g -x PATH $HOME/.rbenv/bin \
-               $HOME/.rbenv/plugins/ruby-build/bin \
-               /usr/local/bin \
-               $HOME/anaconda/bin \
+set -g -x PATH /usr/local/bin \
+               $HOME/anaconda3/bin \
 $PATH
 
 # set greeting message
