@@ -1,6 +1,7 @@
 # add locations to path variable
 set -g -x PATH /usr/local/bin \
                /anaconda3/bin \
+               /Applications/Julia-1.0.app/Contents/Resources/julia/bin \
 $PATH
 
 # set greeting message
