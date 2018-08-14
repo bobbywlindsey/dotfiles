@@ -5,4 +5,5 @@
 .atom/.node-gyp/
 .tern-port
 .DS_Store
+.vscode/
 nul
