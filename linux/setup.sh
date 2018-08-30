@@ -5,59 +5,65 @@ set -e
 # update everything
 sudo apt update
 sudo apt upgrade -y
-sudo apt-get dist-upgrade -y
-sudo apt-get autoremove -y
+sudo apt dist-upgrade -y
+sudo apt autoremove -y
 
 # install Docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-sudo apt-get install -y docker-ce
+sudo apt install -y docker-ce
 sudo usermod -aG docker ${USER}
 
+# install image decreasing tool
+sudo add-apt-repository ppa:atareao/nautilus-extensions
+sudo apt update
+sudo apt install nautilus-reduceimages
+
 # install developer stuff
-sudo apt-get install xclip -y
-sudo apt-get install git -y
-sudo apt-get install filezilla -y
-sudo apt-get install gnuplot -y
-sudo apt-get install curl -y
-sudo apt-get install npm -y
-sudo apt-get install libtiff5-dev -y
-sudo apt-get install libfftw3-dev -y
-sudo apt-get install libcupti-dev -y
-sudo apt-get install tmux -y
-sudo apt-get install global -y
-sudo apt-get install gdebi-core -y
+sudo apt install -y \
+    xclip \
+    git \
+    filezilla \
+    gnuplot \
+    curl \
+    npm \
+    libtiff5-dev \
+    libfftw3-dev \
+    libcupti-dev \
+    tmux \
+    global \
+    gdebi-core
 
 # install media software
-sudo apt-get install vlc -y
-sudo apt-get install exfat-utils exfat-fuse -y
+sudo apt install vlc -y
+sudo apt install exfat-utils exfat-fuse -y
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
 
 # install iptables
-sudo apt-get install iptables-persistent -y
+sudo apt install iptables-persistent -y
 
 # make available the latest Nvidia drivers
 sudo add-apt-repository ppa:graphics-drivers/ppa -y
 sudo apt update
 
 # install ssh server
-sudo apt-get install openssh-server -y
+sudo apt install openssh-server -y
 # systemctl status ssh
 # sudo service ssh restart
 # config file located at /etc/ssh/sshd_config
 
 # install utilities
-sudo apt-get install htop -y
-sudo apt-get install unrar -y
-sudo apt-get install tree -y
-sudo apt-get install network-manager-vpnc network-manager-vpnc-gnome network-manager-openconnect-gnome -y
+sudo apt install htop -y
+sudo apt install unrar -y
+sudo apt install tree -y
+sudo apt install network-manager-vpnc network-manager-vpnc-gnome network-manager-openconnect-gnome -y
 
 # install vim
-sudo apt-get install vim vim-gnome -y
-sudo apt-get install libsynctex-dev -y
-sudo apt-get install libgtk-3-dev -y
-sudo apt-get install ack-grep -y
+sudo apt install vim vim-gnome -y
+sudo apt install libsynctex-dev -y
+sudo apt install libgtk-3-dev -y
+sudo apt install ack-grep -y
 git clone https://github.com/amix/vimrc.git ~/.vim_runtime
 sh ~/.vim_runtime/install_awesome_vimrc.sh
 cp ./my_configs.vim ~/.vim_runtime
@@ -70,17 +76,17 @@ git clone https://github.com/vim-airline/vim-airline-themes.git ~/.vim_runtime/m
 git clone https://github.com/rakr/vim-one.git ~/.vim_runtime/my_plugins/vim-one
 
 # install paper theme for Gnome
-sudo apt-get install gnome-tweak-tool -y
+sudo apt install gnome-tweak-tool -y
 sudo add-apt-repository ppa:snwh/pulp -y
 sudo apt update
-sudo apt-get install paper-icon-theme -y
-sudo apt-get install paper-gtk-theme -y
-sudo apt-get install paper-cursor-theme -y
+sudo apt install paper-icon-theme -y
+sudo apt install paper-gtk-theme -y
+sudo apt install paper-cursor-theme -y
 
 # install fonts
-sudo apt-get install fonts-inconsolata -y
-sudo apt-get install fonts-hack-ttf -y
-sudo apt-get install fonts-powerline
+sudo apt install fonts-inconsolata -y
+sudo apt install fonts-hack-ttf -y
+sudo apt install fonts-powerline
 sudo fc-cache -fv
 
 # enable reverse mouse scrolling
@@ -107,7 +113,7 @@ $BEGINNING/custom1/ binding '<Shift><Alt>dollar'
 /usr/bin/gsettings set org.gnome.gnome-screenshot auto-save-directory "file:///home/$USER/Downloads/"
 
 # swap escape and caps lock keys
-sudo apt-get install dconf-tools -y
+sudo apt install dconf-tools -y
 dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
 
 # install Signal desktop
@@ -118,16 +124,16 @@ sudo apt update && sudo apt install signal-desktop -y
 # install Spotify
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90
 echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list
-sudo apt-get update
-sudo apt-get install spotify-client -y --allow-unauthenticated
+sudo apt update
+sudo apt install spotify-client -y --allow-unauthenticated
 
 # install DataGrip
 sudo snap install datagrip --classic
 
 # install fish
 sudo apt-add-repository ppa:fish-shell/release-2 -y
-sudo apt-get update
-sudo apt-get install fish -y
+sudo apt update
+sudo apt install fish -y
 chsh -s /usr/bin/fish
 sudo chown -R bobby:bobby ~/.config/fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
@@ -140,7 +146,7 @@ cp -R ./fish/functions/. ~/.config/fish/functions/
 
 # install nodejs and npm
 # curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-# sudo apt-get install -y nodejs
+# sudo apt install -y nodejs
 # sudo ln -s /usr/bin/nodejs /usr/bin/node
 
 # install npm cli tools
@@ -150,7 +156,7 @@ cp -R ./fish/functions/. ~/.config/fish/functions/
 
 ### POST SETUP ###
 # install CUDA toolkit once choosing the latest Nvidia driver
-# sudo apt-get install cuda
+# sudo apt install cuda
 # to fix any screen tearing with Ubuntu 16.04 and Nvidia GTX 1070
 # nvidia-settings --assign CurrentMetaMode="nvidia-auto-select +0+0 { ForceCompositionPipeline = On }"
 # then go into Nvidia X Server, click on X Server Display Configuration, and
