@@ -62,6 +62,7 @@ brew install z
 brew install node
 brew install freeglut
 brew install ack
+brew install thefuck
 brew install gcc6 --with-all-languages --with-java --with-jit --with-nls
 npm install --global fast-cli
 npm install --global emoj
