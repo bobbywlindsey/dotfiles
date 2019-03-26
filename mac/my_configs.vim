@@ -11,7 +11,7 @@ let g:lightline = {'colorscheme': 'PaperColor'}
 " Set theme
 colorscheme one
 set background=light
-set guifont=Inconsolata\ for\ Powerline:h15
+set guifont=Inconsolata\ 13
 "let g:airline_theme='one'
 "let g:airline_powerline_fonts=1
 let g:one_allow_italics=1
@@ -51,27 +51,13 @@ augroup END
 " Markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
 
-" Vimtex
-let g:vimtex_view_method = 'skim'
-let g:vimtex_quickfix_latexlog = {'default' : 0}
-let g:vimtex_compiler_latexmk = {'callback' : 0}
-" Disable warnings for LaTeX files
-let g:syntastic_tex_chktex_quiet_messages={'level':'warnings'}
-
 " Ale
-let g:ale_python_flake8_executable = '/anaconda3/bin/flake8'
+" let g:ale_python_flake8_executable = 'home/bobby/anaconda/bin/flake8'
+let g:ale_python_flake8_executable = 'home/lindseb/anaconda3/bin/flake8'
 " Only lint when saving the file
 let g:ale_lint_on_text_changed = 'never'
 " Don't lint when opening a file
 let g:ale_lint_on_enter = 0
-
-" Jedi
-let g:pymode_python = 'python3'
-let g:pymode_virtualenv_path='/anaconda3'
-let g:jedi#force_py_version=3
-
-" fzf
-set rtp+=~/.fzf
 
 """"""""""""""""""""""""""""""""
 " => REMAPS
@@ -87,10 +73,6 @@ vnoremap <C-c> "+y
 " paste from clipboard with Ctrl-v
 set pastetoggle=<F10>
 inoremap <C-v> <F10><C-r>+<F10>
-
-" fzf mappings
-nmap ; :Buffers<CR>
-nmap <Leader>t :Files<CR>
 
 """"""""""""""""""""""""""""""""
 " => CUSTOM FUNCTIONS
@@ -137,4 +119,3 @@ function! ToArrayFunction() range
     silent execute "normal $xa]"
 endfunction
 command! -range ToArray <line1>,<line2> call ToArrayFunction()
-
