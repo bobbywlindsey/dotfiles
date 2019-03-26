@@ -7,6 +7,7 @@ $PATH
 # set greeting message
 set -g -x fish_greeting "Time to get shit done ᕦ(ò_óˇ)ᕤ"
 # some bug in theme so force echo fish greeting
+echo $fish_greeting
 
 # aliases
 alias dropbox="cd ~/Dropbox/"
@@ -17,4 +18,4 @@ alias projects="cd ~/GitProjects"
 alias fs="source ~/.config/fish/config.fish"
 alias efs="vim ~/.config/fish/config.fish"
 alias clipboard="pbcopy"
-thefuck --alias shit | source
+thefuck --alias fuck | source
