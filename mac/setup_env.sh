@@ -66,8 +66,8 @@ sudo ln -s /usr/local/Cellar/postgresql /usr/local/opt/postgresql
 
 # productivity apps
 brew cask install alfred
-fisher add rafaelrinaldi/pure
 
 # install fish
 brew install fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
+fisher add rafaelrinaldi/pure
