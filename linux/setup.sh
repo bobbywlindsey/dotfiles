@@ -138,7 +138,7 @@ chsh -s /usr/bin/fish
 sudo chown -R bobby:bobby ~/.config/fish
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
 fish
-fisher rafaelrinaldi/pure
+fisher add rafaelrinaldi/pure
 bash
 mkdir -p ~/.config/fish/functions
 cp ./fish/config.fish ~/.config/fish
