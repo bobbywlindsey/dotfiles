@@ -53,6 +53,7 @@ cd ~/.vim_runtime/my_plugins/YouCompleteMe
 brew install curl global tree rename youtube-dl coreutils z node
 brew cask install xquartz
 brew install freeglut ack thefuck
+brew install maven
 # brew install gcc6 --with-all-languages --with-java --with-jit --with-nls
 npm install --global fast-cli
 npm install --global emoj
