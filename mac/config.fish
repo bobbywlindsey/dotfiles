@@ -18,4 +18,5 @@ alias projects="cd ~/GitProjects"
 alias fs="source ~/.config/fish/config.fish"
 alias efs="vim ~/.config/fish/config.fish"
 alias clipboard="pbcopy"
+alias blog="cd ~/GitProjects/bobbywlindsey"
 thefuck --alias fuck | source
