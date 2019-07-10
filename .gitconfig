@@ -2,6 +2,7 @@
 	co = checkout
     cm = commit
     st = status
+    logp = log --pretty
 [core]
 	editor = vim
 [user]
