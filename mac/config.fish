@@ -19,4 +19,12 @@ alias fs="source ~/.config/fish/config.fish"
 alias efs="vim ~/.config/fish/config.fish"
 alias clipboard="pbcopy"
 alias blog="cd ~/GitProjects/bobbywlindsey"
+alias prettyjson='python -m json.tool'
 thefuck --alias fuck | source
+
+source /anaconda3/etc/fish/conf.d/conda.fish
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+# eval (eval /anaconda3/bin/conda "shell.fish" "hook" $argv)
+# <<< conda initialize <<<
+
