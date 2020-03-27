@@ -21,8 +21,10 @@ endif
 " Turn on relative/absolute line numbering
 set relativenumber
 set nu rnu
+
 " Turn off blinking cursor
 set guicursor+=a:blinkon0
+
 " Disable line folding
 set nofoldenable
 
@@ -68,9 +70,13 @@ vnoremap <Leader>a :Tabular<space>/
 " Copy to clipboard with YY or Ctrl-c
 vnoremap  YY "+y
 vnoremap <C-c> "+y
-" paste from clipboard with Ctrl-v
+
+" Paste from clipboard with Ctrl-v
 set pastetoggle=<F10>
 inoremap <C-v> <F10><C-r>+<F10>
+
+" Comment code like in Sublime or Atom
+noremap <leader>/ :Commentary<cr>
 
 """"""""""""""""""""""""""""""""
 " => CUSTOM FUNCTIONS
