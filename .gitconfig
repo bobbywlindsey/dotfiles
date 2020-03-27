@@ -3,6 +3,7 @@
     cm = commit
     st = status
     logp = log --pretty
+    adog = log --all --decorate --oneline --graph
 [core]
 	editor = vim
 [user]
