@@ -44,6 +44,7 @@ git clone https://github.com/vim-airline/vim-airline.git ~/.vim_runtime/my_plugi
 git clone https://github.com/vim-airline/vim-airline-themes.git ~/.vim_runtime/my_plugins/vim-airline-themes
 git clone https://github.com/rakr/vim-one.git ~/.vim_runtime/my_plugins/vim-one
 git clone https://github.com/cespare/vim-toml.git ~/.vim_runtime/my_plugins/vim-toml
+git clone https://tpope.io/vim/commentary.git ~/.vim_runtime/my_plugins/commentary
 # install YouCompleteMe for Vim
 git clone --recursive git@github.com:Valloric/YouCompleteMe.git ~/.vim_runtime/my_plugins/YouCompleteMe
 cd ~/.vim_runtime/my_plugins/YouCompleteMe
