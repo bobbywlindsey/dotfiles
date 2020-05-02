@@ -148,3 +148,8 @@ dconf write /org/gnome/terminal/legacy/keybindings/close-tab "'<Super>w'"
 #----- REMOVE UNNECESSARY PACKAGES -----#
 sudo ./ubuntu-bloat-removal.sh
 
+# After installing nvidia driver
+# sudo apt install nvidia-cuda-toolkit -y
+# Then see which version of cuda you have: nvcc --version
+# Then install cuDNN: https://developer.nvidia.com/rdp/cudnn-download
+# Then download TensorRT: https://developer.nvidia.com/tensorrt
