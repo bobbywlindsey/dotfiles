@@ -128,7 +128,7 @@ $BEGINNING/custom1/ binding '<Shift><Alt>dollar'
 
 # Swap escape and caps lock keys
 sudo apt install dconf-editor -y
-dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:escape']"
+dconf write /org/gnome/desktop/input-sources/xkb-options "['caps:ctrl_modifier', 'altwin:swap_alt_win']"
 
 # Minimize windows like in MacOS
 dconf write /org/gnome/desktop/wm/keybindings/minimize "['<Super>m']"
