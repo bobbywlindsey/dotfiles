@@ -5,9 +5,10 @@ $PATH
 
 # aliases
 alias dropbox="cd ~/Dropbox/"
+alias notes="cd ~/Dropbox/personal/notes"
 alias dls="cd ~/Downloads/"
-alias projects="cd ~/GitProjects"
-alias dotfiles="cd ~/GitProjects/dotfiles"
+alias projects="cd ~/git_projects"
+alias dotfiles="cd ~/git_projects/dotfiles"
 alias fs="source ~/.config/fish/config.fish"
 alias efs="nvim ~/.config/fish/config.fish"
 alias clipboard="xclip -sel clip"
@@ -18,3 +19,4 @@ alias chrome="google-chrome"
 alias v="nvim"
 alias vconfig="cd ~/.config/nvim/"
 
+set pure_color_mute white
