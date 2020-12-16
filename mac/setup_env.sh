@@ -14,6 +14,9 @@ git clone https://github.com/dracula/iterm.git ~/Downloads
 
 # install Anaconda (web)
 
+# install Rectangle
+brew install --cask rectangle
+
 # install powerline fonts
 pip install --user powerline-status
 cd ~/Downloads
