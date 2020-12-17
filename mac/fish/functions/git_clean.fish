@@ -1,5 +1,5 @@
 function git_clean
-    git branch -d $argv[0]
-    git push origin --delete $argv[0]
+    git branch -d $argv[1]
+    git push origin --delete $argv[1]
     git remote prune origin
 end
