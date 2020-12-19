@@ -8,3 +8,4 @@ sudo ufw enable
 sudo apt install chkrootkit -y
 # Install graphical ufw
 sudo apt install gufw -y
+sudo apt install macchanger -y

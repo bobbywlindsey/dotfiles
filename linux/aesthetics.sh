@@ -2,6 +2,8 @@
 
 set -e
 
+sudo apt install gnome-tweaks -y
+
 # Install fonts
 sudo apt install fonts-inconsolata -y
 sudo apt install fonts-hack-ttf -y
