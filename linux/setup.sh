@@ -8,3 +8,4 @@ bash media.sh
 bash keybindings.sh
 bash security.sh
 bash aesthetics.sh
+cp sysfs.conf /etc/sysfs.conf
