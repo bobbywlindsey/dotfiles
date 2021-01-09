@@ -11,6 +11,7 @@ flatpak install flathub md.obsidian.Obsidian -y
 flatpak install flathub com.dropbox.Client -y
 flatpak install flathub net.ankiweb.Anki -y
 flatpak install flathub org.gimp.GIMP -y
+flatpak install flathub org.zotero.Zotero -y
 sudo apt install exfat-utils exfat-fuse -y
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
