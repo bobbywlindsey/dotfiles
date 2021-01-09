@@ -1,6 +1,7 @@
 # add locations to path variable
 set -g -x PATH /usr/local/bin \
                $HOME/anaconda3/bin \
+               $HOME/opt \
 $PATH
 
 # aliases
@@ -9,6 +10,7 @@ alias notes="cd ~/Dropbox/personal/notes"
 alias dls="cd ~/Downloads/"
 alias projects="cd ~/git_projects"
 alias dotfiles="cd ~/git_projects/dotfiles"
+alias blog="cd ~/git_projects/bobbywlindsey"
 alias fs="source ~/.config/fish/config.fish"
 alias efs="nvim ~/.config/fish/config.fish"
 alias clipboard="xclip -sel clip"
@@ -18,5 +20,7 @@ alias wan="curl 'https://api.ipify.org'"
 alias chrome="google-chrome"
 alias v="nvim"
 alias vconfig="cd ~/.config/nvim/"
+alias sudo="sudo "
+alias links="links.sh"
 
 set pure_color_mute white
