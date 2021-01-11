@@ -22,5 +22,6 @@ alias v="nvim"
 alias vconfig="cd ~/.config/nvim/"
 alias sudo="sudo "
 alias links="links.sh"
+alias clean_image="exiftool -all= "
 
 set pure_color_mute white
