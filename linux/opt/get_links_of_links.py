@@ -25,7 +25,6 @@ def find_links(note_name):
     file = open(f'{home_path}/Dropbox/personal/notes/{note_name}.md')
     text = file.read()
     file.close()
-    # print(text)
     internal_link_regex = r'\[\[(.*?)\]\]+'
     # Get links and remove duplicates
     links = list(set(re.findall(internal_link_regex, text)))
