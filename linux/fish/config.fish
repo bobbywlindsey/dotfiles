@@ -23,7 +23,6 @@ alias vconfig="cd ~/.config/nvim/"
 alias sudo="sudo "
 alias links="python get_links.py"
 alias llinks="python get_links_of_links.py"
-alias search="grep -i 'virtual memory' ~/Dropbox/personal/notes/*.md"
 alias clean_image="exiftool -all= "
 
 set pure_color_mute white
