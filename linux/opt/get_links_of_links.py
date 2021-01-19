@@ -37,6 +37,9 @@ def main(note_name=''):
     """
 
     links = find_links(note_name)
+    if not links:
+        print(colored('No links found.', 'yellow'))
+        return None
     graph = {name: find_links(name) for name in links}
     for key, value in graph.items():
         print(colored(key, 'blue'))

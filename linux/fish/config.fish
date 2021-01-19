@@ -21,8 +21,8 @@ alias chrome="google-chrome"
 alias v="nvim"
 alias vconfig="cd ~/.config/nvim/"
 alias sudo="sudo "
-alias links="python get_links.py"
-alias llinks="python get_links_of_links.py"
+alias links="python ~/opt/get_links.py"
+alias llinks="python ~/opt/get_links_of_links.py"
 alias clean_image="exiftool -all= "
 
 set pure_color_mute white

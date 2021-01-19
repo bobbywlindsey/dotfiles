@@ -28,6 +28,8 @@ def find_links(note_name=''):
     internal_link_regex = r'\[\[(.*?)\]\]+'
     # Get links and remove duplicates
     links = list(set(re.findall(internal_link_regex, text)))
+    if not links:
+        print(colored('No links found.', 'yellow'))
     for link in links:
         print(link)
 
