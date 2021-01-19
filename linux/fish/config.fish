@@ -23,6 +23,7 @@ alias vconfig="cd ~/.config/nvim/"
 alias sudo="sudo "
 alias links="python ~/opt/get_links.py"
 alias llinks="python ~/opt/get_links_of_links.py"
+alias search="python ~/opt/search.py"
 alias clean_image="exiftool -all= "
 
 set pure_color_mute white

@@ -7,7 +7,7 @@ and an alias should point to it.
 """
 
 import re
-import os
+from os import environ
 import fire
 from termcolor import colored
 
@@ -21,7 +21,7 @@ def find_links(note_name=''):
 
     if not note_name:
         print(colored('No file path specified', 'red'))
-    home_path = os.environ['HOME']
+    home_path = environ['HOME']
     file = open(f'{home_path}/Dropbox/personal/notes/{note_name}.md')
     text = file.read()
     file.close()
