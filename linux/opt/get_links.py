@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
 Get direct links from a given markdown
 note path.
