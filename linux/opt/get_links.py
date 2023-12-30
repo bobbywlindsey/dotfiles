@@ -7,22 +7,27 @@ and an alias should point to it.
 """
 
 import re
-from os import environ
+from os import environ, listdir
 import fire
 from termcolor import colored
 
 
-def find_links(note_name=''):
+def find_links(note_prefix=''):
     """
     Find direct internal links from
-    a given markdown note name. Notes
-    live in hard-coded Dropbox path.
+    a given markdown note datetimestamp prefix.
+    Notes live in hard-coded Dropbox path.
     """
 
-    if not note_name:
-        print(colored('No file path specified', 'red'))
+    if not note_prefix:
+        print(colored('No file prefix specified', 'red'))
+    if type(note_prefix) != str:
+        note_prefix = str(note_prefix)
     home_path = environ['HOME']
-    file = open(f'{home_path}/Dropbox/personal/notes/{note_name}.md')
+    base_folder = f'{home_path}/Dropbox/personal/external-brain'
+    # Resolve prefix to file name
+    note = [filename for filename in listdir(base_folder) if filename.startswith(note_prefix)][0]
+    file = open(f'{base_folder}/{note}')
     text = file.read()
     file.close()
     internal_link_regex = r'\[\[(.*?)\]\]+'

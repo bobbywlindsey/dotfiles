@@ -18,13 +18,15 @@ def search(search_term=''):
     markdown notes.
     """
         
+    if type(search_term) != str:
+        search_term = str(search_term)
     home_path = environ['HOME']
-    path = f'{home_path}/Dropbox/personal/notes/'
+    path = f'{home_path}/Dropbox/personal/external-brain/'
     notes = [f for f in listdir(path) if isfile(join(path, f)) if f.endswith('.md')]
     notes.sort()
 
     for note in notes:
-        file = open(f'{home_path}/Dropbox/personal/notes/{note}')
+        file = open(f'{path}{note}')
         text = file.read()
         text = text.replace('\n', ' ')
         file.close()
