@@ -36,3 +36,6 @@ git clone --depth 1 https://github.com/wbthomason/packer.nvim\
 
 # Install tmux plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Install tmuxifier
+git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
