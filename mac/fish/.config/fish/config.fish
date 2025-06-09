@@ -1,6 +1,7 @@
 # Add locations to path variable
 set -g -x PATH /usr/local/bin \
                /opt/homebrew/bin \
+               ~/.tmuxifier/bin \
                ~/bin \
 $PATH
 
@@ -11,6 +12,7 @@ echo $fish_greeting
 
 # Aliases
 alias v="nvim"
+alias pv="poetry run nvim"
 alias vim="nvim"
 alias dls="cd ~/Downloads/"
 alias projects="cd ~/GitProjects"
