@@ -174,29 +174,28 @@ function JournalSnippet(snippet)
         return
     end
 end
---
- -- "bullet journal daily log"
+
 vim.keymap.set("n", "<leader>bjdl", function()
     JournalSnippet("daily_log")
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true },
+{ desc = "Bullet journal daily log" })
 
--- "bullet journal weekly reflection"
 vim.keymap.set("n", "<leader>bjwr", function()
     JournalSnippet("weekly_reflection")
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true },
+{ desc = "Bullet journal weekly reflection" })
 
--- "bullet journal monthly reflection"
 vim.keymap.set("n", "<leader>bjmr", function()
     JournalSnippet("monthly_reflection")
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true },
+{ desc = "Bullet journal monthly reflection" })
 
- -- "bullet journal monthly log"
 vim.keymap.set("n", "<leader>bjml", function()
     JournalSnippet("monthly_log")
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true },
+{ desc = "Bullet journal monthly log" })
 
--- "bullet journal yearly reflection"
 vim.keymap.set("n", "<leader>bjyr", function()
     JournalSnippet("yearly_reflection")
-end, { noremap = true, silent = true })
-
+end, { noremap = true, silent = true },
+{ desc = "Bullet journal yearly reflection" })

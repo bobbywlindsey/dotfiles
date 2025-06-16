@@ -24,14 +24,14 @@ require("catppuccin").setup {
             surface2 = "#ECEFF4",
             surface1 = "#F5F7FA",
             surface0 = "#FAFBFD",
-            base = "#FFFFFF",      -- main background
+            base = "#FAFAFA",      -- main background
             mantle = "#F5F7FA",    -- slight contrast
             crust = "#F0F0F0",     -- border background
         }
     }
 }
 
-function ColorMyPencils(color)
+function ColorMyPencils()
     vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
         callback = function()
             local file_name = vim.api.nvim_buf_get_name(0)
@@ -42,7 +42,7 @@ function ColorMyPencils(color)
                 and ext == ".md"
                 then
                     --vim.cmd.colorscheme("rose-pine-dawn")
-                    vim.cmd.colorscheme("catppuccin-latte") 
+                    vim.cmd.colorscheme("catppuccin-latte")
                     --vim.api.nvim_set_hl(0, "LineNr", { fg = "#9AA9B8" })
                     --vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
                     --vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })

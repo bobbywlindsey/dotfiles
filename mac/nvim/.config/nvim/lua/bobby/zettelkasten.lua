@@ -91,40 +91,44 @@ end
 
 vim.keymap.set(
     "n",
-    "fl", -- "follow link"
+    "gd", -- "follow link"
     FollowLink,
     {
         noremap = true,
         silent = true
-    }
+    },
+    { desc = "Follow zettel link"}
 )
 
 vim.keymap.set(
     "n",
-    "<leader>zn", -- "zettel new"
+    "zn",
     CreateZettel,
     {
         noremap = true,
         silent = true
-    }
+    },
+    { desc = "New zettel" }
 )
 
 vim.keymap.set(
     "n",
-    "<leader>zs", -- "zettel structure"
+    "zs",
     ListStructureZettels,
     {
         noremap = true,
         silent = true
-    }
+    },
+    { desc = "Zettel structure" }
 )
 
 vim.keymap.set(
     "n",
-    "<leader>zc", -- "zettel connections"
+    "zc",
     ListZettelReferences,
     {
         noremap = true,
         silent = true
-    }
+    },
+    { desc = "Zettel connections" }
 )

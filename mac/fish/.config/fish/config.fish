@@ -21,4 +21,5 @@ alias fs="source ~/.config/fish/config.fish"
 alias efs="nvim ~/.config/fish/config.fish"
 alias clipboard="pbcopy"
 alias python="python3"
+alias pip="pip3"
 alias prettyjson='python -m json.tool'

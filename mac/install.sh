@@ -17,15 +17,17 @@ brew install \
     python \
     --cask karabiner-elements \
     tmux \
+    node \
 
 # Stow
 stow -t ~/ nvim
 stow -t ~/ alacritty
 stow -t ~/ fish
+stow -t ~/ tmux
 
 # Fish config
 curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs https://git.io/fisher
-fisher add rafaelrinaldi/pure
+fisher install rafaelrinaldi/pure
 
 # Install Alacritty themes
 git clone https://github.com/alacritty/alacritty-theme ~/.config/alacritty/themes
