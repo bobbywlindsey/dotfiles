@@ -96,4 +96,8 @@ return require('packer').startup(function(use)
             "preservim/vimux"
         }
     }
+    use({
+        "kylechui/nvim-surround",
+        tag = "*"
+    })
 end)
