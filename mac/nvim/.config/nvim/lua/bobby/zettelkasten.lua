@@ -55,7 +55,7 @@ function CreateZettel()
         0,
         -1,
         false,
-        { "# " .. file_name_input, "", "" }
+        { "# " .. datetime .. " - " .. file_name_input, "", "" }
     )
 
     -- Save the file to disk
