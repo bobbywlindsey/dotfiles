@@ -1,15 +1,15 @@
 require("mason").setup()
 
 require("mason-lspconfig").setup({
-    ensure_installed = { "pyright", "lua_ls", "jsonls",
+    ensure_installed = { "pyright", "lua_ls", "jsonls", --only keep jsonls for Android
     "yamlls", "bashls" },
 })
 
+-- Remove these few lines for Android
 require("mason-tool-installer").setup({
     ensure_installed = { "black", "flake8", "isort", "debugpy" }
 })
 
-local lspconfig = require("lspconfig")
 local capabilities = require("blink.cmp").get_lsp_capabilities()
 
 require("blink.cmp").setup({
@@ -46,8 +46,8 @@ local on_attach = function(_,_)
         { desc = "Get documentation" })
 end
 
---lspconfig.pylsp.setup {}
-lspconfig.lua_ls.setup({
+--vim.lsp.config("pylsp", {})
+vim.lsp.config("lua_ls", {
     capabilities = capabilities,
     on_attach = on_attach,
     settings = {
@@ -58,7 +58,7 @@ lspconfig.lua_ls.setup({
         },
     },
 })
-lspconfig.pyright.setup({
+vim.lsp.config("pyright", {
     capabilities = capabilities,
     on_attach = on_attach
 })
