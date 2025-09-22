@@ -1,9 +1,6 @@
-.atom/storage/
-.atom/compile-cache/
-.atom/dev/
-.atom/.npm/
-.atom/.node-gyp/
-.tern-port
 .DS_Store
 .vscode/
-nul
+mac/fish/.config/fish/functions
+mac/fish/.config/fish/fish_plugins
+mac/fish/.config/fish/fish_variables
+mac/fish/.config/fish/conf.d
