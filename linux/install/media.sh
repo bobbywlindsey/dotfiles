@@ -15,4 +15,5 @@ flatpak install flathub org.zotero.Zotero -y
 sudo apt install exfat-utils exfat-fuse -y
 sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
 sudo chmod a+rx /usr/local/bin/youtube-dl
+sudo apt install attr ffmpeg automicparsley -y # For youtube-dl
 sudo apt install imagemagick -y
