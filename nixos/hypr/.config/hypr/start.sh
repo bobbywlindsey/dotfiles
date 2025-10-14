@@ -3,7 +3,7 @@
 # Intialize wallpaper daemon
 swww init &
 # Set wallpaper
-#swww img ~/wallpapers/image.png &
+swww img ~/Pictures/wallpaper.jpg &
 
 # Network manager outlet
 nm-applet --indicator &
