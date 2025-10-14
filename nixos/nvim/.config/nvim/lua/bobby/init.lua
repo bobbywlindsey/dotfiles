@@ -1,0 +1,7 @@
+require("bobby.set")
+require("bobby.remap")
+require("bobby.lazy_init")
+require("bobby.colors")
+require("bobby.lsp_config")
+require("bobby.zettelkasten")
+require("bobby.bullet_journal")
