@@ -10,7 +10,7 @@
 
 /* --- Waybar Container --- */
 #waybar {
-  background: transparent;
+  background-color: #1a1b26;
   color: #c6d0f5;
   margin: 0px;
   font-weight: 500;
@@ -24,7 +24,7 @@
   padding: 0.3rem 0.7rem;
   margin: 5px 0px; /* 5px top/bottom margin, 0px left/right (base for individual control) */
   border-radius: 6px; /* These modules are always rounded */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);*/
   min-width: 0;
   border: none;
   /* Transition for background-color and color only */
@@ -50,7 +50,7 @@
 #workspaces button.active {
   color: #c6d0f5;
   background-color: rgba(153, 209, 219, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2);
+  /*box-shadow: inset 0 0 0 1px rgba(153, 209, 219, 0.2);*/
 }
 
 #workspaces button:hover {
@@ -64,7 +64,7 @@
   padding: 0.3rem 0.7rem;
   margin: 5px 0px;
   border-radius: 6px; /* This module is always rounded */
-  box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);
+  /*box-shadow: 0 1px 3px rgba(153, 209, 219, 0.2);*/
   min-width: 0;
   border: none;
   transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
