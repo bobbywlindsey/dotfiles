@@ -12,4 +12,10 @@ nm-applet --indicator &
 waybar &
 
 # Notification daemon
-dunst
+dunst &
+
+# Automount external storage
+udiskie &
+
+# Launch gnome-keyring-daemon
+/usr/bin/gnome-keyring-daemon --start --components=secrets,ssh,pcks11
