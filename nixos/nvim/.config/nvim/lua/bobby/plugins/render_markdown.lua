@@ -1,4 +1,4 @@
-return {
+Freturn {
     'MeanderingProgrammer/render-markdown.nvim',
     dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' }, -- if you use the mini.nvim suite
     ---@module 'render-markdown'
@@ -40,6 +40,12 @@ return {
                     migrated = {
                         raw = "[>]",
                         rendered = " ",
+                        highlight = "RenderMarkdownTodo",
+                        scope_highlight = nil
+                    },
+                    migrated_external = {
+                        raw = "[<]",
+                        rendered = " ",
                         highlight = "RenderMarkdownTodo",
                         scope_highlight = nil
                     },
