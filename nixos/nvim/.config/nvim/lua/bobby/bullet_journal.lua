@@ -1,6 +1,16 @@
 -- Custom checkboxes already implemented in render_markdown.lua settings
 
-function JournalSnippet(snippet)
+function file_exists(filename)
+    local file = io.open(filename, "r")
+    if file then
+        file:close()
+        return true
+    else
+        return false
+    end
+end
+
+function create_daily_log()
     local daily_log = {
         "# Log",
         "",
@@ -11,6 +21,7 @@ function JournalSnippet(snippet)
         "- [s] Task irrelevant",
         "- [/] Task delegated",
         "- [>] Task migrated",
+        "- [<] Task migrated to another system",
         "- [o] Event",
         "- [-] Note",
         "- [=] Emotions",
@@ -18,6 +29,111 @@ function JournalSnippet(snippet)
         "- [!] Insight"
     }
 
+    local datetime = os.date("%Y-%m-%d, %A")
+    local file_name = string.format("%s.md", datetime)
+    local file_name_with_path = vim.fn.getcwd() .. "/" .. file_name
+
+    if not file_exists(file_name) then
+        -- Open a new buffer with the new file name
+        vim.cmd.edit(file_name_with_path)
+
+        vim.api.nvim_buf_set_lines(
+            0,
+            0,
+            -1,
+            false,
+            daily_log
+        )
+
+        -- Save the file to disk
+        vim.cmd("write")
+
+        -- Move cursor to the last line and end of that line
+        vim.api.nvim_win_set_cursor(0, { vim.fn.line("$"), 0 })
+    else
+        vim.api.nvim_command("edit " .. file_name)
+        print("Daily log already exists")
+    end
+end
+
+function create_monthly_log()
+    local month_name = os.date("%B")
+
+    local monthly_log = {
+        "# " .. month_name,
+        "",
+        "> [!intentions] Intentions",
+        "",
+        "",
+        "",
+        "| Day | Story of the Day | Ex.    | Less       | Phil.          |",
+        "| :-: | :--------------: | :----: | :--------: | :------------: |",
+        "| 01  |                  | []     | []         | []             |",
+        "| 02  |                  | []     | []         | []             |",
+        "| 03  |                  | []     | []         | []             |",
+        "| 04  |                  | []     | []         | []             |",
+        "| 05  |                  | []     | []         | []             |",
+        "| 06  |                  | []     | []         | []             |",
+        "| 07  |                  | []     | []         | []             |",
+        "| 08  |                  | []     | []         | []             |",
+        "| 09  |                  | []     | []         | []             |",
+        "| 10  |                  | []     | []         | []             |",
+        "| 11  |                  | []     | []         | []             |",
+        "| 12  |                  | []     | []         | []             |",
+        "| 13  |                  | []     | []         | []             |",
+        "| 14  |                  | []     | []         | []             |",
+        "| 15  |                  | []     | []         | []             |",
+        "| 16  |                  | []     | []         | []             |",
+        "| 17  |                  | []     | []         | []             |",
+        "| 18  |                  | []     | []         | []             |",
+        "| 19  |                  | []     | []         | []             |",
+        "| 20  |                  | []     | []         | []             |",
+        "| 21  |                  | []     | []         | []             |",
+        "| 22  |                  | []     | []         | []             |",
+        "| 23  |                  | []     | []         | []             |",
+        "| 24  |                  | []     | []         | []             |",
+        "| 25  |                  | []     | []         | []             |",
+        "| 26  |                  | []     | []         | []             |",
+        "| 27  |                  | []     | []         | []             |",
+        "| 28  |                  | []     | []         | []             |",
+        "| 29  |                  | []     | []         | []             |",
+        "| 30  |                  | []     | []         | []             |",
+        "| 31  |                  | []     | []         | []             |",
+        "",
+        "",
+        "## Log",
+        "",
+        ""
+    }
+
+    local month_number = os.date("%m")
+    local file_name = string.format("%s-%s.md", month_number, month_name)
+    local file_name_with_path = vim.fn.getcwd() .. "/" .. file_name
+
+    if not file_exists(file_name) then
+        -- Open a new buffer with the new file name
+        vim.cmd.edit(file_name_with_path)
+
+        vim.api.nvim_buf_set_lines(
+            0,
+            0,
+            -1,
+            false,
+            monthly_log
+        )
+
+        -- Save the file to disk
+        vim.cmd("write")
+
+        -- Move cursor to the last line and end of that line
+        vim.api.nvim_win_set_cursor(0, { vim.fn.line("$"), 0 })
+    else
+        vim.api.nvim_command("edit " .. file_name)
+        print("Monthly log already exists")
+    end
+end
+
+function journal_snippet(snippet)
     local weekly_reflection = {
         "Reflection:",
         "",
@@ -81,53 +197,6 @@ function JournalSnippet(snippet)
         ""
     }
 
-    local monthly_log = {
-        "# {{date:MMMM}}",
-        "",
-        "> [!intentions] Intentions",
-        "",
-        "",
-        "",
-        "| Day | Story of the Day | Ex.    | Less       | Phil.          |",
-        "| :-: | :--------------: | :----: | :--------: | :------------: |",
-        "| 01  |                  | []     | []         | []             |",
-        "| 02  |                  | []     | []         | []             |",
-        "| 03  |                  | []     | []         | []             |",
-        "| 04  |                  | []     | []         | []             |",
-        "| 05  |                  | []     | []         | []             |",
-        "| 06  |                  | []     | []         | []             |",
-        "| 07  |                  | []     | []         | []             |",
-        "| 08  |                  | []     | []         | []             |",
-        "| 09  |                  | []     | []         | []             |",
-        "| 10  |                  | []     | []         | []             |",
-        "| 11  |                  | []     | []         | []             |",
-        "| 12  |                  | []     | []         | []             |",
-        "| 13  |                  | []     | []         | []             |",
-        "| 14  |                  | []     | []         | []             |",
-        "| 15  |                  | []     | []         | []             |",
-        "| 16  |                  | []     | []         | []             |",
-        "| 17  |                  | []     | []         | []             |",
-        "| 18  |                  | []     | []         | []             |",
-        "| 19  |                  | []     | []         | []             |",
-        "| 20  |                  | []     | []         | []             |",
-        "| 21  |                  | []     | []         | []             |",
-        "| 22  |                  | []     | []         | []             |",
-        "| 23  |                  | []     | []         | []             |",
-        "| 24  |                  | []     | []         | []             |",
-        "| 25  |                  | []     | []         | []             |",
-        "| 26  |                  | []     | []         | []             |",
-        "| 27  |                  | []     | []         | []             |",
-        "| 28  |                  | []     | []         | []             |",
-        "| 29  |                  | []     | []         | []             |",
-        "| 30  |                  | []     | []         | []             |",
-        "| 31  |                  | []     | []         | []             |",
-        "",
-        "",
-        "## Log",
-        "",
-        ""
-    }
-
     local yearly_reflection = {
         "### Working",
         "",
@@ -155,7 +224,7 @@ function JournalSnippet(snippet)
     row = row - 1
 
     if snippet == "daily_log" then
-        vim.api.nvim_buf_set_lines(0, row, row, false, daily_log)
+        create_daily_log()
         return
     elseif snippet == "weekly_reflection" then
         vim.api.nvim_buf_set_lines(0, row, row, false, weekly_reflection)
@@ -164,7 +233,7 @@ function JournalSnippet(snippet)
         vim.api.nvim_buf_set_lines(0, row, row, false, monthly_reflection)
         return
     elseif snippet == "monthly_log" then
-        vim.api.nvim_buf_set_lines(0, row, row, false, monthly_log)
+        create_monthly_log()
         return
     elseif snippet == "yearly_reflection" then
         vim.api.nvim_buf_set_lines(0, row, row, false, yearly_reflection)
@@ -176,26 +245,26 @@ function JournalSnippet(snippet)
 end
 
 vim.keymap.set("n", "<leader>bjdl", function()
-    JournalSnippet("daily_log")
+    journal_snippet("daily_log")
 end, { noremap = true, silent = true },
 { desc = "Bullet journal daily log" })
 
 vim.keymap.set("n", "<leader>bjwr", function()
-    JournalSnippet("weekly_reflection")
+    journal_snippet("weekly_reflection")
 end, { noremap = true, silent = true },
 { desc = "Bullet journal weekly reflection" })
 
 vim.keymap.set("n", "<leader>bjmr", function()
-    JournalSnippet("monthly_reflection")
+    journal_snippet("monthly_reflection")
 end, { noremap = true, silent = true },
 { desc = "Bullet journal monthly reflection" })
 
 vim.keymap.set("n", "<leader>bjml", function()
-    JournalSnippet("monthly_log")
+    journal_snippet("monthly_log")
 end, { noremap = true, silent = true },
 { desc = "Bullet journal monthly log" })
 
 vim.keymap.set("n", "<leader>bjyr", function()
-    JournalSnippet("yearly_reflection")
+    journal_snippet("yearly_reflection")
 end, { noremap = true, silent = true },
 { desc = "Bullet journal yearly reflection" })
