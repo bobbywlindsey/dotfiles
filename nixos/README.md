@@ -10,4 +10,5 @@ stow -t ~/ nvim
 stow -t ~/ kitty
 stow -t ~/ rofi
 stow -t ~/ waybar
+stow -t ~/ ticker
 ```
