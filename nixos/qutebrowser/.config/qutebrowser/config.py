@@ -7,14 +7,14 @@ config = config  # noqa: F821 pylint: disable=E0602,C0103
 # c.url.default_page = ""
 
 c.tabs.title.format = "{audio}{current_title}"
-c.fonts.web.size.default = 20
+c.fonts.web.size.default = 16
 
 c.url.searchengines = {
 # Note - if you use duckduckgo, you can make use of its built in bangs, of which there are many! https://duckduckgo.com/bangs
-        'DEFAULT': 'https://duckduckgo.com/?q={}',
-        '!gh': 'https://github.com/search?o=desc&q={}&s=stars',
-        '!yt': 'https://www.youtube.com/results?search_query={}',
-        }
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    '!gh': 'https://github.com/search?o=desc&q={}&s=stars',
+    '!yt': 'https://www.youtube.com/results?search_query={}',
+}
 
 c.completion.open_categories = ['searchengines', 'quickmarks', 'bookmarks', 'history', 'filesystem']
 
