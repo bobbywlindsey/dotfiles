@@ -4,3 +4,5 @@ mac/fish/.config/fish/functions
 mac/fish/.config/fish/fish_plugins
 mac/fish/.config/fish/fish_variables
 mac/fish/.config/fish/conf.d
+nixos/qutebrowser/.config/qutebrowser/bookmarks/
+nixos/qutebrowser/.config/qutebrowser/quickmarks
