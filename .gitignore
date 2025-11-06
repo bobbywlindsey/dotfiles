@@ -6,3 +6,4 @@ mac/fish/.config/fish/fish_variables
 mac/fish/.config/fish/conf.d
 nixos/qutebrowser/.config/qutebrowser/bookmarks/
 nixos/qutebrowser/.config/qutebrowser/quickmarks
+*lazy-lock.json

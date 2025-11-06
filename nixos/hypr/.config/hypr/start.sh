@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
+# Bar
+waybar &
+
 # Intialize wallpaper daemon
 swww init &
 # Set wallpaper
 swww img ~/Pictures/wallpaper.jpg &
 
-# Network manager outlet
-nm-applet --indicator &
-
-# Bar
-waybar &
+# Set mouse theme
+hyprctl setcursor "Catppuccin Mocha Dark" 24
 
 # Notification daemon
 dunst &
@@ -19,3 +19,9 @@ udiskie &
 
 # Launch gnome-keyring-daemon
 /usr/bin/gnome-keyring-daemon --start --components=secrets,ssh,pcks11
+
+# Idle daemon
+hypridle &
+
+# Network manager outlet
+nm-applet --indicator &
