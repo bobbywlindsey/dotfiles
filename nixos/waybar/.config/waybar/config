@@ -15,6 +15,7 @@
     "memory",
     "bluetooth",
     "network",
+    "custom/vpn",
     "pulseaudio", 
     "battery",
     "custom/lock",
@@ -32,12 +33,12 @@
     "format": "󰂲",
     "format-on": "{icon}",
     "format-off": "{icon}", 
-    "format-connected":"{icon}",
-    "format-icons":{
+    "format-connected": "{icon}",
+    "format-icons": {
         "on":"󰂯",
         "off": "󰂲",
         "connected": "󰂱",
-        },
+    },
     "on-click": "blueman-manager",
     "tooltip-format-connected":"{device_enumerate}"
   },
@@ -66,8 +67,18 @@
     "interval": 5,
     "tooltip-format": "{essid} ({signalStrength}%)",
     "on-click": "nm-connection-editor"
+  },
 
- },
+  "custom/vpn": {
+    "interval": 3,
+    "format": "{}",
+    "hide-empty-text": true,
+    "exec": "ip add show | grep -qF tun0 && echo   || echo   ",
+    "max-length": "100",
+    "on-click": "nmcli connection up vpn",
+    "on-click-right": "nmcli connection down vpn",
+    "tooltip": false
+  },
 
   "cpu": {
     "interval": 1,

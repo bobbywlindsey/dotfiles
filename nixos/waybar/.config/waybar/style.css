@@ -80,6 +80,7 @@
 #pulseaudio,
 #backlight,
 #network,
+#custom-vpn,
 #custom-lock,
 #battery {
   background-color: #1a1b26;
@@ -96,12 +97,13 @@
 #pulseaudio:hover,
 #backlight:hover,
 #network:hover,
+#custom-vpn:hover,
 #custom-lock:hover,
 #battery:hover {
   background-color: rgb(41, 42, 53);
 }
 
-#bluetooth {
+#bluetooth, #custom-vpn {
   margin-left: 0px; 
   border-top-left-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -125,6 +127,7 @@
 #pulseaudio {
   color: #c6d0f5;
 }
+
 #backlight {
   color: #c6d0f5;
 }
@@ -140,22 +143,32 @@
 #custom-lock {
   color: #babbf1;
 }
+
 #bluetooth {
   color: #888888;
   font-size: 16px;
 }
+
 #bluetooth.on {
   color: #2196f3;
 }
+
 #bluetooth.connected {
   color: #99d1db;
 }
+
+#custom-vpn {
+  color: #c6d0f5;
+}
+
 #battery {
   color: #99d1db;;
 }
+
 #battery.charging {
   color: #a6d189;
 }
+
 #battery.warning:not(.charging) {
   color: #e78284;
 }
