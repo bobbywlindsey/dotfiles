@@ -18,6 +18,7 @@
     "custom/vpn",
     "pulseaudio", 
     "battery",
+    "custom/weather",
     "custom/lock",
   ],
 
@@ -66,7 +67,7 @@
     "format-disconnected": "󰤠 ",
     "interval": 5,
     "tooltip-format": "{essid} ({signalStrength}%)",
-    "on-click": "nm-connection-editor"
+    "on-click": "nmtui"
   },
 
   "custom/vpn": {
@@ -94,9 +95,9 @@
   },
   
   "backlight": {
-        "format": "{icon}  {percent}%",
-        "format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
-        "tooltip": false
+    "format": "{icon}  {percent}%",
+    "format-icons": ["","󰃜", "󰃛", "󰃞","󰃝","󰃟","󰃠"],
+    "tooltip": false
   },
   
   "pulseaudio": {
@@ -109,26 +110,33 @@
   },
 
   "battery": {
-        "interval":2,
-        "states": {
-            // "good": 95,
-            "warning": 30,
-            "critical": 15
-        },
-        "format": "{icon}  {capacity}%",
-        "format-full": "{icon}  {capacity}%",
-        "format-charging": " {capacity}%",
-        "format-plugged": " {capacity}%",
-        "format-alt": "{icon} {time}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
-  },
-  
-  "custom/lock": {
-  "tooltip": false,
-  "on-click": "sh -c '(sleep 0s; hyprlock)' & disown",
-  "format" : ""
+    "interval":2,
+    "states": {
+        // "good": 95,
+        "warning": 30,
+        "critical": 15
+    },
+    "format": "{icon}  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["", "", "", "", ""]
   },
 
+  "custom/weather": {
+    "format" : "{}",
+    "exec": "curl -s 'wttr.in/Denver,CO?format=1' | sed 's/  / /g' | sed 's/+//g'",
+    "interval": 600,
+    "on-click": "kitty -e bash -c 'curl v2d.wttr.in/Denver,CO; read -p \"Press enter to close...\"'",
+  },
+
+  "custom/lock": {
+    "tooltip": false,
+    "on-click": "sh -c '(sleep 0s; hyprlock)' & disown",
+    "format" : ""
+  },
+  
 }
