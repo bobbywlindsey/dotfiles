@@ -25,3 +25,6 @@ hypridle &
 
 # Network manager outlet
 nm-applet --indicator &
+
+# Get playerctl to work with MPD
+mpDris2 --music-dir=~/Music &
