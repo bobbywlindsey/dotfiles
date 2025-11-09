@@ -19,6 +19,7 @@
     "pulseaudio", 
     "battery",
     "custom/weather",
+    "custom/music",
     "custom/lock",
   ],
 
@@ -45,11 +46,11 @@
   },
 
   "custom/music": {
-    "format": "  {}",
+    "format": "󰝚  {}",
     "escape": true,
     "interval": 5,
     "tooltip": false,
-    "exec": "playerctl metadata --format='{{ artist }} - {{ title }}'",
+    "exec": "playerctl metadata --format='{{ title }}'",
     "on-click": "playerctl play-pause",
     "max-length": 50
   },

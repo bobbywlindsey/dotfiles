@@ -82,6 +82,7 @@
 #network,
 #custom-vpn,
 #custom-lock,
+#custom-music,
 #battery {
   background-color: #1a1b26;
   padding: 0.3rem 0.7rem;
@@ -99,6 +100,7 @@
 #network:hover,
 #custom-vpn:hover,
 #custom-lock:hover,
+#custom-music:hover,
 #battery:hover {
   background-color: rgb(41, 42, 53);
 }
