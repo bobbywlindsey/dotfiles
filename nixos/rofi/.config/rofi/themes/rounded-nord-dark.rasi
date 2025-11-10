@@ -17,3 +17,7 @@
 element selected {
     text-color: @bg1;
 }
+
+element-text {
+    padding: 3px;
+}
