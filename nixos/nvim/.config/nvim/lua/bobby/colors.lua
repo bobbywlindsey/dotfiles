@@ -1,4 +1,4 @@
-function ColorMyPencils()
+function color_my_pencils()
     vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
         callback = function()
             local file_name = vim.api.nvim_buf_get_name(0)
@@ -19,11 +19,25 @@ function ColorMyPencils()
                 --vim.cmd.colorscheme("rose-pine-moon")
                 vim.cmd.colorscheme("catppuccin-mocha")
             end
+
+            background_transparent()
+
         end
     })
 
 end
 
+function background_transparent()
+    -- Make background transparent
+    vim.cmd [[
+      highlight Normal guibg=none
+      highlight NonText guibg=none
+      highlight Normal ctermbg=none
+      highlight NonText ctermbg=none
+    ]]
+end
+
 -- Set default theme for netrw
 vim.cmd("colorscheme catppuccin-mocha")
-ColorMyPencils()
+color_my_pencils()
+background_transparent()
