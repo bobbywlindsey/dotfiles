@@ -14,7 +14,7 @@ local on_attach = function(_,_)
         { desc = "Get documentation" })
 end
 
---vim.lsp.config("pylsp", {})
+-- Lua LSP
 vim.lsp.config("lua_ls", {
     capabilities = capabilities,
     on_attach = on_attach,
@@ -26,7 +26,54 @@ vim.lsp.config("lua_ls", {
         },
     },
 })
+
+-- Python LSP
+--vim.lsp.config("pylsp", {})
 vim.lsp.config("pyright", {
     capabilities = capabilities,
     on_attach = on_attach
+})
+
+-- YAML LSP (with CloudFormation support)
+vim.lsp.config("yamlls", {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    settings = {
+        yaml = {
+            schemaStore = {
+                enable = false, -- Disable the default schema store
+                url = "",
+            },
+            schemas = require("schemastore").yaml.schemas({
+                extra = {
+                    {
+                        name = "CloudFormation",
+                        description = "CloudFormation Template",
+                        fileMatch = { "*.template.y*ml", "*-template.y*ml" },
+                        url = "https://raw.githubusercontent.com/awslabs/goformation/master/schema/cloudformation.schema.json",
+                    },
+                },
+            }),
+            customTags = {
+                -- CloudFormation tags
+                "!And scalar",
+                "!If scalar",
+                "!Not",
+                "!Equals scalar",
+                "!Or scalar",
+                "!FindInMap scalar",
+                "!Base64",
+                "!Cidr",
+                "!Ref",
+                "!Sub",
+                "!GetAtt sequence",
+                "!GetAZs",
+                "!ImportValue sequence",
+                "!Select sequence",
+                "!Split sequence",
+                "!Join sequence",
+                "!GetAtt",
+            },
+        },
+    },
 })
