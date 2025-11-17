@@ -34,6 +34,18 @@ vim.lsp.config("pyright", {
     on_attach = on_attach
 })
 
+-- JSON LSP
+vim.lsp.config("jsonls", {
+    capabilities = lsp_capabilities,
+    settings = {
+        json = {
+            schemas = require("schemastore").json.schemas(),
+            validate = { enable = true },
+            schemaDownload = { enable = false },
+        },
+    },
+})
+
 -- YAML LSP (with CloudFormation support)
 vim.lsp.config("yamlls", {
     capabilities = capabilities,
