@@ -11,9 +11,10 @@ calc () {
 }
 
 menu() {
-    CHOICE=$(printf "  Calc=\\n" | rofi -dmenu -i -lines 21 -location 1 )
+    CHOICE=$(printf "  Calc=\\n  Emoji" | rofi -dmenu -i -lines 21 -location 1 )
     case "$CHOICE" in 
         **) calc ;;
+        **) rofimoji ;;
     esac
 }
 
