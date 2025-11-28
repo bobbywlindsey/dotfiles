@@ -33,19 +33,27 @@ add_current_song_to_playlist() {
 }
 
 rmexif () {
-    # Limit depth of search to 3; only search png, jpg, jpeg, pdf file types
+    # Limit depth of search to 3; only search png, jpg, jpeg, and pdf file types
     file=$(fd -e png -e jpeg -e jpg -e pdf -i -d 3 . $HOME | rofi -dmenu -i -p "Select a file:")
     notify-send "$file" 
     exiftool -all= $file
     notify-send "Exif data removed on $file" 
 }
 
+extractytaudio () {
+    url=$(rofi -dmenu -p "YouTube URL:")
+    notify-send "Extracting audio..." 
+    yt-dlp -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' $url
+    notify-send "Audio extracted" 
+}
+
 menu() {
-    CHOICE=$(printf "󰝚  Play song\\n󰲸  Add to playlist\\n󰒜  remove exif" | rofi -dmenu -i -lines 21 -location 1 )
+    CHOICE=$(printf "󰝚  Play song\\n󰲸  Add to playlist\\n󰒜  Remove exif\\n  Extract YT audio" | rofi -dmenu -i -lines 21 -location 1 )
     case "$CHOICE" in 
         *󰝚*) play_song ;;
         *󰲸*) add_current_song_to_playlist ;;
         *󰒜*) rmexif ;;
+        **) extractytaudio ;;
     esac
 }
 
