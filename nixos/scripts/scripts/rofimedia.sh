@@ -43,7 +43,11 @@ rmexif () {
 extractytaudio () {
     url=$(rofi -dmenu -p "YouTube URL:")
     notify-send "Extracting audio..." 
-    yt-dlp -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' $url
+    if [[ "$url" == *"playlist"* ]]; then
+        yt-dlp -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' --yes-playlist $url
+    else
+        yt-dlp -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' $url
+    fi
     notify-send "Audio extracted" 
 }
 
