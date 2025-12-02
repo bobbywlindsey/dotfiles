@@ -10,11 +10,21 @@ calc () {
     fi
 }
 
+spoofmacaddress () {
+    network_interface=$(ip link show | awk -F': ' '/^[0-9]+:/{print $2}' | rofi -dmenu -p "Network interface:")
+    current_mac_address=$(macchanger -s $network_interface | sed -n "s/^Current\s*MAC:\s*\([0-9a-f:]\+\)\s.*$/\1/p")
+    notify-send "Old MAC address: $current_mac_address"
+    kitty -e bash -c "sudo systemctl start macchanger-$network_interface.service"
+    new_mac_address=$(macchanger -s $network_interface | sed -n "s/^Current\s*MAC:\s*\([0-9a-f:]\+\)\s.*$/\1/p")
+    notify-send "New MAC address: $new_mac_address"
+}
+
 menu() {
-    CHOICE=$(printf "  Calc=\\n  Emoji" | rofi -dmenu -i -lines 21 -location 1 )
+    CHOICE=$(printf "  Calc=\\n  Emoji\\n󰐠  Spoof MAC address" | rofi -dmenu -i -lines 21 -location 1 )
     case "$CHOICE" in 
         **) calc ;;
         **) rofimoji ;;
+        *󰐠*) spoofmacaddress ;;
     esac
 }
 
