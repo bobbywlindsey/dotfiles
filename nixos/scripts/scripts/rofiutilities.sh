@@ -11,7 +11,7 @@ calc () {
 }
 
 spoofmacaddress () {
-    network_interface=$(ip link show | awk -F': ' '/^[0-9]+:/{print $2}' | rofi -dmenu -p "Network interface:")
+    network_interface=$(ip link show | awk -F': ' '/^[0-9]+:/{print $2}' | rofi -dmenu -p "Network interface:") || exit 0
     current_mac_address=$(macchanger -s $network_interface | sed -n "s/^Current\s*MAC:\s*\([0-9a-f:]\+\)\s.*$/\1/p")
     notify-send "Old MAC address: $current_mac_address"
     kitty -e bash -c "sudo systemctl start macchanger-$network_interface.service"
