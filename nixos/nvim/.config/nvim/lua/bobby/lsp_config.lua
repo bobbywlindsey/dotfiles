@@ -89,3 +89,5 @@ vim.lsp.config("yamlls", {
         },
     },
 })
+
+vim.lsp.enable({ "lua_ls", "pyright", "jsonls", "yamlls" })
