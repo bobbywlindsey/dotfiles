@@ -37,13 +37,22 @@ vim.diagnostic.config({
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "markdown",
     callback = function()
-        vim.opt.colorcolumn = ""
+        vim.opt_local.colorcolumn = ""
         -- Soft wrap long lines
-        vim.opt.wrap = true
+        vim.opt_local.wrap = true
         -- Wrap only at word boundaries
-        vim.opt.linebreak = true
+        vim.opt_local.linebreak = true
         -- Turn off line numbers
-        vim.opt.relativenumber = false
-        vim.opt.number = false
+        vim.opt_local.relativenumber = false
+        vim.opt_local.number = false
+    end
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = { "nix", "lua" },
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
     end
 })
