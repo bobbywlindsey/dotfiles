@@ -129,7 +129,7 @@
 
   "custom/weather": {
     "format" : "{}",
-    "exec": "curl -s 'wttr.in/Denver,CO?format=1' | sed 's/  / /g' | sed 's/+//g'",
+    "exec": "curl -s 'wttr.in/Denver,CO?format=1&u' | sed 's/  / /g' | sed 's/+//g'",
     "interval": 600,
     "on-click": "kitty -e bash -c 'curl v2d.wttr.in/Denver,CO; read -p \"Press enter to close...\"'",
   },
