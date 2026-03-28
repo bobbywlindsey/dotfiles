@@ -22,6 +22,8 @@ config.load_autoconfig() # load settings done via the gui
 
 c.auto_save.session = True # save tabs on quit/restart
 
+c.content.tls.certificate_errors = 'block' # don't load page if certificate is untrusted
+
 # Keybinding changes
 config.bind('=', 'cmd-set-text -s :open')
 config.bind('h', 'history')
@@ -54,12 +56,12 @@ c.tabs.indicator.width = 0 # no tab indicators
 c.tabs.width = '7%'
 
 # Fonts
-c.fonts.default_family = []
+c.fonts.default_family = ['Hack Nerd Font Mono']
 c.fonts.default_size = '13pt'
-c.fonts.web.family.fixed = 'monospace'
+c.fonts.web.family.fixed = 'Hack Nerd Font Mono'
 c.fonts.web.family.sans_serif = 'monospace'
 c.fonts.web.family.serif = 'monospace'
-c.fonts.web.family.standard = 'monospace'
+c.fonts.web.family.standard = 'Hack Nerd Font Mono'
 
 # Privacy - adjust these settings based on your preference
 # config.set("completion.cmd_history_max_items", 0)

@@ -65,3 +65,23 @@ html:not(.ytd-watch-flexy) ytd-watch-flexy[flexy] #player {
 .yt-spec-avatar-shape__image {
   border-radius: 10% !important;
 }
+
+/* hide promoted/sponsored video renderers outright */
+ytd-promoted-sparkles-web-renderer,
+ytd-display-ad-renderer,
+ytd-ad-slot-renderer,
+ytd-in-feed-ad-layout-renderer {
+  display: none !important;
+}
+
+/* hide items that contain a "Sponsored" badge (works in many feeds/search) */
+ytd-video-renderer:has(#badge-label:has-text("Sponsored")),
+ytd-grid-video-renderer:has(#badge-label:has-text("Sponsored")),
+ytd-compact-video-renderer:has(#badge-label:has-text("Sponsored")) {
+  display: none !important;
+}
+
+/* fallback: hide anything with sponsored label text */
+#badge-label:has-text("Sponsored") {
+  display: none !important;
+}
