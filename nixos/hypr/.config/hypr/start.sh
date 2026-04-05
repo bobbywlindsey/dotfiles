@@ -4,9 +4,9 @@
 waybar &
 
 # Intialize wallpaper daemon
-swww init &
+awww-daemon &
 # Set wallpaper
-swww img ~/Pictures/wallpaper.jpg &
+awww img ~/Pictures/wallpaper.jpg &
 
 # Set mouse theme
 hyprctl setcursor "Catppuccin Mocha Dark" 24
