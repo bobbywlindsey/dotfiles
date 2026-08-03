@@ -8,8 +8,11 @@ awww-daemon &
 # Set wallpaper
 awww img ~/Pictures/wallpaper.jpg &
 
+# Export portal env vars
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_DATA_DIRS PATH
+
 # Set mouse theme
-hyprctl setcursor "Catppuccin Mocha Dark" 24
+hyprctl setcursor "Adwaita" 24
 
 # Notification daemon
 dunst &
