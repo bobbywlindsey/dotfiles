@@ -1,0 +1,3 @@
+[keys.viewer]
+Ctrl+d = exec rm "%"; skip_file
+Ctrl+t = exec hyprctl dispatch exec -- kitty -e ~/.config/swayimg/edit_date.sh "%"

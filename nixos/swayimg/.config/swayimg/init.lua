@@ -11,7 +11,7 @@ swayimg.viewer.on_key("Ctrl-t", function()
   local img = swayimg.viewer.current_image()
   local path = img["path"]
   os.execute(string.format([[
-    foot -e bash -c '
+    kitty -e bash -c '
       orig=$(exiftool -DateTimeOriginal -s3 -d "%%Y:%%m:%%d %%H:%%M:%%S" %q)
       old_date=$(echo "$orig" | cut -d" " -f1)
       old_time=$(echo "$orig" | cut -d" " -f2)
