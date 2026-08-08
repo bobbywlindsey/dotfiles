@@ -14,4 +14,5 @@ stow -t ~/ ticker
 stow -t ~/ qutebrowser
 stow -t ~/ rmpc
 stow -t ~/ scripts
+stow -t ~/ swayimg
 ```
