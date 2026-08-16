@@ -1,5 +1,0 @@
-require("bobby.set")
-require("bobby.remap")
-require("bobby.packer")
-require("bobby.zettelkasten")
-require("bobby.bullet_journal")

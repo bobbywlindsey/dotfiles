@@ -5,7 +5,7 @@
   "spacing" : 0,
 
   "modules-left": [
-    "hyprland/workspaces",
+    "hyprland/workspaces"
   ],
 
   "modules-center": ["clock"],
@@ -20,7 +20,7 @@
     "battery",
     "custom/weather",
     "custom/music",
-    "custom/lock",
+    "custom/lock"
   ],
 
   "hyprland/workspaces": {
@@ -138,6 +138,6 @@
     "tooltip": false,
     "on-click": "sh -c '(sleep 0s; hyprlock)' & disown",
     "format" : ""
-  },
+  }
   
 }

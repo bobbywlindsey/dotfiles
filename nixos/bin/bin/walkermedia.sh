@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 play_song() {
-    file=$(fd .opus ~/Music -p -t f | sort | sed "s|^/home/bobby/Music/||" | rofi -dmenu -i -p "Select song:" -lines 1) || exit 0
+    file=$(fd .opus ~/Music -p -t f | sort | sed "s|^/home/bobby/Music/||" | walker --dmenu --placeholder "Select song:") || exit 0
 
     mpc insert "$file" && mpc next >/dev/null && mpc play >/dev/null
 }
@@ -17,7 +17,7 @@ add_current_song_to_playlist() {
     fi
 
     # Choose a playlist
-    playlist=$(mpc lsplaylist | rofi -dmenu -i -p "Select playlist:" -lines 5)
+    playlist=$(mpc lsplaylist | walker --dmenu --placeholder "Select playlist:")
 
     # Check if a playlist was selected
     if [ -z "$playlist" ]; then
@@ -34,14 +34,14 @@ add_current_song_to_playlist() {
 
 rmexif () {
     # Limit depth of search to 3; only search png, jpg, jpeg, and pdf file types
-    file=$(fd -e png -e jpeg -e jpg -e pdf -i -d 3 . $HOME | rofi -dmenu -i -p "Select a file:")
+    file=$(fd -e png -e jpeg -e jpg -e pdf -i -d 3 . $HOME | walker --dmenu --placeholder "Select a file:")
     notify-send "$file" 
     exiftool -all= $file
     notify-send "Exif data removed on $file" 
 }
 
 extractytaudio () {
-    url=$(rofi -dmenu -p "YouTube URL:")
+    url=$(walker --dmenu --placeholder "YouTube URL:")
     notify-send "Extracting audio..." 
     if [[ "$url" == *"playlist"* ]]; then
         yt-dlp -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' --yes-playlist $url
@@ -52,7 +52,7 @@ extractytaudio () {
 }
 
 menu() {
-    CHOICE=$(printf "󰝚  Play song\\n󰲸  Add to playlist\\n󰒜  Remove exif\\n  Extract YT audio" | rofi -dmenu -i -lines 21 -location 1 )
+    CHOICE=$(printf "󰝚  Play song\\n󰲸  Add to playlist\\n󰒜  Remove exif\\n  Extract YT audio" | walker --dmenu)
     case "$CHOICE" in 
         *󰝚*) play_song ;;
         *󰲸*) add_current_song_to_playlist ;;

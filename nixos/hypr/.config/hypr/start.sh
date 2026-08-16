@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-# Bar
-waybar &
-
-# Intialize wallpaper daemon
+# Initialize wallpaper daemon
 awww-daemon &
 # Set wallpaper
 awww img ~/Pictures/wallpaper.jpg &
+
+# Initialize app launcher
+elephant &
+walker --gapplication-service > /dev/null 2>&1 &
 
 # Export portal env vars
 dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_DATA_DIRS PATH
@@ -31,3 +32,9 @@ nm-applet --indicator &
 
 # Get playerctl to work with MPD
 mpDris2 --music-dir=~/Music &
+
+# Initialize voice-to-text daemon
+#voxtype -q &
+
+# Bar
+waybar &
