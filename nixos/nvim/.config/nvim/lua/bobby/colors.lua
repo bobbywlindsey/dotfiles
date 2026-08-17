@@ -11,13 +11,15 @@ function color_my_pencils()
                     --vim.cmd.colorscheme("rose-pine-dawn")
                     --vim.cmd.colorscheme("catppuccin-latte")
                     --vim.cmd.colorscheme("rose-pine-moon")
-                    vim.cmd.colorscheme("catppuccin-mocha")
+                    --vim.cmd.colorscheme("catppuccin-mocha")
+                    vim.cmd.colorscheme("everforest")
                     --vim.api.nvim_set_hl(0, "LineNr", { fg = "#9AA9B8" })
                     --vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
                     --vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
             else
                 --vim.cmd.colorscheme("rose-pine-moon")
-                vim.cmd.colorscheme("catppuccin-mocha")
+                --vim.cmd.colorscheme("catppuccin-mocha")
+                vim.cmd.colorscheme("everforest")
             end
 
             background_transparent()
@@ -38,6 +40,6 @@ function background_transparent()
 end
 
 -- Set default theme for netrw
-vim.cmd("colorscheme catppuccin-mocha")
+vim.cmd("colorscheme everforest")
 color_my_pencils()
 background_transparent()

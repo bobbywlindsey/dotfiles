@@ -10,19 +10,19 @@ elephant &
 walker --gapplication-service > /dev/null 2>&1 &
 
 # Export portal env vars
-dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_DATA_DIRS PATH
+dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_DATA_DIRS PATH &
 
 # Set mouse theme
-hyprctl setcursor "Adwaita" 24
+hyprctl setcursor "Adwaita" 24 &
 
 # Notification daemon
-dunst &
+mako &
 
 # Automount external storage
 udiskie &
 
 # Launch gnome-keyring-daemon
-/usr/bin/gnome-keyring-daemon --start --components=secrets,ssh,pcks11
+/usr/bin/gnome-keyring-daemon --start --components=secrets,ssh,pcks11 &
 
 # Idle daemon
 hypridle &
