@@ -15,7 +15,6 @@ stow -t ~/ rmpc
 stow -t ~/ bin
 stow -t ~/ swayimg
 stow -t ~/ walker
-stow -t ~/ rofi
 stow -t ~/ btop
 stow -t ~/ dunst
 ```

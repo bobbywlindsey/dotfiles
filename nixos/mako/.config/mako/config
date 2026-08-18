@@ -4,6 +4,8 @@ background-color=#2d353b
 text-color=#d3c6aa
 border-color=#2d353b
 
+padding=15
+
 [urgency=low]
 border-color=#2d353b
 

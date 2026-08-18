@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Set and show lightweight desktop notification reminders
 # args=<minutes> [message] | show [-j|--json] | clear

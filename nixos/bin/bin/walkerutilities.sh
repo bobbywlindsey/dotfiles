@@ -19,12 +19,31 @@ spoofmacaddress () {
     notify-send "New MAC address: $new_mac_address"
 }
 
+addreminder () {
+    minutes=$(walker --dmenu --placeholder "Minutes:") || exit 0
+    [[ ! $minutes =~ ^[0-9]+$ ]] && { notify-send "Invalid input" "Enter a number of minutes"; exit 1; }
+
+    message=$(walker --dmenu --placeholder "Message:")
+
+    reminder "$minutes" "$message"
+}
+
+remindersmenu () {
+    CHOICE=$(printf "󰢌  Add reminder\n󰢌  Show reminders" | walker --dmenu)
+    case "$CHOICE" in
+        *Add*) addreminder ;;
+        *Show*) reminder show ;;
+    esac
+}
+
 menu() {
-    CHOICE=$(printf "  Calc=\\n  Emoji\\n󰐠  Spoof MAC address" | walker --dmenu)
+    CHOICE=$(printf "  Calc=\\n  Emoji\\n󰐠  Spoof MAC address\\n  Clipboard\\n󰢌  Reminders" | walker --dmenu)
     case "$CHOICE" in 
-        **) calc ;;
-        **) rofimoji ;;
+        **) walker --provider calc ;;
+        **) walker --provider symbols ;;
         *󰐠*) spoofmacaddress ;;
+        **) walker --provider clipboard ;;
+        *󰢌*) remindersmenu ;;
     esac
 }
 
