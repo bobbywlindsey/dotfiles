@@ -11,8 +11,7 @@
   "modules-center": ["clock"],
 
   "modules-right": [
-    "cpu",
-    "memory",
+    "custom/ygtd",
     "bluetooth",
     "network",
     "custom/vpn",
@@ -39,7 +38,7 @@
     "format-icons": {
         "on":"󰂯",
         "off": "󰂲",
-        "connected": "󰂱",
+        "connected": "󰂱"
     },
     "on-click": "blueman-manager",
     "tooltip-format-connected":"{device_enumerate}"
@@ -138,6 +137,11 @@
     "tooltip": false,
     "on-click": "sh -c '(sleep 0s; hyprlock)' & disown",
     "format" : ""
+  },
+
+  "custom/ygtd": {
+    "format": "{}",
+    "exec": "echo 󰚌\u00A0 $(( ($(date -d '2074-03-01' +%s) - $(date +%s)) / 86400 / 7 )) weeks",
+    "tooltip": false
   }
-  
 }
