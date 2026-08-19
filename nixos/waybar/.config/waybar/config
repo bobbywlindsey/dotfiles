@@ -11,7 +11,7 @@
   "modules-center": ["clock"],
 
   "modules-right": [
-    "custom/ygtd",
+    "custom/memento-mori",
     "bluetooth",
     "network",
     "custom/vpn",
@@ -139,9 +139,15 @@
     "format" : ""
   },
 
-  "custom/ygtd": {
+  "custom/weeks-left": {
     "format": "{}",
     "exec": "echo 󰚌\u00A0 $(( ($(date -d '2074-03-01' +%s) - $(date +%s)) / 86400 / 7 )) weeks",
+    "tooltip": false
+  },
+
+  "custom/memento-mori": {
+    "format": "{}",
+    "exec": "echo memento \u00A0󰚌",
     "tooltip": false
   }
 }
