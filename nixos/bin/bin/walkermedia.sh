@@ -44,9 +44,9 @@ extractytaudio () {
     url=$(walker --dmenu --placeholder "YouTube URL:")
     notify-send "Extracting audio..." 
     if [[ "$url" == *"playlist"* ]]; then
-        yt-dlp -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' --yes-playlist $url
+        yt-dlp --extractor-args "youtube:player_client=android" -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' --yes-playlist $url
     else
-        yt-dlp -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' $url
+        yt-dlp --extractor-args "youtube:player_client=android" -i --extract-audio --audio-format opus --audio-quality 0 --xattrs --add-metadata -o '~/Downloads/%(artist)s - %(track)s.%(ext)s' $url
     fi
     notify-send "Audio extracted" 
 }
