@@ -37,13 +37,14 @@ remindersmenu () {
 }
 
 menu() {
-    CHOICE=$(printf "  Calc=\\n  Emoji\\n󰐠  Spoof MAC address\\n  Clipboard\\n󰢌  Reminders" | walker --dmenu)
+    CHOICE=$(printf "  Calc=\\n  Emoji\\n󰐠  Spoof MAC address\\n  Clipboard\\n󰢌  Reminders\\n  LocalSend" | walker --dmenu)
     case "$CHOICE" in 
         **) walker --provider calc ;;
         **) walker --provider symbols ;;
         *󰐠*) spoofmacaddress ;;
         **) walker --provider clipboard ;;
         *󰢌*) remindersmenu ;;
+        **) localsend_app ;;
     esac
 }
 
