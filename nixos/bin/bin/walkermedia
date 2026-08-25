@@ -52,12 +52,13 @@ extractytaudio () {
 }
 
 menu() {
-    CHOICE=$(printf "󰝚  Play song\\n󰲸  Add to playlist\\n󰒜  Remove exif\\n  Extract YT audio" | walker --dmenu)
+    CHOICE=$(printf "󰝚  Play song\\n󰲸  Add to playlist\\n󰒜  Remove exif\\n  Extract YT audio\\n  Trim video" | walker --dmenu)
     case "$CHOICE" in 
         *󰝚*) play_song ;;
         *󰲸*) add_current_song_to_playlist ;;
         *󰒜*) rmexif ;;
         **) extractytaudio ;;
+        **) omacut &;;
     esac
 }
 

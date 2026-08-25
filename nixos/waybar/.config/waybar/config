@@ -11,15 +11,13 @@
   "modules-center": ["clock"],
 
   "modules-right": [
-    "custom/memento-mori",
     "bluetooth",
     "network",
     "custom/vpn",
     "pulseaudio", 
     "battery",
     "custom/weather",
-    "custom/music",
-    "custom/lock"
+    "custom/music"
   ],
 
   "hyprland/workspaces": {

@@ -207,3 +207,8 @@ row:selected .item-box {
 .preview-content.aptpackages {
   font-family: monospace;
 }
+
+.item-text,
+.list {
+  font-family: "Hack", monospace;
+}

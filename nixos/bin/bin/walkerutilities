@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 calc () {
     input=$(walker --dmenu --placeholder "=") || exit 0
     result=$(echo "$input" | bc)
