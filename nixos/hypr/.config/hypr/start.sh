@@ -38,3 +38,6 @@ mpDris2 --music-dir=~/Music &
 
 # Bar
 waybar &
+
+# Polkit authentication agent
+hyprpolkitagent &

@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Pick a webcam and start a screen recording with it.
+# Usage: screenrecord-with-webcam
+
+list_webcam_devices() {
+    # Mirrors the "path  name" format the original omarchy-capture-webcam-list
+    # produced, so downstream field-splitting (device="${line%%[[:space:]]*}")
+    # keeps working unchanged.
+    v4l2-ctl --list-devices 2>/dev/null | awk '
+        /^[^\t]/ { name = $0; sub(/[[:space:]]*\(.*/, "", name); next }
+        /\/dev\/video/ { print $1"  "name }
+    '
+}
+
+mapfile -t devices < <(list_webcam_devices)
+
+if ((${#devices[@]} == 0)); then
+    notify-send "No webcam devices found" -u critical -t 3000
+    exit 1
+fi
+
+if ((${#devices[@]} == 1)); then
+    device="${devices[0]%%[[:space:]]*}"
+else
+    selection=$(printf '%s\n' "${devices[@]}" | walker --dmenu --placeholder "Select Webcam") || exit 1
+    device="${selection%%[[:space:]]*}"
+fi
+
+exec capture-screenrecording \
+    --with-desktop-audio --with-microphone-audio \
+    --with-webcam --webcam-device="$device"

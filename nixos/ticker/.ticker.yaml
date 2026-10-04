@@ -11,13 +11,14 @@ sort: user
 watchlist:
   - ^DJI
   - ^SPX
-  - AMZN
-  - VT
   - VTI
   - VXUS
-  - SCHD
-  - VEA
+  - VT
   - VWO
-  - USRT
+  - VEA
+  - SCHD
   - BND
-  - TIP
+  - VTIP
+  - SGOV
+  - USRT
+  - AMZN

@@ -51,14 +51,26 @@ extractytaudio () {
     notify-send "Audio extracted" 
 }
 
+screenrecording () {
+    CHOICE=$(printf "󰻃  Normal\n󰻃  With webcam\n  Stop screen recording" | walker --dmenu)
+    case "$CHOICE" in
+        *Normal*) capture-screenrecording ;;
+        *webcam*) capture-screenrecording-with-webcam ;;
+        *Stop*) capture-screenrecording --stop-recording ;;
+    esac
+}
+
 menu() {
-    CHOICE=$(printf "󰝚  Play song\\n󰲸  Add to playlist\\n󰒜  Remove exif\\n  Extract YT audio\\n  Trim video" | walker --dmenu)
+    CHOICE=$(printf "󰝚  Play song\n󰲸  Add to playlist\n󰒜  Remove exif\n  Extract YT audio\n  Trim video\n󰻃  Screen recording\n󰐲  Read QR Code\n  Color picker" | walker --dmenu)
     case "$CHOICE" in 
         *󰝚*) play_song ;;
         *󰲸*) add_current_song_to_playlist ;;
         *󰒜*) rmexif ;;
         **) extractytaudio ;;
         **) omacut &;;
+        *󰻃*) screenrecording &;;
+        *󰐲*) capture-qr &;;
+        **) hyprpicker -a &;;
     esac
 }
 
